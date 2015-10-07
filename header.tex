@@ -1,0 +1,83 @@
+\documentclass[a4paper,12pt,twoside]{article}
+\usepackage{fourier}
+\usepackage[ngerman]{babel}
+\usepackage[leqno,tbtags,nointlimits]{amsmath}
+\usepackage{amssymb,amsthm,amsfonts}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{tikz}
+\usepackage{mathtools}
+\usepackage{fancyhdr,lastpage}
+\usepackage{enumerate}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{mdsymbol}
+\usepackage{cancel}
+\usepackage{pgfplots}
+\usepackage{color}
+\usepackage{bigints}
+\usepackage{array}
+\usepackage{mdframed}
+\usepackage{marginnote}
+\usetikzlibrary{trees,automata,arrows,shapes,decorations.pathmorphing,matrix}
+\pagestyle{fancy}
+\usepackage{hyperref}
+\fancyhf{} %--Clear all fields
+\renewcommand\sectionmark[1]{ \markboth{\thesection\ \textsc{#1}}{}}
+\fancyhead[LO,RE]{\small \leftmark}
+\fancyhead[LE,RO]{ \rightmark}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[LE,RO]{\thepage}
+\newcommand{\cd}{\cdot}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\i}{\item}
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\newcommand{\seriesalg}[3]{\sum\limits_{#3}^{#2} #1}
+\newcommand{\seriesn}[1]{\sum\limits_{i=k}^{n} #1}
+\newcommand{\seriesnplus}[1]{\sum\limits_{i=k}^{n+1} #1}
+\newcommand{\series}[1]{\sum\limits_{i=k}^{\infty} #1}
+\newcommand{\seriesnull}[1]{\sum\limits_{i=0}^{\infty} #1}
+\newcommand{\seriesnnull}[1]{\sum\limits_{n=0}^{\infty} #1}
+\usepackage[normalem]{ulem}
+\usepackage{blkarray}
+\usepackage{stmaryrd}
+\usepackage{titletoc}
+\usepackage%[margin=15mm]
+{geometry}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\renewcommand\headrule{{\color{gray}%
+\hrule height 2pt width\headwidth
+\vspace{1pt}%
+\hrule height 1pt width\headwidth
+\vspace{-4pt}}}
+\makeatletter
+\newcommand{\resetHeadWidth}{\fancy@setoffs}
+\makeatother
+\newcommand{\cucubr}[7]{%
+%origin point, circle radius, start angle, end angle, distance c-b, brace radius, brace options
+\pgfmathsetmacro{\helpangleedge}{acos(1-pow(#6,2)/2/pow(#2+#5,2))}%
+\pgfmathsetmacro{\turnangleedge}{90+(\helpangleedge/2)}%
+\pgfmathsetmacro{\helpanglemid}{acos(1-pow(#6,2)/2/pow(#2+#5+2*#6,2))}%
+\pgfmathsetmacro{\turnanglemid}{90-(\helpanglemid/2)}%
+\pgfmathsetmacro{\halfangle}{(#4-#3)/2+#3}%
+\pgfmathsetmacro{\midradius}{#2+#5+#6}%
+\pgfmathsetmacro{\outerradius}{#2+#5+1.88*#6}%
+\pgfmathsetmacro{\firstmidanglestart}{mod(\halfangle-\helpanglemid+180,360)}%
+\pgfmathsetmacro{\secondmidanglestart}{mod(\halfangle+\helpanglemid+180,360)}%
+\pgfmathsetmacro{\firstmidanglestop}{mod(\halfangle-\helpanglemid/2+180,360)-\turnanglemid}%
+\pgfmathsetmacro{\secondmidanglestop}{mod(\halfangle+\helpanglemid/2+180,360)++\turnanglemid}%
+%
+\draw[#7] (#1) ++ (\halfangle:\outerradius) arc (\firstmidanglestop:\firstmidanglestart:#6) arc (\halfangle-\helpanglemid:#3+\helpangleedge:\midradius) arc (#3+270+\turnangleedge+\helpangleedge/2:#3+270+\helpangleedge/2:#6) ;%
+%
+\draw[#7] (#1) ++ (\halfangle:\outerradius) arc (\secondmidanglestop:\secondmidanglestart:#6) arc (\halfangle+\helpanglemid:#4-\helpangleedge:\midradius) arc (#4+90-\turnangleedge-\helpangleedge/2:#4+90-\helpangleedge/2:#6);%
+}
+\newcommand{\limit}[1]{\displaystyle \lim_{#1}}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.9}
+\newcommand\vektor[3]{\begin{pmatrix}
+#1\\#2\\#3
+\end{pmatrix}}
