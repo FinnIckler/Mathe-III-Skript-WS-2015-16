@@ -9,6 +9,9 @@ pdfborder = {0 0 0}
 \listoffigures
 \clearpage
 \setcounter{section}{-1}
+\begin{center}
+\Huge Ende des SS 2015
+\end{center}
 \section{Der Vektorraum $\R^n$}
 $n \in \N\quad \R^n = \left\{ \begin{pmatrix}
 a_1\\
@@ -497,4 +500,58 @@ $(a_1\ldots,a_m)$ hei\ss en \emph{Koordinaten} von u bzgl. der Basis B.
 Koordinaten von $\vektor{a_1}\vdots{a_n} \in \R^n$ bzgl. B:\\
 $(a_1\ldots,a_n)$ \emph{kartesische} Koordinaten. \hfill (\emph{Rene Descartes, 1596-1650}) 
 \end{enumerate}
+\newpage
+\begin{center}
+\Huge Anfang des WS 2015/16
+\end{center}
+\section{Algebraische Strukturen}
+\subsection{Definition}\label{sec:1.1}
+Sei $X \neq \varnothing$. Eine \index{Verknüpfung}\emph{Verknüpfung} auf $X$ ist \index{Abbildung}: \\ $\begin{cases}
+X \times X &\longrightarrow X\\
+(a,b) &\longrightarrow a \star b
+\end{cases}$ ('Produkt' von a und b)\\
+$\star$ ist Platzhalter für andere \index{Verknüpfungssymbole}Verknüpfungssymbole, die in speziellen Beispielen auftreten können.
+\subsection{Beispiele}\label{sec:1.2}
+\begin{enumerate}[a)]
+\item Addition $+$ und Multiplikation $\cd$ sind Verknüpfungen auf $\N, \Z, \mathbb{Q}, \R, \mathbb{C}$
+Multiplikation ist \emph{keine} Verknüpfung auf der Menge der negativen ganzen Zahlen.
+\item Division ist keine Verknüpfung auf $\N$. Division ist Verknüpfung auf $\mathbb{Q} \setminus \{Q\}, \R \setminus \{0\}, \C \setminus \{0\}$
+\item $\Z_n : = \{ 0,1,\ldots,n-1 \}$ \hfill $(n \in \N)\\
+a \oplus b : = (a + b) \mod n \in \Z_n\\
+a \odot b := (a \cd b) \mod n \in \Z_n$\\
+Verknüpfungen auf $\Z_n\\
+n = 7:\qquad 5 \odot 6 = 2\\
+\phantom{n = 7::}\qquad 5 \oplus 6 = 4\\
+n = 2:\qquad \Z_n = \{0,1\}\\
+\phantom{n = 2::}\qquad0 \oplus 0 = 0, 1 \oplus 0 = 1,0 \oplus 1 = 1, 1 \oplus 1 = 0\\
+\phantom{n = 2::}\qquad\odot = \cdot$
+\item M Menge, X = Menge aller Abbildungen $M \longrightarrow M$. Verknüpfung auf X: Hintereinanderausführung von Abbildungen: $\circ$\\
+$(f, g): M \longrightarrow M$, So $f\circ g:\:M \to M\\
+(f \circ g)(m) = f(g(m)) \in M, m \in M$\\
+Im Allgemeinen ist $g \circ f \ne f \circ g$
+\item $X = \{0,1\}$\\
+2-stellige Aussagen, Junktoren wie $\land,\lor,$\textsf{ XOR }$,\Rightarrow,\Leftrightarrow$ hei\ss en Verknüpfungen auf $X$.
+0 entspricht f, 1 entspricht w\\
+$0 \lor 0 = 0, 1 \lor 0 = 1, 0 \lor 1 = 1, 1 \lor 1 = 1\\
+0 \land 0 = 0, 0 \land 1 = 0, 1 \land 0 = 0, 1 \land 1 =1$ (= 'Multiplikation')\\
+$0 \textsf{ XOR } 0 = 0, 1 \textsf{ XOR } 0 = 1, 0 \textsf{ XOR } 1 = 1, 1 \textsf{ XOR } 1 = 0$ (= Addition mod 2)
+\item $X = M_n(\R)$ = Menge der  $n \times n$- Matrizen über $\R$.\\ \index{Matrizenaddition}Matrizenaddition ist Verknüpfung auf $X$\\
+\index{Matrizenmultiplikation}Matrizenmultiplikation ist Verknüpfung auf $X$.
+\item $M$ Menge, $X$, Menge aller endlichen Folgen von Elementen aus M ('Wörter' über M)\\
+Verknüpfung: Hintereinanderausführung zweier Folgen (\index{Konkatenation}Konkatenation)\\
+$M = \{0,1\} w_1 = 1101 w_2 = 001\\
+w_1w_2 = 110111\\
+w_2w_1 = 0011101$\\
+\end{enumerate}
+\subsection{Definition}\label{sec:1.3}
+Sei $X \ne 0$ eine Menge mit Verknüpfung $\star$.
+\begin{enumerate}[a)]
+\item $X$, genauer $(X,\star)$ ist \index{Halbgruppe}\emph{Halbgruppe}, falls
+($a \star b) \star c = a \star (b \star c)$ für alle $a,b,c \in X.$ (\index{\emph{Assoziativgesetz}})
+\item $(X,\star)$ hei\ss t \index{Monoid}\emph{Monoid}, falls $(X,\star)$ Halbgruppe ist und ein $e \in X$ existiert mit $e \star a = a$ und $a \star e = a$ für alle $a \in X$. e hei\ss t \index{neutrales Element}\emph{neutrales Element} (später, e ist eindeutig bestimmt)
+\item Sei $(X,\star)$ ein Monoid. Ein Element $a \in X$ hei\ss t \index{invertierbar}\emph{invertierbar}, falls $b \in X$ existiert (abhängig von a) mit $a \star b = b \star a = e$. b hei\ss t \emph{inverses Element}\index{inverses Element} (das \emph{Inverse}\index{Inverse}) zu a. (später: wenn b existiert, so ist es eindeutig bestimmt)
+\item Monoid $(X,\star)$ hei\ss t \index{Gruppe}\emph{Gruppe}, falls jedes Element in $X$ bezüglich $\star$ invertierbar ist.
+\item Halbgruppe, Monoid, Gruppe $(X,\star)$ bezüglich kommutativ (oder \index{abelsch}\emph{abelsch}) falls $a \star b = b \star a $ für alle $a,b \in X$ (Kommutativgesetz) \\(Nach: Abel, 1802-1829)
+\end{enumerate}
+\printindex
 \end{document}
