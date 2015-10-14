@@ -12,16 +12,16 @@ pdfborder = {0 0 0}
 \begin{center}
 \Huge Ende des SS 2015
 \end{center}
-\section{Der Vektorraum $\R^n$}
+\section{Der Vektorraum $\R^n$}\index{Vektorraum}
 $n \in \N\quad \R^n = \left\{ \begin{pmatrix}
 a_1\\
 \vdots\\
 a_n
 \end{pmatrix} : a_1 \in \R \right\}$\\
-\emph{Spaltenvektoren} der Länge $n:\: \begin{pmatrix}
+\emph{Spaltenvektoren}\index{Spaltenvektoren} der Länge $n:\: \begin{pmatrix}
 a_1\\\vdots\\a_n
 \end{pmatrix} = (a_1,\ldots,a_n)^t\\
-a_1,\ldots,a_n$ \emph{Komponente} der Spaltenvektoren.\\
+a_1,\ldots,a_n$ \emph{Komponente}\index{Komponente} der Spaltenvektoren.\\
 Wie bei Matrizen:\\
 \begin{minipage}{.5\textwidth}\[ \begin{pmatrix}
 a_1\\\vdots\\a_n
@@ -32,7 +32,7 @@ a_1 + b_1\\\vdots\\a_n + b_n
 \end{pmatrix}\]
 \end{minipage}%
 \begin{minipage}{.5\textwidth}
-(Multiplikation entspricht der Matrixmultiplikation und ist nicht möglich falls $n > 1$)
+(Multiplikation entspricht der Matrixmultiplikation\index{Matrixmultiplikation} und ist nicht möglich falls $n > 1$)
 \end{minipage}\\
 Multiplikation eines Spaltenvektors mit einer Zahl (\emph{Skalar})
 \[ a \cd \begin{pmatrix}
@@ -42,10 +42,10 @@ aa_1\\\vdots\\aa_n
 \end{pmatrix} \]
 Addition+Abbildung : $\R^n \times \R^n \to \R^n$\\
 $\R^n$ mit Addition und Multiplikation mit Skalaren : \emph{$\R$-Vektorraum}\\
-Die Vektoren im $\R^1 (= \R),\R^2$ und $\R^3$ entsprechen Punkten auf der Zahlengerade, Ebene, dreidimensionalen Raums.
+Die Vektoren im $\R^1 (= \R),\R^2$ und $\R^3$ entsprechen Punkten auf der \index{Zahlengerade}Zahlengerade, Ebene, dreidimensionalen Raums.
 \begin{figure}[h!]
 \centering
-\caption{Ein Vektor dargestellt durch seinen Ortsvektor}
+\caption{Ein \index{Vektor}Vektor dargestellt durch seinen Ortsvektor}
 \begin{tikzpicture}
 \begin{axis}[axis equal, axis y line = center, axis x line = center, xmax = 3 , ymax = 3, ymin = 0 , xmin = -0.5,xtick={0.1,2},ytick={2},xticklabels={$\begin{pmatrix}
 0\\0
@@ -54,8 +54,8 @@ Die Vektoren im $\R^1 (= \R),\R^2$ und $\R^3$ entsprechen Punkten auf der Zahlen
 \end{axis}
 \end{tikzpicture}
 \end{figure}
-Punkte des $\R^2,\R^3$ lassen sich identifizieren mit, {\em Ortsvektoren} Pfeile mit Beginn in 0 (Komp = 0) und Ende im entsprechenden Punkt\\
-Addition von Spaltenvektoren entspricht der Addition von Ortsvektoren entsprechend der Parallelogrammregel.
+Punkte des $\R^2,\R^3$ lassen sich identifizieren mit, {\em Ortsvektoren}\index{Ortsvektoren} Pfeile mit Beginn in 0 (Komp = 0) und Ende im entsprechenden Punkt\\
+Addition von Spaltenvektoren entspricht der Addition von Ortsvektoren entsprechend der \index{Parallelogrammregel}Parallelogrammregel.
 \begin{figure}[h!]
 \centering
 \caption{Vektoraddition durch Parallelogrammbildung}
@@ -84,7 +84,7 @@ yticklabels={b}]
 \end{tikzpicture}\end{figure}
 Multiplikation mit Skalaren a :\\ Streckung (falls $\abs{a} > 1$)\\ Stauchung (falls $0 \ge \abs{a} \ge 1$)\\
 Richtungspunkt, falls $a < 0$
-TODO: Steckung und Stauchung\\
+%TODO: Steckung und Stauchung\\
 \subsection{Satz (Rechenregeln in $\R^n$)}\label{sec:0.1}
 Seien $u,v,w \in \R^n,a,b\in\R$ Dann gilt:\\
 \begin{enumerate}[a)]
@@ -108,7 +108,7 @@ Eine nicht-leere Teilmenge $\mathcal{U} \supset \R^n$ hei\ss t \emph{Unterraum} 
 \item $\forall u \in \mathcal{U} \forall a \in \R:\: au \in \mathcal{U}
 $(Abgeschlossenheit bezüglich Mult. mit Skalaren)
 \end{enumerate}
-$\mathcal{U}$ enthält Nullvektor \{0\} Unterraum von $\R^n$ (Nullraum)\\
+$\mathcal{U}$ enthält Nullvektor \{0\} Unterraum\index{Unterraum} von $\R^n$ (Nullraum)\index{Nullraum}\\
 $\R^n $ ist Unterraum von $\R$
 \subsection{Beispiele}\label{sec:0.3}
 \begin{enumerate}[a)]
@@ -157,8 +157,8 @@ Seien $\mathcal{U}_1,\mathcal{U}_2$ Unterräume von $\R^n$\\
 \end{enumerate}
 \begin{proof}
 a) $\checkmark$\\
-b) TODO\\
-c) TODO
+b) %TODO\\
+c) %TODO
 \end{proof}
 \subsection{Beispiel}\label{sec:0.5}
 \begin{enumerate}[a)]
@@ -237,7 +237,7 @@ y\\y\\y
 \begin{enumerate}[a)]
 \item$v_1,\ldots , v_m \in \R^n, a_1,\ldots a_m \in \R$\\
 Dann hei\ss t $a_1v_1 + \ldots + a_m v_m = \sum_{i = 1}^{m} a_iv_i\\
-$\emph{Linearkombination} von $v_1,\ldots ,v_m$ (mit Koeffizienten $a_1,\ldots,a_m$).\\
+$\emph{Linearkombination}\index{Linearkombination} von $v_1,\ldots ,v_m$ (mit Koeffizienten $a_1,\ldots,a_m$).\\
 $[ $Zwei formal verschiedene Linearkombinationen der gleichen $v_1,\ldots, v_m$ können den gleichen Vektor darstellen \\
 $1 \cd \begin{pmatrix}
 1\\0
@@ -257,7 +257,7 @@ $1 \cd \begin{pmatrix}
 \item Ist $M \subseteq R^n$, so ist der von M \emph{erzeugte} (oder \emph{aufgespannte}) Unterraum $\langle M \rangle_\R$ (oder $\langle M \rangle$) die Menge aller (endlichen) Linearkombinationen, die man mit Vektoren aus M bilden kann.\\
 $\langle M \rangle_\R = \left\{ \sum\limits_{i=1}^{n}a_iv_i : n\in\N , a_i \in\R ,v_i\in M \right\}$ falls $M \ne \varnothing\\
 \langle\varnothing\rangle_\R := \{ \varnothing \}\\
-M = \{ v_1,\ldots v_m \}$, so TODO...
+M = \{ v_1,\ldots v_m \}$, so %TODO...
 \end{enumerate}
 \subsection{Beispiel}
 \begin{enumerate}[a)]
@@ -547,12 +547,67 @@ w_2w_1 = 0011101$\\
 Sei $X \ne 0$ eine Menge mit Verknüpfung $\star$.
 \begin{enumerate}[a)]
 \item $X$, genauer $(X,\star)$ ist \index{Halbgruppe}\emph{Halbgruppe}, falls
-($a \star b) \star c = a \star (b \star c)$ für alle $a,b,c \in X.$ (\index{Assoziativgesetz})\emph{Assoziativgesetz}
+($a \star b) \star c = a \star (b \star c)$ für alle $a,b,c \in X.$ (\index{Assoziativgesetz}\emph{Assoziativgesetz})
 \item $(X,\star)$ hei\ss t \index{Monoid}\emph{Monoid}, falls $(X,\star)$ Halbgruppe ist und ein $e \in X$ existiert mit $e \star a = a$ und $a \star e = a$ für alle $a \in X$. e hei\ss t \index{neutrales Element}\emph{neutrales Element} (später, e ist eindeutig bestimmt)
 \item Sei $(X,\star)$ ein Monoid. Ein Element $a \in X$ hei\ss t \index{invertierbar}\emph{invertierbar}, falls $b \in X$ existiert (abhängig von a) mit $a \star b = b \star a = e$. b hei\ss t \emph{inverses Element}\index{inverses Element} (das \emph{Inverse}\index{Inverse}) zu a. (später: wenn b existiert, so ist es eindeutig bestimmt)
 \item Monoid $(X,\star)$ hei\ss t \index{Gruppe}\emph{Gruppe}, falls jedes Element in $X$ bezüglich $\star$ invertierbar ist.
-\item Halbgruppe, Monoid, Gruppe $(X,\star)$ bezüglich kommutativ (oder \index{abelsch}\emph{abelsch}) falls $a \star b = b \star a $ für alle $a,b \in X$ (Kommutativgesetz) \\(Nach: Abel, 1802-1829)
+\item Halbgruppe, Monoid, Gruppe $(X,\star)$ bezüglich kommutativ (oder \index{abelsch}\emph{abelsch}) falls $a \star b = b \star a $ für alle $a,b \in X$ (\index{Kommutativgesetz}Kommutativgesetz) \\(Nach: Abel, 1802-1829)
 \end{enumerate}
 \marginpar{14.10.2015}
+\subsection{Bermerkung}\label{sec:1.4}
+In Halbgruppe liefert jede sinnvolle Klammerung eines Produktes mit endlich vielen Faktoren das gleiche Element.\\
+\begin{equation}
+\tag{n = 4}
+(a \star (b \star c)) \star d \underset{\text{AG\footnotemark[1]}}{=} ((a \star b)\star c)\star d \underset{\text{AG\footnotemark[1]}}{=} (a \star b) \star (c \star d) \underset{\text{AG\footnotemark[1]}}{=} a \star (b (c \star d)) \underset{\text{AG\footnotemark}}{=} a \star ((b \star c)\star d)
+\end{equation}\footnotetext[1]{Assoziativgesetz}
+Klammern werden daher meist weggelassen\\
+$a^n = \underset{\substack{\longleftarrow n \longrightarrow\\
+n \in \R}}{a\star\ldots\star a}$ ''Potenzen eindeutig definiert''
+\subsection{Proposition}\label{sec:1.5}
+\begin{enumerate}[a)]
+\item In einem Monoid $(X,\star)$ ist das neutrale Element eindeutig bestimmt
+\item Ist $(X,\star)$ Monoid und ist $a \in X$ invertierbar, so ist das Inverse zu a eindeutig bestimmt. Bezeichnung: $a^{-1}$
+\item Ist $()X, \star$ Monoid und wenn $a,b \in X$ invertierbar sind, so auch $a \star b.\\
+(a \star b)^{-1} = b^{-1} \star a^{-1}$
+\item Die Menge der invertierbaren Elemente in einem Monoid $(X, \star)$ bilden bezüglich $\star$ eine Gruppe.
+\end{enumerate}
+\begin{proof}
+a) Angenommen: $e_!,e_2$ sind neutrale Elemente. Dann:\\
+\begin{align}
+e_1 = e_1 \star e_2 = e_1 \star e_2 = e_2 \qquad{\text{\Lightning}}\notag
+\end{align}
+b) Angenommen a hat 2 inverse Elemente $b_1, b_2$ also.\\
+\begin{align}
+a \star b_1 &= e, b_2 \star a = e \notag\\
+b_1 = e \star b_1 = (b_2 \star a) \star b_1 &= b_2 \star (a \star b_1) = b_2 \star e = b_2 \qquad \text{\Lightning} \notag
+\end{align}
+c) $$(a \star b)\star (b^{-1} \star a^{-1}) = a \star (b \star b^{-1}) \star a^{-1} = a \star e \star a^{-1} = e$$\\
+Analog: $(b^{-1} \star a^{-1})\star (a \star b) =e $\\
+Also: $(a \star b)^{-1} = b^{-1} \star a^{-1}$\\
+d) $\mathcal{I}$= Menge der inversen Elemente in $(X, \star)$,\\ $e \in \mathcal{I}$, dann $e \star e = e,$ dass hei\ss t $e^{-1} = e, \star$ ist Verknüpfung auf $\mathcal{I}$.
+Zu zeigen: $a,b \in \mathcal{I} \Rightarrow a \star b \in \mathcal{I}$ Folgt aus c).\\
+Assozativgesetz gilt in $\mathcal{I}, a \in \mathcal{I} \Rightarrow a^{-1} \in \mathcal{I}$, denn $(a^{-1})^{-1} = a$
+\end{proof}
+\emph{Bemerkung}: Multiplikation mit $a^{-1}$ macht Multiplikation mit $a$ (Verknüpfung) rückgängig.
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\item $\N,\Z,\mathbb{Q},\R,\C$ sind Halbgruppen bezüglich +\\
+$\Z,\mathbb{Q},\R,\C$ sind bezüglich + Monoide mit neutralen Element 0.\\
+$\N = \{ 1,2,\ldots \}$ ist kein Monoid bezüglich +, aber $\N_0$.\\
+$\Z,\mathbb{Q},\R,\C$ sind Gruppen bezüglich +. Inverses Element zu $a : -a\\
+\N$ ist keine Gruppe bezüglich +, Inverse Elemente in $\N_0:\: \{0\}$,
+\item $\N,\Z,\mathbb{Q},\R,\C$ sind Monoide bezüglich $\cdot$ (neutrales Element 1). Keine Gruppen (in $\Z, \mathbb{Q},\R,\C$ ist 0 nicht invertierbar).\\
+$\mathbb{Q}\setminus\{0\},\R \setminus \{0\}, \C \setminus \{0\}$ Gruppen.\\
+Invertierbare Elemente in $\Z:\:: \underset{\substack{\uparrow\\\text{Eigenes Inverses}}}{\{1,-1\}}$ $\leftarrow$ Gruppe bezüglich $\cdot$
+\item M Menge.\\
+$X$ = Menge aller Abbildungen $M \longrightarrow M$ mit Hintereinanderausführung $\circ$ als Verknüpfung.\\
+Monoid, neutrales Element. $id_M$\\
+$f \circ id_M = f = id_M \circ f\\
+id_M(m) = m$ für alle $m \in M$.\\
+Invertierbar sind genau die bijektiven Abbildungen $M \longrightarrow M$, Inverse = Umkehrabbildung.\\
+$f : M \longrightarrow M$ bijektiv\\
+$\phantom{f : }f \circ f^{-1} = f^{-1} \circ f = id_M$\\
+\Nameref{sec:1.5} d): Die bijektiven Abbildung, $ M \longrightarrow M$ bilden bezüglich $\circ$ eine Gruppe
+\end{enumerate}
 \printindex
 \end{document}
