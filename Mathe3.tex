@@ -518,13 +518,13 @@ Multiplikation ist \emph{keine} Verknüpfung auf der Menge der negativen ganzen 
 \item Division ist keine Verknüpfung auf $\N$. Division ist Verknüpfung auf $\mathbb{Q} \setminus \{Q\}, \R \setminus \{0\}, \C \setminus \{0\}$
 \item $\Z_n : = \{ 0,1,\ldots,n-1 \}$ \hfill $(n \in \N)\\
 a \oplus b : = (a + b) \mod n \in \Z_n\\
-a \odot b := (a \cd b) \mod n \in \Z_n$\\
+a \circledcirc b := (a \cd b) \mod n \in \Z_n$\\
 Verknüpfungen auf $\Z_n\\
-n = 7:\qquad 5 \odot 6 = 2\\
+n = 7:\qquad 5 \circledcirc 6 = 2\\
 \phantom{n = 7::}\qquad 5 \oplus 6 = 4\\
 n = 2:\qquad \Z_n = \{0,1\}\\
 \phantom{n = 2::}\qquad0 \oplus 0 = 0, 1 \oplus 0 = 1,0 \oplus 1 = 1, 1 \oplus 1 = 0\\
-\phantom{n = 2::}\qquad\odot = \cdot$
+\phantom{n = 2::}\qquad\circledcirc = \cdot$
 \item M Menge, X = Menge aller Abbildungen $M \longrightarrow M$. Verknüpfung auf X: Hintereinanderausführung von Abbildungen: $\circ$\\
 $(f, g): M \longrightarrow M$, So $f\circ g:\:M \to M\\
 (f \circ g)(m) = f(g(m)) \in M, m \in M$\\
@@ -589,7 +589,7 @@ Zu zeigen: $a,b \in \mathcal{I} \Rightarrow a \star b \in \mathcal{I}$ Folgt aus
 Assozativgesetz gilt in $\mathcal{I}, a \in \mathcal{I} \Rightarrow a^{-1} \in \mathcal{I}$, denn $(a^{-1})^{-1} = a$
 \end{proof}
 \emph{Bemerkung}: Multiplikation mit $a^{-1}$ macht Multiplikation mit $a$ (Verknüpfung) rückgängig.
-\subsection{Beispiel}
+\subsection{Beispiel}\label{sec:1.6}
 \begin{enumerate}[a)]
 \item $\N,\Z,\mathbb{Q},\R,\C$ sind Halbgruppen bezüglich +\\
 $\Z,\mathbb{Q},\R,\C$ sind bezüglich + Monoide mit neutralen Element 0.\\
@@ -607,7 +607,139 @@ id_M(m) = m$ für alle $m \in M$.\\
 Invertierbar sind genau die bijektiven Abbildungen $M \longrightarrow M$, Inverse = Umkehrabbildung.\\
 $f : M \longrightarrow M$ bijektiv\\
 $\phantom{f : }f \circ f^{-1} = f^{-1} \circ f = id_M$\\
-\Nameref{sec:1.5} d): Die bijektiven Abbildung, $ M \longrightarrow M$ bilden bezüglich $\circ$ eine Gruppe
+\Nameref{sec:1.5} d): Die bijektive n Abbildung, $ M \longrightarrow M$ bilden bezüglich $\circ$ eine Gruppe	
+\item $M$ = Menge z.B $\{0,1\}$, x Menge aller endlichen Folgen über $m$.Halbgruppe mit Verknüpfung Konkatenation . Nimmt man die leere Folge mit hinzu, ist es das neutrale Element. Dann: Monoid.
+\item $M_n(\R)$ Menge der Matrizen über $\R$.\\
+Addition: neutrales Element $0-Matrix$, Inverse zu A ist -A. ($M$,Addition) ist Gruppe\\
+Multiplikation: $(A \cd B) \cd C = A \cd (B \cd C)$ Halbgruppe mit neutralem Element $I_m$
+\item $n \in \N\qquad \Z_n = \{0,\ldots,n-1 \}$\qquad Verknüpfung $\oplus\\
+a \oplus b = a + b \mod n\\
+(\Z_n, \oplus )$ ist Gruppe.\\
+Assoziativgesetz: $a,b,c \in \Z_n$\\
+$\begin{array}{ll}
+(a \oplus b)\oplus c &= (a+b \mod n)\mod n\\
+&\underset{\text{Mathe I}}{=} ((a + b) + c) \mod n\\
+&= (a + (b + c)) \mod n\\
+&\underset{\text{Mathe I}}{=} (a + (b + c)\mod n)\mod n\\
+&= (a + (b \oplus c)) \mod n\\
+&= (a \oplus (b \oplus c))
+\end{array}$\\
+0 ist neutrales Element bezüglich $\oplus$\\
+0 ist sein eigenes Inverse.\\
+$1 \leq i \leq n \qquad n - i \in \Z_n$ Inverses zu i\\
+$\phantom{=}i \oplus (n - i)\\
+=(i+ (n-i))\mod n
+=n \mod n = 0$
+\item $n \in \N, \Z_0$\qquad Verknüpfung $\circledcirc$\qquad $\mathit{n > 1}$\\
+$a \circledcirc b = a \cdot b \mod n\\
+\mathit{(\Z_n \circledcirc)}$ \emph{ist Monoid}\\
+Assoziativgesetz wie bei $\oplus$.\\
+1 ist neutrales Element bei $\circledcirc$ Keine Gruppe bezüglich $\circledcirc$, denn 0 hat kein Inverses 
+\end{enumerate}
+\subsection{Satz}\label{sec:1.7}
+Sei $n \in \N, n > 1 $
+\begin{enumerate}[a)]
+\item Die Elemente in $(\Z_n, \circledcirc)$, die invertierbar bezüglich $\circledcirc$ sind, sind genau diejenigen $a \in \Z_n$ mit ggT$(a,n) = 1$.\\
+Für solche a bestimmt man das Inverse folgenderma\ss en:\\
+Bestimme $s,t \in \Z$ mit $s \cd a + t \cd n =1$ \hfill(\index{Erweiterter Euklidischer Algorithmus}Erweiterter Euklidischer Algorithmus)\\
+Dann ist $a^{-1} = s \mod n$
+\item ${\Z_n}^* := \{a \in \Z_n :$ ggT$(a,n)=1 \}$ ist Gruppe bezüglich $\circledcirc$.\\
+$\abs{{\Z_n}^*}=: \varphi(n)$ \index{Euler'sche $\varphi$-Funktion}\qquad\emph{Euler'sche $\varphi$-Funktion}\hfill(Leonard Euler 1707-1783)
+\item Ist p eine Primzahl so ist $(\Z_p \setminus {0}, \circledcirc)$ eine Gruppe. \emph{Beweis} folgt aus b)
+\end{enumerate}
+\begin{proof}
+a) Angenommen $a \in \Z_n$ invertierbar bezüglich $\circledcirc$\\
+D.h es existiert $b \in Z_n$ mit $a \circledcirc b =1$\\
+$a \cdot b \mod n = 1$, d.h es existiert $k \in \Z$ mit $a \cd b = 1 + k \cd n, 1 = a \cd b - k \cd n$\\
+Sei $d =$ggT$(a.n)$:\\$
+\begin{array}{lll}
+&d \mid a &\Rightarrow d \mid a \cd b\\
+&d \mid n &\Rightarrow d \mid k \cd n\\
+\Rightarrow& d \mid a \cd b &- k \cd n = 1\\
+\Rightarrow& d =1 & \mathit{ggT}(a,n) = 1.
+\end{array}$\\
+Umgekehrt sei $a \in \Z_n$ mit ggT($a,n$) = 1\\
+EEA liefert $s,t \in \Z$ mit $s \cd a + t \cd n = 1.\\
+\begin{array}{cll}
+& (s \mod n) \circledcirc a &= ((s \mod n)\cd a) \mod n\\
+\underset{\text{Mathe I}}{=}&(s \cd a)\mod n &= (1-t \cd n) \mod n\\
+=& (1 - \underbrace{(t \cd n)\mod n)}_{=0} \mod n &= 1 \mod n = 1
+\end{array}\\
+$b) \Nameref{sec:1.5} d)
+\end{proof}
+\subsection{Beispiel}\label{sec:1.8}
+$n = 24,\quad a =7$ ist invertierbar in $(Z_{24}, \circledcirc)$\\
+EEA:\\
+\phantom{EEA:}$ 1 = (-2) \cd 24 + 7 \cd 7\\
+a^{-1} = 7 \mod 24 = 7 = a$
+\subsection{Beispiel}\label{sec:1.9}
+Sei $M = \{1,\ldots,n\}$\\
+Die Menge der bijektiven Abbildungen auf $M$ (\emph{Permutationen}\index{Permutationen}) bilden nach \ref{sec:1.6}c) eine Gruppe bezüglich Hintereinanderausführung $\circ$.\\
+Bezeichnung: $S_n$\index{systematische Gruppe} \emph{systematische Gruppe von Grad n}\\
+Es ist $\abs{S_n} = n!$\hfill(Mathe I)\\
+z.B : $\pi = \begin{pmatrix}
+1&2&3\\
+3&2&1
+\end{pmatrix} \in S_3\\$
+\phantom{z.B : }$\pi^{-1} = \begin{pmatrix}
+1&2&3\\
+3&2&1
+\end{pmatrix} = \pi\\
+\phantom{z.B : }\varrho = \begin{pmatrix}
+1&2&3\\
+3&1&2
+\end{pmatrix} \in S_3\\
+\phantom{z.B : }\varrho^{-1} = \begin{pmatrix}
+1&2&3\\
+2&3&1
+\end{pmatrix}\\
+\phantom{z.B : }\varrho \circ \varrho^{-1} = \mathit{id}\\
+\phantom{z.B : }\pi \circ \varrho = \begin{pmatrix}
+1&2&3\\
+1&3&2
+\end{pmatrix}\\
+\phantom{z.B : }\varrho \circ \pi  = \begin{pmatrix}
+1&2&3\\
+2&1&3
+\end{pmatrix}\\
+S_n$ ist für $n \geq$ 3 nicht abelsch (nicht kommutativ)
+\subsection{Satz (Gleichungslösen in Gruppen)}\label{sec:1.10}
+Sei $(G, \cd)$ eine Gruppe $a,b \in G$ (in allgemeinen Gruppen schreibt man Verknüpfungen oft als $\cd$ statt $\star$, oft auch ab statt $a\cd b$)
+\begin{enumerate}[a)]
+\item Es gibt genau ein $x \in G$ mit $ax =b$ (nämlich $x = a^{-1}b$)
+[ ''Teilen durch'' $a$ von links = Multiplikation von links mit $a^{-1}$ ]
+\item Es gibt genau ein $y \in G$ mit $ya = b$ (nämlich $y = ba^{-1})$
+\item Ist $ax = bx$ für ein $x \in G$, so ist $a =b$\\
+Ist $ya = yb$ für ein $y \in G$, so ist $a =b$
+\end{enumerate}
+\begin{proof}
+a) Setze $x = a^{-1}b \in G$.\\
+$a \cd (a^{-1}\cd b) = (a \cd a^{-1}) b = a \cd b = b$
+Eindeutigkeit : Sei $x \in G$ mit $ax = b$\\
+Multiplikation beide Seiten mit $a^{-1}$,\\
+$\mathit{x} = (a^{-1}a)x = \mathit{a^{-1}b}\\
+$\\
+b) analog\\
+c) $ax =bx$ Multiplikation mit $x^{-1}$ Dann a= b
+\end{proof}
+\subsection{Beispiel}\label{sec:1.11}
+\begin{enumerate}[a)]
+\item Suche Permutation $\xi \in S_3$ mit $\varrho \circ \xi = \pi $ (vgl. \ref{sec:1.9}).
+\Nameref{sec:1.10}a):\\
+$\xi = \varrho^{-1} \circ \pi = \begin{pmatrix}
+1&2&3\\
+2&3&1
+\end{pmatrix}\circ \begin{pmatrix}
+1&2&3\\
+3&2&1
+\end{pmatrix}\\
+\phantom{\xi = \varrho^{-1} \circ \pi} = \begin{pmatrix}
+1&2&3\\
+1&3&2
+\end{pmatrix}$
+\item \ref{sec:1.10}c) gilt in Monoiden, die keine Gruppen sind, im Allgemeinen nicht:\\
+Beispiel: ($\Z_0,\circledcirc)\\
+2 \circledcirc 3 - 0 = 3 \circledcirc 3$, aber $2\ne 4$
 \end{enumerate}
 \printindex
 \end{document}
