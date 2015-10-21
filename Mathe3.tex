@@ -32,7 +32,7 @@ a_1 + b_1\\\vdots\\a_n + b_n
 \end{pmatrix}\]
 \end{minipage}%
 \begin{minipage}{.5\textwidth}
-(Multiplikation entspricht der Matrixmultiplikation\index{Matrixmultiplikation} und ist nicht möglich falls $n > 1$)
+(Multiplikation entspricht der Matrizenmultiplikation\index{Matrizenmultiplikation} und ist nicht möglich falls $n > 1$)
 \end{minipage}\\
 Multiplikation eines Spaltenvektors mit einer Zahl (\emph{Skalar})
 \[ a \cd \begin{pmatrix}
@@ -616,13 +616,13 @@ Multiplikation: $(A \cd B) \cd C = A \cd (B \cd C)$ Halbgruppe mit neutralem Ele
 a \oplus b = a + b \mod n\\
 (\Z_n, \oplus )$ ist Gruppe.\\
 Assoziativgesetz: $a,b,c \in \Z_n$\\
-$\begin{array}{ll}
-(a \oplus b)\oplus c &= (a+b \mod n)\mod n\\
-&\underset{\text{Mathe I}}{=} ((a + b) + c) \mod n\\
-&= (a + (b + c)) \mod n\\
-&\underset{\text{Mathe I}}{=} (a + (b + c)\mod n)\mod n\\
-&= (a + (b \oplus c)) \mod n\\
-&= (a \oplus (b \oplus c))
+$\begin{array}{lcl}
+(a \oplus b)\oplus c &=& (a+b \mod n)\mod n\\
+&\underset{\text{Mathe I}}{=}& ((a + b) + c) \mod n\\
+&=& (a + (b + c)) \mod n\\
+&\underset{\text{Mathe I}}{=}& (a + (b + c)\mod n)\mod n\\
+&=& (a + (b \oplus c)) \mod n\\
+&=& (a \oplus (b \oplus c))
 \end{array}$\\
 0 ist neutrales Element bezüglich $\oplus$\\
 0 ist sein eigenes Inverse.\\
@@ -740,6 +740,92 @@ $\xi = \varrho^{-1} \circ \pi = \begin{pmatrix}
 \item \ref{sec:1.10}c) gilt in Monoiden, die keine Gruppen sind, im Allgemeinen nicht:\\
 Beispiel: ($\Z_0,\circledcirc)\\
 2 \circledcirc 3 - 0 = 3 \circledcirc 3$, aber $2\ne 4$
+\end{enumerate}
+\subsection{Definition}\label{sec:1.12}
+\begin{enumerate}[a)]
+\item$R \ne \varnothing$ Menge mit 2 Verknüpfungen + und $\cd$ hei\ss t \index{Ring} \emph{Ring}, falls
+\begin{enumerate}[(1)]
+\item$ (R, +)$ ist kommutative Gruppe (neutrales Element: 0, \emph{Nullelement}\index{Nullelement}, Inverses zu a : $-a\qquad b + (-a) =: b - a)$
+\item $(R,\cd)$ ist Halbgruppe
+\item $(a+b) \cd c = a \cd c = a \cd c + b \cd c$ und $a \cd (b + c) = a \cd b + a \cd c \hfill (\cd $ vor $+$)\\
+\emph{Distributivgesetz}\index{Distributivgesetz} 
+\end{enumerate}
+\item Ring R hei\ss t \emph{kommutativer Ring}\index{kommutativer Ring} falls $(R,\cd)$ kommutative Halbgruppe ist.
+\item Ring R hei\ss t {\em Ring mit Eins}\index{Ring mit Eins}, falls $(R, \cd)$ Monoid, neutrales Element $1 \ne 0$ ({\em Einselement, Eins}\index{Einselement})
+\end{enumerate}
+\subsection{Beispiele}\label{sec:1.13}
+\begin{enumerate}[a)]
+\item $(\Z,+,\cd)$ ist kommutativer Ring mit 1, invertierbare Elemente bezüglich $\cd$ sind 1 und $-1$.
+\item $(\mathbb{Q},+,\cd),(\R,+,\cd),(\C,+,\cd)$ sind kommutative Ringe mit Eins.\\
+Alle Elemente $\ne 0$ sind invertierbar bezüglich $\cd$
+\item $n \in \N, n > 1.\\
+\Z_n = \{0,\ldots,n-1 \}\\
+(\Z_N, \oplus,\circledcirc)$ ist kommutativer Ring mit Eins:\\
+Wegen \Nameref{sec:1.6} f),g) sind nur die Distributivgesetz zu zeigen:\\
+$\begin{array}{cl}
+&(a \oplus b)\circledcirc c = ((a \oplus b) \cd c)\mod n\\
+=&(((a+b)\mod n)\cd c)\mod n\\
+\underset{\text{Mathe I}}{=}& ((a+b)\cd )\mod n \\
+=&(a\cd c + b \cd c)\mod n\\
+\underset{\text{Mathe I}}{=}& ((a \cd c)\mod n + (b \cd c)\mod n) \mod n\\
+=& a \circledcirc c \oplus b \circledcirc c 
+\end{array}$
+\item $M_n(\R), n \times n$-Matrizen über $\R$, mit \index{Matrizenaddition}Matrizenaddition + und, \index{Matrizenmultiplikation}Multiplikation $\cd$ ist Ring mit Eins.\\
+(Folgt aus Rechenregeln für Matrizen, \href{http://www.ffgti.org/skripte/MatheII.pdf}{Mathe II}) Eins : $E_n\quad n \times n$-Einheitsmatrix\\
+Für $n \geq 2$ ist $M_n(\R)$ kein kommutativer Ring
+\end{enumerate}
+\subsection{Proposition}\label{sec:1.14}
+Sei $(R,+,\cd)$ ein Ring. Dann gilt für alle $a,b \in R$.
+\begin{enumerate}[a)]
+\item $0 \cd a = a \cd 0 = 0$
+\item $(-a) \cd b = a \cd (-b) = - (a \cd b)$
+\item $(-a) \cd (-b) = a \cd b$
+\end{enumerate}
+\begin{proof}\ 
+\begin{enumerate}[a)]
+\item $0 \cd a = (0 + 0)\cd a\underset{\text{DG\footnotemark}}{=} 0 \cd a + 0 \cd a$\\
+\footnotetext[2]{Distributivgesetz}Addiere auf beiden Seiten $-(0 \cd a)\\
+0 = 0 \cd a + 0 = 0 \cd a$
+\item $(-a) \cd b + ab = ((-a)+ a) \cd b = 0 \cd b \underset{\text{a)}}{=} 0\\
+\Rightarrow (-a) \cd b = -(ab)$ Analog $a \cd (-b) = -(ab)$
+\item $(-a) \cd (-b) \underset{\text{b)}}{=} - (a \cd (-b)) \underset{\text{b)}}{=} -(- (a \cd b)) = a \cd b$
+\end{enumerate}
+\end{proof}
+\subsection{Bemerkung}\label{sec:1.15}
+\begin{enumerate}[a)]
+\item In einem Ring mit Eins sind 1 und $-1$ bezüglich $\cd$ invertierbar.\\
+$1 \cd 1 = 1\quad(1^{-1} =1)\\
+(-1)\cd (-1) = 1$\quad (\ref{sec:1.14}c)), dass hei\ss t. $(-1)^{-1} = -1$\\
+0 Ist nie bezüglich Multiplikation invertierbar, denn $0 \cd a = 0 \ne 1$.\quad\ref{sec:1.14}a)
+\item Es kann sein dass $ 1 = -1$ gilt. Zum Beispiel:\\
+$(\Z_2, \oplus, \circledcirc)\quad 1\oplus 1 = 0\quad 1 = -1$
+\end{enumerate}
+\subsection{Definition}
+Ein kommutativer Ring $(R,+,\cd)$ mit Eins hei\ss t \emph{Körper}\index{Körper}, wenn jedes Element $\ne 0$ bezüglich Multiplikation invertierbar ist.
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\item $\mathbb{Q},\R,\C$ sind Körper, $\Z$ nicht.
+\item $(\Z_n,\oplus,\circledcirc)$ ist genau dann ein Körper, wenn n eine Primzahl.\\
+$\Z_n$ ist kommutativer Ring mit 1.\\
+\Nameref{sec:1.13}c: Die invertierbaren Elemente in $\Z_n$ sind alle $a \in \Z_n$ mit ggT$(a,n)=a$
+\end{enumerate}
+\subsection{Proposition \index{Nullteilerfreiheit}(Nullteilerfreiheit in Körpern)}\label{sec:1.18}
+Ist $K$ ein Körper, $a,b \in K$, mit $a \cd b = 0$, so ist $a = 0$ oder $b = 0$
+\begin{proof}\ \\
+Sei $a \cd b = 0$ Angenommen $a \ne 0$.
+Dann existiert $a^{-1} \in K\\
+0 \underset{\text{\ref{sec:1.14}a)} }{=} a^{-1} \cd 0 \underset{\text{Vor.} }{=} a^{-1}(a \cd b) = (a^{-1} \cd a)\cd b = b$
+\end{proof} 
+\noindent\emph{Beispiel}: $R = (\Z_6,\oplus,\circledcirc)$\\
+\phantom{Beispiel:} $2\circledcirc3=0\qquad 2 \ne 0, 3\ne 0$
+\subsection{Definition}\label{sec:1.19}
+Sei $K$ ein Körper,
+\begin{enumerate}[a)]
+\item Ein (Formales) \index{Polynom}\emph{Polynom} über $K$ ist ein Ausdruck $f = a_0 + a_1x + a_2x^2 +\ldots+ a_n x^n$ wobei $n \in \N_0, a_i \in K$.
+(Manchmal $f(x)$ statt $f,\,+$-Zeichen hat zunächst nichts mit einer Addition zu tun.
+$a_i$ \index{Koeffizienten}\emph{Koeffizienten} von f\\
+Ist $a_i = 0$ so kann man in der Schreibweise von f $0 \cd x^i$ auch weglassen.\\
+Statt $a_0x^0$ schreibt man $a_o$, statt $a_1x^1$ schreibt man $a_1x$. Sind alle $a_i =0,$ so $f = 0$, \emph{Nullpolynom} \index{Nullpolynom}.\\ Ist $a_i = 1$, so schreibt man $x^i$ statt $1x^i$
 \end{enumerate}
 \printindex
 \end{document}
