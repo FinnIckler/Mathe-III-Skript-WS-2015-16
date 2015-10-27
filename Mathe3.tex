@@ -821,11 +821,114 @@ Dann existiert $a^{-1} \in K\\
 \subsection{Definition}\label{sec:1.19}
 Sei $K$ ein Körper,
 \begin{enumerate}[a)]
-\item Ein (Formales) \index{Polynom}\emph{Polynom} über $K$ ist ein Ausdruck $f = a_0 + a_1x + a_2x^2 +\ldots+ a_n x^n$ wobei $n \in \N_0, a_i \in K$.
+\item Ein (Formales) \index{Polynom}\emph{Polynom} über $K$ ist ein Ausdruck $f = a_0 + a_1x + a_2x^2 +\ldots+ a_n x^n = \sum\limits_{i=0}^{n}a_ix^i$ wobei $n \in \N_0, a_i \in K$.
 (Manchmal $f(x)$ statt $f,\,+$-Zeichen hat zunächst nichts mit einer Addition zu tun.
 $a_i$ \index{Koeffizienten}\emph{Koeffizienten} von f\\
 Ist $a_i = 0$ so kann man in der Schreibweise von f $0 \cd x^i$ auch weglassen.\\
 Statt $a_0x^0$ schreibt man $a_o$, statt $a_1x^1$ schreibt man $a_1x$. Sind alle $a_i =0,$ so $f = 0$, \emph{Nullpolynom} \index{Nullpolynom}.\\ Ist $a_i = 1$, so schreibt man $x^i$ statt $1x^i$
+\item Zwei Polynome $f$ und $g$ sind \emph{gleich}, wenn \emph{entweder} $f=0$ und $g=0$ \emph{oder} $f \ne 0$ und $g \ne 0$\\
+d.h $f = \sum\limits_{i = 0}^{n} a_ix^i, a_n \ne 0\\
+g = \sum\limits_{i = 0}^{m} a_ix^i, b_m \ne 0$\\
+und $n=m$ und $a_i = b_i$ für $i=0...n$
+\item Menge aller Polynome über $K$. $K[x]$\\
+Wir wollen $K[x]$ zu einem Ring machen. Wie?\\
+\emph{Beispiel}:$f = 3x^2+2x+1,$\\
+\phantom{\emph{Beispiel}:}$g = 5x^3 + x^2 + x \in Q[x]$\\
+$f + g = 5x^3 + 4x^2 + 3x + 1\\
+f \cd g = (3^x + 2x + 1)\cd(5x^3 + x^2+ x)\\
+\phantom{f \cd g} = 15x^5 + 10 x^4 + 5 x^3 + 3x^4 + 2x^3 + x^2 + 3x^2 + 2x^2 + x\\
+\phantom{f \cd g} = 15x^5 + 13x^4+10x^3+3x^2+x$
 \end{enumerate}
+\marginpar{27.10.2015}
+\subsection{Satz und Definition}\label{sec:1.20}
+$K$ Körper. $K[x]$ wird zu einem kommutativen Ring mit Eins durch folgenden Verknüpfungen.\\
+$f = \sum\limits_{i=0}^{n} a_ix^i, g = \sum\limits_{i=0}^{m}b_ix_i$ so \\
+$f + g \sum\limits_{i=0}^{\max(n,m)} (a_i+b_i)x^i\\
+f \cd g = \sum\limits_{i=0}^{n+m} c_ix^i$,wobei $c_i = \sum\limits_{j = 0}^{i} a_jb_{i-j}$ \hfill(Faltungsprodukt)\\
+In beiden Fällen sind Koeffizienten $a_i$ mit $i > n$ bzw. $b_i$ mit $i > m$ gleich 0 zu setzen. Das Einselement ist $1\ (= 1 x^0)$\\ Das Nullelement ist das Nullpolynom.\\
+$-f =\sum\limits_{i=0}^{n}(-a_i)x^i\\
+(K[x],+,\cd)$ hei\ss t \emph{Polynomring}\index{Polynomring} in einer Variable
+\emph{Beweis:} Nachrechnen
+\subsection{Bemerkung}\label{sec:1.21}
+\begin{enumerate}[a)]
+\item $f = \sum\limits_{i=0}^{n} a^ix^i \in K[x],\, a \in K \subseteq K[x]\\
+a \cd f = \sum\limits_{i=0}^{n} (a \cd a_i)x^i\\
+x \cd f = \sum\limits_{i=0}^{n}a_ix^{i+1} = a_nx^{n+1} + \ldots + a_0x$
+\item Das $+-$ Zeichen in der Definition der Polynome entspricht genau der Addition der \emph{Monome}\index{Monome} $a_ix^i$.\\
+$(a_0 x^0 \underset{\substack{\uparrow\\\text{Add. aus \ref{sec:1.20} }}}{+} a_1x^1) = a_0x^0 \underset{\substack{\uparrow\\\text{+ aus \ref{sec:1.19} }}}{+} a_1x^1$
+\end{enumerate}
+\subsection{Definition}\label{sec:1.22}
+Sei $0 \ne f \in k[x], f = \sum\limits_{i=0}^{n}a_ix^i, a_n \ne 0$.\\
+Dann hei\ss t $n$ der \index{Grad}\emph{Grad} in $f$, $\Grad(f) = n\\
+\Grad(0): = -\infty\\
+\Grad(f): = 0 :$\emph{Konstante Polynome}\index{Konstante Polynome} $=\ne 0$
+\subsection{Satz}\label{sec:1.23}
+Sei $K$ ein Körper, $f,g \in K[x]$.\\
+Dann ist $\Grad(f\cd g) = \Grad(f) + \Grad(g)$\\
+(Konvention: $-\infty + n = n + (- \infty) = (-\infty + \infty)$,\\
+Sei $f \ne 0$ und $g \ne 0\\
+f = \sum\limits_{i=0}^{n}a_ix^i, a_n \ne 0, n =\Grad(f)\\
+g = \sum\limits_{i=0}^{m}b_ix^i, b_m \ne 0, m =\Grad(g)$\\
+Koeffizienten von $x^{n+m}$ in $f \cd g : a_nb_m \underset{\ref{sec:1.18}}{\ne} 0$
+\subsection{Korollar}\label{sec:1.24}
+Sei $K$ ein Körper
+\begin{enumerate}[a)]
+\item Genau die konstanten Polynome $\ne 0$ sind in $K[x]$ bezüglich $\cd$ invertierbar\\
+Insbesondere ist $K[x]$ \emph{kein} Körper
+\item Sind $f,g\in K[x]$ mit $f\cd g = 0$, so ist $f = 0$ oder $g = 0$ (\index{Nullteilerfreiheit}Nullteilerfreiheit in $K[x]$)
+\item Sind $f,g_1,g_2 \in K[x]$ mit $f\cd g_1$ und ist $f \ne 0$, so ist $g_1 = g_2$
+\end{enumerate}
+\begin{proof}\
+\begin{enumerate}[a)]
+\item Sei $f \in K[x]$ invertierbar bezüglich $\cd$. Dann ist $f \ne 0$ und es existiert $g \in K[x]$ mit $f \cd g = 1$.\\
+Mit \ref{sec:1.23}:\\
+$ 0 = \Grad(1) = \Grad(f \cd g)\\
+\phantom{ 0 } = \Grad(f) + \Grad(1).$\\
+Also: $\Grad(f) = 0 (= \Grad(g))$\\
+Dass hei\ss t $f$ ist konstantes Polynom.\\
+Ist umgekehrt $f = a \in L, a \ne 0,$ so $f^{-1} = a^{-1} \in K$
+\item Folgt aus \ref{sec:1.23}:
+\begin{enumerate}[ \ ]
+\item[ \ ] $-\infty = \Grad(0) = \Grad(f \cd g)\\
+\phantom{-\infty} = \Grad(f) + \Grad(g)$
+\item[$\Rightarrow$]$\Grad(f) = -\infty$ oder $\Grad(g) = -\infty$, d.h $f = 0$, oder $g = 0$
+\end{enumerate}
+\item $fg_1 = fg_2\\
+\Rightarrow 0 = fg_1 - fg_2
+\phantom{\Rightarrow 0} = f \cd (g_1 - g_2)$\\
+Da $f \ne 0$, folgt mit b)\\
+$g_1 - g_2 = 0$, d.h $g_1 = g_2$
+\end{enumerate}
+\end{proof}
+\subsection{Bemerkung}\label{sec:1.25}
+\begin{enumerate}[a)]
+\item Jedem Polynom $f = \sum\limits_{i = 0}^{n} a_ix^i \in K[x]$\\
+kann man eine Funktion $K \to K$ zuordnen. $a \in K \longmapsto f(a) = \sum\limits_{i=0}^{n} a_ia^i \in K$ \\(Polynomfunktion aus Analysis $K = \R$)\\
+Aufgrund der Definition von Addition/Multiplikation von Polynomen gilt:\\
+$(f+g)(a) = f(a)+ g(a)\\
+(f \cd g)(a) = f(a) \cd g(a)$\\
+Es kann passieren, dass zwei verschiedene Polynome die gleiche Funktion beschreiben.\\
+Z.B $K = \Z_2 = \{0,1\}\\
+f = x^2, g =x\\
+f \ne g\\
+f(1) = 1 = g(1)\\
+f(0) = - g(0)$\\
+Über unendlichen Körpern passiert das nicht (später)
+\item Schnelle Berechnung von $f(a):\\
+f = a_0 + a_1x + \ldots + a_nx^n\\
+f(a) = a_0 + a (a (a_1 + a(a_2 + \ldots + a(a_{n-1} + aa_n)))$
+{\begin{center}\large\em Horner-Schema\end{center}}\index{Horner-Schema}
+\end{enumerate}
+\subsection{Definition}\label{sec:1.26}
+$K$ Körper, $f,g \in K[x]$\\
+$f$ \emph{teilt} $g\quad (f\mid g)$ falls $q \in K[x]$ existiert mit $g = q \cd f$ (Falls $g \ne 0 \mod f \mid g$, so ist $\Grad(f) \leq \Grad(g)$ nach \Nameref{sec:1.23})
+\subsection{Satz}
+$K$ Körper, $0 \ne f \in K[x], g \in K[x]$\\
+Dann existiert eindeutig bestimmte Polynome $q,r$
+\begin{align}
+g = q \cd f + r\\
+\Grad(r) < \Grad(f)
+\end{align}
+\hfill\emph{Division mit Rest}\index{Division mit Rest}
 \printindex
 \end{document}
