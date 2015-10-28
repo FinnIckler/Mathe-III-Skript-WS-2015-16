@@ -922,13 +922,95 @@ f(a) = a_0 + a (a (a_1 + a(a_2 + \ldots + a(a_{n-1} + aa_n)))$
 \subsection{Definition}\label{sec:1.26}
 $K$ Körper, $f,g \in K[x]$\\
 $f$ \emph{teilt} $g\quad (f\mid g)$ falls $q \in K[x]$ existiert mit $g = q \cd f$ (Falls $g \ne 0 \mod f \mid g$, so ist $\Grad(f) \leq \Grad(g)$ nach \Nameref{sec:1.23})
-\subsection{Satz}
+\subsection{Satz}\label{sec:1.27}
 $K$ Körper, $0 \ne f \in K[x], g \in K[x]$\\
 Dann existiert eindeutig bestimmte Polynome $q,r$
 \begin{align}
 g = q \cd f + r\\
 \Grad(r) < \Grad(f)
 \end{align}
-\hfill\emph{Division mit Rest}\index{Division mit Rest}
+(Beweis WHK, Satz 4.69)\hfill\emph{Division mit Rest}\index{Division mit Rest}
+\subsection{Beispiel}\label{sec:1.28}
+\marginpar{28.10.2015}
+\begin{enumerate}[a)]
+\item $g = x^4 + 2x^3 - x +2, f = 3x^2 - 1, f,g \in Q[x]\\
+\polyset{style=C, div=:,vars=x}
+    \polylongdiv{x^4+2x^3-x+2}{3x^2 - 1}$
+\item $g = x^4 - x^2 + 1\quad f = x^2 + x\quad f,g \in \Z_3[x]\\
+x^4 + 3x^3 + 1 : x^2 + x = x^2 + 2 x\\
+-\underline{(x^4 + x^3)}\\
+\phantom{ }\qquad\phantom{-(}\,2x^3 + 2x^2 + 1\\
+\phantom{ }\qquad-(\underline{2x^3 + 2x^2})\\
+\phantom{ }\qquad\qquad 1 \leftarrow r$
+\end{enumerate}
+\subsection{Korollar}\label{sec:1.29}
+$K$ Körper,$a \in K$.\\
+$f \in K[x]$ ist genau dann durch $(x-a)$ teilbar, wenn $f(a) =0$ (d.h $a$ ist Nullstelle von $f$)\\
+$[f = g \cd (x-a), q \in K[x]]$
+\begin{proof}\ \\
+Falls $x -a \mid f$, so existiert $q \in K[x]$ mit $f \underset{\ref{sec:1.25}}{=} q (x-a)$.\\ Dann $f(a) = q(a) \cd \underbrace{(a-a)}_{= 0} = 0$.\\
+Umgekehrt: Angenommen $f(a)=0$. Division mit Rest von $f$ durch $x-a:\\
+f = q \cd (x-a)  r, q,r\in K[x]\\
+\Grad(r) < \Grad(x-a) = 1, r \in K$\\
+Zeige: $r=0$.\\
+$r = f - q \cd (x-a)$\\
+Setze $a \in K$ ein.\\
+$r \underset{\ref{sec:1.25}}{=} f(a) - q(a) \cd (a-a) = 0 - 0 = 0\\
+f = q \cd (x-a)$
+\end{proof}
+\subsection{Definition}\label{sec:1.30}
+$K$ Körper $a \in K$ hei\ss t\emph{m-fache Nullstelle} von $f \in K[x]$, falls $(x-a)^m \mid f$ und $(x-a)^{m+1} \nmid f.\\
+$Dass hei\ss t $f = q \cd (x-a)^m$ und $q(a) \ne 0$
+\subsection{Beispiel}\label{sec:1.31}
+$x^5 + x^4 + 1 \in \Z_3[x]$\\
+In $Z_3$ hat $f$ die Nullstelle 1\\
+\Nameref{sec:1.29}: $x-1 (= x + 2)$ teilt $f$\\
+Dividiere $f$ durch $x-1:\\
+f = (x^4 + 2x^3 + 2x + 2) \cd (x - 1)$
+\subsection{Satz}\label{sec:1.32}
+$K$ Körper, $f \in K[x], \Grad(f) = n \geq 0$ (dass hei\ss t $f \ne 0$).\\
+Dann hat $f$ höchstens $n$ Nullstellen in $K$ (einschlie\ss end Vielfachheit). Genauer: Sind $a_1,\ldots,a_k$ die verschiedenen Nullstellen von $f$, so ist \\$f = g \cd (x-a_1)^{m_1} \cd \ldots \cd (x-a_k)^{m_k}, m_i$ Vielfachheiten der Nullstellen $a_i$, $g$ hat keine Nullstelle in $K6$
+\begin{proof}
+Durch Induktion nach n.\\
+$n = 0:\: f = a_0 \ne 0$, ohne Nullstelle.$\checkmark$.\\
+Sei $n > 0$. Behauptung sei richtig für alle Polynome von Grad $<n$.\\
+Hat $f$ keine Nullstellen, $g=f\checkmark$\\
+Hat $f$ Nullstellen $a_1\ldots,a_k, k \geq 1$\\
+so $f = q \cd (x-a_1)^{m-1}$ (nach Definition)
+$q(a_1) \ne 0.\\
+\Grad(q) \underset{\ref{sec:1.23}}{=}n-m_1 \underset{m_1 > 0}{<} n$\\
+Wir zeigen:\\
+$q$ hat genau die Nullstellen $a_2,\ldots,a_k$ mit Vielfachheiten $m_2,\ldots,m_k$.\\
+Klar: Jede Nullstelle von $q$ ist Nullstelle von $f$, Dass hei\ss t $q$ hat höchstens Nullstellen $a_2,\ldots,a_k$.\\
+Diese Nullstellen hat $q$ mit Vielfachheit $0 \geq n_i \geq m_i$, denn $(x-a_i)^{m_i} \vert q \Rightarrow (x-a_i)^{n_i}\mid f$\\
+Sei $i \in \{2,\ldots,k\}.$ Es ist $f = s \cd (x - a_i)^{m_i}, s \in K[x], s(a_i) \ne 0\\$
+\phantom{Sei $i \in \{2,\ldots,k\}$. Es ist }$q = q_1 \cd (x-a_i)^{n_i},q_1 \in K[x], q(a_i) \ne 0,\hfill ((x-a_i)^0 =1 ) $
+\phantom{Sei $i \in \{2,\ldots,k\}$. Es ist }$f=q_1(x-a_1)^{n_i} \cd (x-a_1)^{m_1}$
+\Nameref{sec:1.24}c):\\
+$s(x-a_i)^{m_i-n_i} =q_1 \cd (x-a_1)^{m_1}$\\
+Ist $m_i > n_i$, so ist $m_i - n_i > 0$\\
+$0 = s(a_i)(a_i -a_i)^{m_i - n_i} = q(a_i)(a_i - a_i) \ne 0 \Lightning$\\
+Dass hei\ss t .$n_i = m_i. i,2\ldots,k\\
+q = g (x-a_2)^{m_2}\ldots (x-a_k)^{m_k}$, g ohne Nullstelle in $K$\\
+$f = g (x-a_1)^{m_2} \cdots (x-a_2)^{m_1}$\hfill (Nach Induktionsvorsaussetzung)
+\end{proof}
+\subsection{Korollar}\label{sec:1.33}
+$K$ Körper, $f,g \in K[x], m = \max(\Grad(f),\Grad(g)$\\
+Gibt es $m+1$ Elemente $a_1,\ldots,a_{m+1} \in K$, paarweise verschieden, mit $f(a_i) = g(a_i), i = 1,\ldots,m+1$ so $f = g$.\\
+\emph{Insbesondere}: Ist $K$ unendlich ,$f,g \in K[x]$ mit $f(a) = g(a)$ für alle $a \in K$, so ist $f =g$\\
+\begin{proof}
+$f -g \in K[x], \Grad(f-g) \leq m.\\
+f -g $hat $m+1$ Nullstellen $a_1,\ldots a_{m+1}$\\
+\ref{sec:1.32} $f - g = 0, f =g$
+\end{proof}
+\subsection{Bemerkung}
+Über $\mathbb{Q},\R,\Z_p (p$ Primzahl) gibt es Polynome beliebig hohen Grades ohne Nullstellen\\
+Über $\mathbb{Q},\R$: $(x^2 +1)^m$ hat $\Grad(2m)$, keine Nullstellen in $\mathbb{Q},\R$\\
+über $\Z_p$ z.B $(x^p - x +1)^m$ hat $\Grad pm$, ohne Nullstellen (ohne Beweis)
+\subsection{Fundamentalsatz der Algebra}
+Ist $ f \in \C[x], f \ne  0$ so ist $(f=a_nx^n+\ldots+a_0)\\
+f = a_n (x-c_1)^{m_1} \ldots (x-c_k)^{m_k}, a_n.c_i,\ldots,c_k \in \C$ (Nullstellen mit Vielfachen $m_1,m_2$)\\
+$m_1 + \ldots + m_k = \Grad(f)\\
+\Grad(f) = n$ $f$ hat $n$ Nullstellen (einschlie\ss end Vielfachheit)
 \printindex
 \end{document}
