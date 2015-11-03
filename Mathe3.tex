@@ -112,7 +112,7 @@ $\mathcal{U}$ enthält Nullvektor \{0\} Unterraum\index{Unterraum} von $\R^n$ (N
 $\R^n $ ist Unterraum von $\R$
 \subsection{Beispiele}\label{sec:0.3}
 \begin{enumerate}[a)]
-\item $0 \ne v \in \R^2\quad G = \{ av: a \in \R \}$ ist Unterraum von $\R^n$\begin{minipage}{.3\textwidth}
+\item $0 \ne v \in \R^2\quad G = \{ av: a \in \R \}$ ist Unterraum von $\R^n$\\\begin{minipage}{.3\textwidth}
 ($a_1v,a_2v \in G, (a_1 + a_2)v \in G$\quad2.1 in \ref{sec:0.2}\\
 $av \in G, b \in \R (ba)v \in G$)
 \end{minipage}\\
@@ -147,7 +147,7 @@ G' = \{ w + av : a \in \R\}$\\
 $[v \in G' \Leftrightarrow \exists a \in \R: w+ av \in o \Leftrightarrow \exists a \in \R :\: w = (-a)v \in G]$
 \end{enumerate}
 \subsection{Satz}\label{sec:0.4}
-Seien $\mathcal{U}_1,\mathcal{U}_2$ Unterräume von $\R^n$\\
+Seien $\mathcal{U}_1,\mathcal{U}_2$ Unterräume von $\R^n$
 \begin{enumerate}[a)]
 \item $\mathcal{U}_1 \cap \mathcal{U}_2$ ist Unterraum von $\R^n$
 \item $\mathcal{U}_1 \cup \mathcal{U}_2$ ist im Allgemeinen \textsc{kein} Unterraum von $\R^n$
@@ -259,7 +259,7 @@ $\langle M \rangle_\R = \left\{ \sum\limits_{i=1}^{n}a_iv_i : n\in\N , a_i \in\R
 \langle\varnothing\rangle_\R := \{ \varnothing \}\\
 M = \{ v_1,\ldots v_m \}$, so %TODO...
 \end{enumerate}
-\subsection{Beispiel}
+\subsection{Beispiel}\label{sec:10.7}
 \begin{enumerate}[a)]
 \item $e_i = \begin{pmatrix}
 0\\0\\1\\0\\0
@@ -555,7 +555,7 @@ Sei $X \ne 0$ eine Menge mit Verknüpfung $\star$.
 \end{enumerate}
 \marginpar{14.10.2015}
 \subsection{Bermerkung}\label{sec:1.4}
-In Halbgruppe liefert jede sinnvolle Klammerung eines Produktes mit endlich vielen Faktoren das gleiche Element.\\
+In Halbgruppe liefert jede sinnvolle Klammerung eines Produktes mit endlich vielen Faktoren das gleiche Element.
 \begin{equation}
 \tag{n = 4}
 (a \star (b \star c)) \star d \underset{\text{AG\footnotemark[1]}}{=} ((a \star b)\star c)\star d \underset{\text{AG\footnotemark[1]}}{=} (a \star b) \star (c \star d) \underset{\text{AG\footnotemark[1]}}{=} a \star (b (c \star d)) \underset{\text{AG\footnotemark}}{=} a \star ((b \star c)\star d)
@@ -572,7 +572,7 @@ n \in \R}}{a\star\ldots\star a}$ ''Potenzen eindeutig definiert''
 \item Die Menge der invertierbaren Elemente in einem Monoid $(X, \star)$ bilden bezüglich $\star$ eine Gruppe.
 \end{enumerate}
 \begin{proof}
-a) Angenommen: $e_!,e_2$ sind neutrale Elemente. Dann:\\
+a) Angenommen: $e_!,e_2$ sind neutrale Elemente. Dann:
 \begin{align}
 e_1 = e_1 \star e_2 = e_1 \star e_2 = e_2 \qquad{\text{\Lightning}}\notag
 \end{align}
@@ -1012,5 +1012,127 @@ Ist $ f \in \C[x], f \ne  0$ so ist $(f=a_nx^n+\ldots+a_0)\\
 f = a_n (x-c_1)^{m_1} \ldots (x-c_k)^{m_k}, a_n.c_i,\ldots,c_k \in \C$ (Nullstellen mit Vielfachen $m_1,m_2$)\\
 $m_1 + \ldots + m_k = \Grad(f)\\
 \Grad(f) = n$ $f$ hat $n$ Nullstellen (einschlie\ss end Vielfachheit)
+\section{Vektorräume}
+\marginpar{3.11.2015}
+\subsection{Definition}\label{sec:2.1}
+Sei $K$ ein Körper. Ein \emph{K-Vektorraum} \index{K-Vektorraum} V besitzt Verknüpfung $+$ bezüglich derer eine Kommutative Gruppe ist (Neutrales Element $\sigma$, \emph{Nullvektor}\index{Nullvektor}, Inverses zu $v \in V : -v$). Außerdem existiert Abbildung $K \times V \longrightarrow V\\
+(a,v)\longmapsto av, a \in K, v \in V$\\
+(\glqq Multiplikation\grqq von Elementen aus $V$, (''Vektoren'') mit Körperelementen (''Skalare'')), so dass gilt:\\ $(a \underset{\text{in $K$ }}{+} b)v = av \underset{\text{in $V$ }}{+} bv$ für alle $a,b \in K,\, v \in V\\
+a(v\underset{\text{in $V$ }}{+}w) = av \underset{\text{in $V$ }}{+} aw$ für alle $a \in K,\, v,w \in V\\
+\underset{\text{in $K$ }}{(ab)}v = a(\underset{\in V}{bv})$ für alle $a,b\in K, v \in V\\
+1v = v$ für alle $v \in V$.
+\subsection{Beispiel}\label{sec:2.2}
+\begin{enumerate}[a)]
+\item $K$ Körper, $n \in \N$\\
+$K^n = \left\{ \vektor{a_1}{\vdots}{a_n} : a_i \in K \right\}$ ist K-Vektorraum bezüglich $\vektor{a_1}{\vdots}{a_n} + \vektor{b_1}{\vdots}{b_n} = \vektor{a_1 + b_1}{\vdots}{a_n + b_n}\\
+a\vektor{a_1}{\vdots}{a_n} = \vektor{aa_1}{\vdots}{aa_n}$ für alle $a \in K, \vektor{a_1}{\vdots}{a_n},\vektor{b_1}{\vdots}{ab_n} \in K^n$. Raum der \emph{Spaltenvektoren}\index{Spaltenvektoren} der \emph{Länge n} über $K$.\\
+Entsprechend: Raum der Zeilenvektor, $\vektor{a_1}{\vdots}{a_n} = (a_1,\ldots,a_n)^t$\\
+Für $K = \R : \R^n\\
+n = 2,3$ Elemente aus $\R^2,\R^3$, identifizierbar mit Ortsvektor der Ebene oder des 3-dimensionalen Raumes.
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+axis x line=center,
+axis y line=center,
+axis equal,
+ymin = -1,
+xmin = -3,
+ymax = 7,
+xmax = 5.5,
+xtick ={4},
+xticklabels={a},
+ytick ={1},
+yticklabels={b}]
+\addplot [black, mark = *, nodes near coords=,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
+   \draw[->](axis cs:0,0)--(axis cs:3.88,2.88);
+       \addplot [black, mark = *, nodes near coords=,every node near coord/.style={anchor=0}] coordinates {( -1, 1)};
+              \draw[->](axis cs:0,0)--(axis cs:-0.88,0.88);
+\addplot [black, mark = *, nodes near coords=,every node near coord/.style={anchor=0}] coordinates {( 3, 4)};
+\addplot[mark=none, black] coordinates {(-1,1) (3,4)};
+\addplot[mark=none, black] coordinates {(3,4) (4,3)};
+\draw[-> ,red](axis cs:0,0)--(axis cs:2.95,3.88);
+\end{axis}
+\end{tikzpicture}\end{figure}
+\item Sei $K$ ein Körper Polynomring $K[x]$ ist ein K-Vektorraum, bezüglich
+\begin{itemize}
+\item Addition von Polynomen
+\item Multiplikation von Körperelementen mit Polynomen
+\[ a \left(\sum\limits_{i=0}^{n} a_ix^i\right):= \sum\limits_{i=0}^{n} \left(aa_i\right) x^i \in K[x] \]
+(Multiplikation von Polynomen mit Polynom $\Grad \leq 0$)\\
+\ref{sec:2.1} folgt aus den Ringeingenschaften von $K[x]$
+\end{itemize}
+\item $K$ Körper. $V$ = Abbildung ($K$,$K$) = $\{\alpha : K \to K : \alpha$Abbildung$ \}$ Addition auf V\\
+$\alpha + \beta \in V (\alpha + \beta)(x) = \alpha(x) + \beta(x)$ für alle $x \in K$\\
+Skalare Multiplikation:\\
+$a \in \R, \alpha \in V (a\alpha)(x) = a \cd \alpha(x)$ Für alle $x \in K$\\
+Nachrechnen : Damit wird $V$ ein $K$-Vektorraum
+\end{enumerate}
+\subsection{Proposition}
+$K$ Körper, $V, K-VR$
+\begin{enumerate}[a)]
+\item $a \cd \sigma = \sigma$
+\item $0 \cd v = \sigma$
+\item $(-1) \cd v = -v$\\
+a,b,c Für alle $v \in V$
+\end{enumerate}
+\subsection{Definition}
+$K$ Körper, $V\ K-VR.\\
+\varnothing + U \subseteq V$ hei\ss t \emph{Unterraum}\index{Unterraum} (\emph{Untervektorraum} \index{Untervektorraum}, oder \emph{Teilraum} \index{Teilraum}) von $V$, falls $U$ bezüglich Addition auf $V$ und der skalaren Multiplikation mit Elementen aus $K$ selbst $K$ Vektorraum ist.
+\subsection{Proposition}
+$U$ ist Unterraum von $V\\
+\Leftrightarrow$ \begin{minipage}[t]{.5\textwidth}
+$$(1)\quad u_1 + 1_2 \in U \text{ für alle }u_1,u_2 \in U $$
+$$(2)\quad au \in U \text{ für alle } u \in U, a \in L$$ 
+\end{minipage}\\
+(Nullvektor in $U$ = Nullvektor in $V$)\\
+\begin{proof}
+$\Rightarrow \checkmark
+\Leftarrow$: Da $U \ne \varnothing$, existiert $u \in U.\\
+\sigma = 0 \cd u \in U\\
+u \in U \Rightarrow -u = (-1)u \in U$\\
+Mit (1): $(U,+)$ ist kommutative Gruppe. Restliche Axiome gelten auch für $U,K$.
+\end{proof}
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\item$V-K-VR$, so ist $V$ Unterraum von $V$.\\
+und $\{0\}$ ist Unterraum von $V$ (\emph{Nullraum}\index{Nullraum})
+\item Betrachte $K[x]$ als $K-VR$. (\ref{sec:2.2}).\\
+Sei $n \in \N_0$.\\
+$U = \{ f \in K[x] : \Grad(f) \leq n \}$ Unterraum von $K[x]$
+\end{enumerate}
+\subsection{Proposition}
+Seien $U_1,U_2$ Unterräume von $K$-VR V.
+\begin{enumerate}[a)]
+\item $U_1 \cap U_2$ ist Unterraum
+\item $U_1 + U_2$ := $\{ u_1 + u_2 : u_1 \in u_1 \in U_2, u_2 \in U_2 \}$ ist Unterraum von $V$ (\emph{Summe} von Unterräume)
+\item $U_1 + U_2$ ist der kleinste Unterraum von $V$, der $U_1 \cup U_2$ enthält.
+\item $ U_1 \cap U_2$ ist im Allgemeinen kein Unterraum.\\
+\emph{Beweis}: \ref{sec:0.4}
+\end{enumerate} 
+\subsection{Definition}
+$V\ K$-VR
+\begin{enumerate}[a)]
+\item $v_1,\ldots,v_m \in V,\,a-i,\ldots a_m \in K$\\
+Dann hei\ss t\\
+$a_1v_1+\ldots a_mv_m = \sum\limits^{m}_{i=1} a_i v_i \in V$\\
+\emph{Linearkombination}\index{Linearkombination} von $v_1,\ldots,v_m$ (mit Koeffizienten $a_1,\ldots,a_m$).\\
+$\left\lbrack\right. $ Beachte: Zwei formell verschiedene Linearkombinationen derselben Vektoren können den gleichen Vektor darstellen z.B. in $\R^2:\:\\
+1\cd \vektort10 + 2 \cd \vektort01 + 3 \cd \vektort11\\
+\left.2 \cd \vektort10 + 3 cd \vektort01 + 2 \cd \vektort11 = \vektort45\right\rbrack$
+\item Ist $M \subseteq V$, so ist der von $M$ \emph{erzeugte} oder \emph{aufgespannte Unterraum}\index{aufgespannte Unterraum} $<M>_k$ (oder kurz $(<M>)$ die Menge aller endlichen Linearkombination, die man mit Vektoren aus $M$ bilden kann:\\
+$<M>$ = $\{ \sum\limits_{i=1}^{n}a_iv_1 : n \in \N,a_i \in K,v_i \in M \}\\
+<\varnothing>_K:= \{\varnothing\}\\
+M = \{ v_1,\ldots v_m \} : <M> =: <v_1,\ldots,v_m>$
+\item Ist $<M>_K = V$, so hei\ss t M \emph{Erzeugungssystem}\index{Erzeugungssystem}
+\end{enumerate}
+\subsection{Satz}
+$V\ K-$VR, $M \subseteq V$
+\begin{enumerate}[a)]
+\item $<M>_K$ ist Unterraum von V
+\item $<M>_K$ ist der kleinste Unterraum von $V$, der $M$ enthält.\\
+Insbesondere: Sind $u_1,u_2$ Unterräume von $V$, so ist $<U_1 \cup U_2>_K = U_1 + U_2$\\
+\emph{Beweis}: \ref{sec:10.7}
+\end{enumerate}
 \printindex
 \end{document}
