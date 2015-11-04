@@ -380,7 +380,7 @@ Seien $v_1,\ldots,v_n \in \R^n$
 \item $v_1,\ldots,v_m$ sind linear abhängig \textcircled{\raisebox{-1pt}{1}}\\
 $\Leftrightarrow \exists i \ldots v_i = \sum\limits^{m}_{\substack{j=1\\j\ne i} }b_jv_j \textcircled{\raisebox{-1pt}{2}} \\\Leftrightarrow \exists i : \langle v_1,\ldots,v_m \rangle_\R = \langle v_1, \ldots v_{i-1}, v_{i+!},\ldots,v_m\rangle_\R$\textcircled{\raisebox{-1pt}{3}}
 \item $v_1,\ldots,v_m$ sind linear unabhängig $\Leftrightarrow$ Jedes $v \in \langle v_1,\ldots,v_m\rangle_\R$ lässt sich auf \emph{genau eine} Weise als Linearkombination von $v_1,\ldots,v_m$ schreiben.
-\item Sind $v_1,\ldots,v_m$ linear unabhängig und es existiert $v \in \R^n mit v \ne \langle v_1,\ldots,v_m\rangle_\R$ dann sind auch $v_1,\ldots,v_m,v $ linear unabhängig
+\item Sind $v_1,\ldots,v_m$ linear unabhängig und es existiert $v \in \R^n$ mit$ v \ne \langle v_1,\ldots,v_m\rangle_\R$ dann sind auch $v_1,\ldots,v_m,v $ linear unabhängig
 \end{enumerate}
 \begin{proof}
 a) \textcircled{\raisebox{-1pt}{1}} $\Rightarrow$ \textcircled{\raisebox{-1pt}{2}}\\
@@ -1139,5 +1139,120 @@ $V\ K-$VR, $M \subseteq V$
 Insbesondere: Sind $u_1,u_2$ Unterräume von $V$, so ist $<U_1 \cup U_2>_K = U_1 + U_2$\\
 \emph{Beweis}: \ref{sec:10.7}
 \end{enumerate}
+\subsection{Definition}
+$V\ K$-VR $V$ hei\ss t \emph{endlich erzeugt}\index{endlich erzeugt}, falls es eine \emph{endliche} Teilmenge $M \subseteq V$ gibt mit $V = <M>_K$
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\item $K^n = \left\{ \vektor{a_1}{\vdots}{a_n} : a_i \in K\right\}\\
+K^n$ ist endlich erzeugt.\\
+$e_1,\ldots, e_n$ \emph{Einheitsvektor}\index{Einheitsvektor}
+$e_i = \vektor{0\\\vdots}{1}{\vdots\\0}\leftarrow i\\
+K^n = <e_1,\ldots,e_n>_K$, denn $\vektor{a_1}{\vdots}{a_n} = a_1e_1 + \ldots + a_ne_n$
+\item $K[x]$ als $K$-Vr ist nicht endlich erzeugt. Angenommen e existiert $f_1,\ldots,f_n \in K[x]$ mit $K[x] = <f_1,\ldots,f_n>_K$.\\
+Sei $t,\,\max \Grad(f_i) \in \N_0 \cup \{-\infty\}$\\
+Dann haben alle Polynome in $<f_1,\ldots,f_n>_K$ höchstens Grad $t$. Also $x^{t+1} \in K[x] \setminus <f_1,\ldots,f_n>_K \Lightning\\
+M = \{1,x,x^2,x^3,\ldots \} = \{ x^i: i \in \N_0 \}\\
+K[x] = <M>_K.\qquad f = \sum\limits_{n=0}^{t} a_i x^i$
+\item $n \in \N. \qquad U = \{ f \in K[x]: \Grad(f) = n \}$\\
+Unterram von $K[x]$, endlich erzeugt
+\end{enumerate}
+\subsection{Definition}
+Sei $V\ K$-VR, $v_1,\ldots,v_m \in V$ hei\ss en \emph{linear abhängig}\index{linear abhängig}, wenn es $a_1,\ldots,a_n \in K$, \emph{nicht alle = 0}, gibt mit \[ a_1v_1 + \ldots + a_m v_m = \sigma \]
+(Beachte: Immer mit $0\cd v_1 + \ldots + 0 \cd v_m = \sigma$,
+aber bei lineare Abhängigkeit soll es noch eine andere Möglichkeit geben)
+Andernfalls nennt man $v_1,\ldots,v_m$ \emph{linear unabhängig}\index{linear unabhängig}:\\
+(D.h aus $a_1v_1+\ldots+a_mv_m = \sigma$ folt $a_1 = \ldots = a_m = 0$)\\
+Entsprechend: $\{v_1,\ldots,v_m\}$ linear abhängig, linear unabhängig.\\
+$\varnothing$ per Definition linear unabhängig.
+Klar: Teilmenge von linear unabhängigen Vektoren wieder linear unabhängig
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\item $\sigma$ ist linear abhängig: $1 \cd \sigma = \sigma$
+\item $v,w \in V, v \ne \sigma \ne w.$\\
+Wann sind v und w linear abhängig?\\
+$v,w$ linear abhängig $\Rightarrow \exists a,b \in K$,nicht beide = 0 mit $a \cd v + b \cd w = \sigma$\\
+Angenommen : $a \ne 0\qquad a \cd v = -b \cd w | a^{-1}$ (K Körper)\\
+$v = 1 \cd v = (a^{-1}a)v = a^{-1}(av) = a^{-1}(-bw) = (-a^{-1}b)w \in <w>_K = \{ cw: c \in K \}\\
+d \in K\\
+dv = (-da^{-1}b)w \in <w>_K\\
+<v>_K \subseteq <w>_K$\\
+Dann auch $b \ne 0$.\\
+Angenommen $b = 0,\quad a \cd v = -0 w = \sigma\\
+\phantom{Angenommen\ b =} v = a^{-1} \sigma = \sigma \Lightning$
+Vertausche Rollen von $v,w : <w>_K \subseteq <v>_K\\
+v,w$ linear abhängig $\Leftrightarrow <v>_K = <w>_K$
+\begin{proof}
+$\Rightarrow \checkmark\\
+\Leftarrow v \in <v>_K = <w>_K\\
+\Rightarrow v = c \cd w$ für ein $c \in K$.\\
+$\Rightarrow \sigma = -v + c \cd w = (-1) v + c \cd w\\
+\Rightarrow v,w$ linear abhängig.
+\end{proof}
+\item $e_1,\ldots e_n \in K^n$ sind linear unabhängig.\\
+$\vektor0\vdots0= a_1e_1 + \ldots + a_n e+n = \vektor{a_1}{\vdots}{a_n}\\
+\Rightarrow a_1 = \ldots a_n = 0.$
+\item $\vektor123,\vektor321,\vektor234 \in \R^3$ linear abhängig, linear unabhängig? Für welche $a,b,c \in \R$ gilt $a\vektor123+b\vektor321+c\vektor234 = \vektor000$?\\
+Führt auf LGS für die unbekannten $a,b,c\\
+\begin{matrix}
+1a&3b&2c&=0\\
+2a&2b&3c&=0\\
+3a&1b&4c&=0
+\end{matrix}\\
+$Gau\ss:\\
+$\begin{pmatrix}
+1&3&2&&0\\
+2&2&3&&0\\
+3&1&4&&0
+\end{pmatrix} \quad \to \quad 
+\begin{pmatrix}
+1&3&2&&0\\
+0&-4&-1&&0\\
+0&-8&-2&&0
+\end{pmatrix}
+\quad \to \quad 
+\begin{pmatrix}
+1&3&2&&0\\
+0&1&0.25&&0\\
+0&0&0&&0
+\end{pmatrix}\\
+c$ frei wählbar, $b = - \frac14 c\qquad a = -3b-2c = -\frac34c -2c = -\frac54c$\\
+z.B $c = 4,b =-1,a=-5\\
+(-5)\vektor123 + (-1) \vektor321 + 4 \vektor234 = 0$\\
+Vektoren sind linear abhängig.
+\end{enumerate}
+\subsection{Bemerkung}
+Man kann auch für unendliche Mengen $M \subseteq V$ lineare Unabhängigkeit definieren.\\
+Jede endliche Teilmenge von $M$ ist linear unabhängig. Zum Beispiel $\{ x^i: i \in \N_0 \}$ linear unabhängig in $K[x]$.
+\subsection{Satz !!!}\label{sec:2.15}
+$V\ K$-VR, $v_1,\ldots,v_m$ sind linear abhängig
+\begin{enumerate}
+\item$\Leftrightarrow \exists i : v_i = \sum\limits_{\substack{j=1\\j\ne i} }^{m} b_j v_j$ für geignete $b_j \in K\\
+\Leftrightarrow \exists i : <v_1.\ldots, v_m>_K = <v_1,\ldots,v_{i-1},v_{i+1},\ldots,v_m>_K$
+\item $v_1,\ldots,v_m$ linear unabhängig\\
+$\Leftrightarrow$ jedes $v \in <v_1,\ldots v_m$ lässt sich als $v_1,\ldots,v_m$ schreiben.
+\item Sind $v_1,\ldots,v_m$ linear unabhängig und ist $V \nin <v_1,\ldots,v_m>_K$, so sind $v_1,v_m,v$ linear unabhängig.
+\begin{proof}
+Wie in \ref{sec:0.11}, aber $v_1,\ldots,v_m \in V$
+\end{proof}
+\end{enumerate}
+\subsection{Definition}
+Sei $V$ endliche erzeugter $K$-VR.\\
+Eine endliche Teilmwnge $B \subseteq V$ heißt \emph{Basis}\index{Basis} von V, falls
+\begin{enumerate}[(1)]
+\item $V \langle B \rangle_K$
+\item $B$ linear unabhängig
+\end{enumerate}
+($V = \{ \sigma \}: \varnothing$ ist Basis von $V$)
+\subsection{Beispiel}
+nächsten Dienstag
+\subsection{Satz (Existenz von Basen)}
+Sei $V$ endliches Erzeugter $K$-VR. Dann enthält jedes endliche Erzeugendensystem von $V$ eine Basis vom $V$.
+\begin{proof}
+Sei $M \subseteq V$ endlich mit $V = \langle M \rangle_K$.
+Ist M linear unabhängig, so ist M Basis $\checkmark$\\
+ist M linear abhängig, so existier nach \ref{sec:2.15}a)\\
+$v \in M$ mit $V = \langle M \rangle_K = \langle M \setminus \{v\} \rangle_K$\\
+Da M endlich, endet dieses Verfahren mit Basis
+\end{proof}
 \printindex
 \end{document}
