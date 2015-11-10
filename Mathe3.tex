@@ -1244,7 +1244,53 @@ Eine endliche Teilmwnge $B \subseteq V$ heißt \emph{Basis}\index{Basis} von V, 
 \end{enumerate}
 ($V = \{ \sigma \}: \varnothing$ ist Basis von $V$)
 \subsection{Beispiel}
-nächsten Dienstag
+\begin{enumerate}[a)]
+\item $e_1,\ldots,e_n$ Basis $K^n$ (\emph{kanonische Basis}\index{kanonische Basis})\\
+$\vektor{a_1}\vdots{a_n} = a_1e_1+\ldots+a_ne_n$
+\item $\vektor12{}, \vektor31{}, K = \Z_5:\\
+3 \cd \vektor12{} = \vektor31{}\\
+\vektor00{} = 3\vektor12{}- \vektor31{} = 3\vektor12{} + 4 \vektor31{}$ bilden Basis von $\Z_7^2$\\
+Lineare Unabhängigkeit:\\
+$a \vektor12{} + b \vektor31{} = \vektor00{}$\\
+Führt auf LGS für a,b:\\
+$\begin{matrix}
+1 \cd a& + 3 \cd b& = 0\\
+2 \cd a& + 1 \cd b& = 0
+\end{matrix}$
+Gau\ss-Algorithmus (funktioniert über jedem Körper $K)\\
+\begin{pmatrix}
+1&3&&0\\
+2&1&&0
+\end{pmatrix}\quad\to\quad \begin{pmatrix}
+1&3&&0\\
+0&2&&0
+\end{pmatrix}\quad\xrightarrow{II \cd 4}\quad \begin{pmatrix}
+1&3&&0\\
+0&1&&0
+\end{pmatrix}\\
+b = 0\quad, a +3b = 0,\quad a = 0\\
+\left\langle\vektor12{},\vektor13{}\right\rangle_{\Z_7} = \Z_7^2$\\
+Sei $\vektor{c}d{} \in \Z_7^2$\\
+Gesucht sind $a,b \in \Z_7$\\
+Gau\ss : \\
+$\begin{matrix}
+1 \cd a& + 3 \cd b& = c\\
+2 \cd a& + 1 \cd b& = d
+\end{matrix}\\
+\begin{pmatrix}
+1&3&&c\\
+2&1&&d
+\end{pmatrix}\quad\to\quad\begin{pmatrix}
+1&3&&c\\
+0&2&&d-2c
+\end{pmatrix}\quad\xrightarrow{II \cd 4}\quad\begin{pmatrix}
+1&3&&c\\
+0&2&&4d-c
+\end{pmatrix}\\
+b = 4d - c =4d + 6c\\
+a = c - 3b = 4c + 2d\\
+\vektor{c}{d}{}= (4c+2d)\vektor12{} + (4d  + 6c)\vektor31{}$
+\end{enumerate}
 \subsection{Satz (Existenz von Basen)}
 Sei $V$ endliches Erzeugter $K$-VR. Dann enthält jedes endliche Erzeugendensystem von $V$ eine Basis vom $V$.
 \begin{proof}
@@ -1254,5 +1300,87 @@ ist M linear abhängig, so existier nach \ref{sec:2.15}a)\\
 $v \in M$ mit $V = \langle M \rangle_K = \langle M \setminus \{v\} \rangle_K$\\
 Da M endlich, endet dieses Verfahren mit Basis
 \end{proof}
+\subsection{Lemma}\label{sec:2.19}
+$V$ endlich erzeugter $K-$VR\\
+$B = \{v_1,\ldots,v_n\}$ Basis von $V$. Sei $\sigma \ne w \in V.$\\
+Dann $w = \sum\limits^n_{j=1}a_jv_j, a_j \in K$.\\
+Ist $a_i \ne 0$, so ist $(B \setminus \{v_j \}) \cup \{w\}$ wieder eine Basis von $V$
+\begin{proof}
+$w = \sum\limits_{j=1}^{n}a_jv_j \Rightarrow a_iv_j = w - \sum\limits_{\substack{j=1\\j\ne i}}^{n}a_iv_j\\
+\Rightarrow v_i = a^{-1}(a_iv_i)= a_i^{-1}w + \sum\limits_{\substack{j=1\\j\ne i}}^{n}(a_i^{-1}a_j)v_j \\
+v_i \in \langle(B\setminus \{v_i \} \cup \{w\} )_K\\
+V = \langle B \rangle_K = \langle B \cup \{w\}\rangle_K \underset{\ref{sec:2.15}}{=} \langle B \setminus \{v_i\} \cup \{w\}\rangle_K$\\
+Zeige $(B \setminus \{v_i\} \cup \{w\})$ ist linear unabhängig:\\
+Angenommen $\sigma = \sum\limits^6_{\substack{j=1\\j\ne1}} c_jv_j + cw = \sum\limits^6_{\substack{j=1\\j\ne1}} c_iv_j + \sum\limits^6_{\substack{j=1\\j\ne1}}ca_j v_j = \sum\limits^6_{\substack{j=1\\j\ne1}} (c_j + ca_j)v_j + ca_iv_i\\
+v_1,\ldots,v_n$ linear unabhängig\\ $\Rightarrow (1)ca_i = 0$ und \par
+$(2)c_j + ca_j = 0$ für alle $j \ne i\\
+(1) c a_i = 0,a_i \ne 0 \Rightarrow c = 0\\
+(2) c_j = 0$ für alle $i \ne j$.\\
+Fertig.
+\end{proof}
+\subsection{Satz (Austauschsatz von Steinitz)}\label{sec:2.20}
+\hfill(Ernst Steinitz, 1871-1928, Kiel)\\
+V endlich. erzeugter $K-$VR, $B$ Basis von $V$, $M$ endliche linear unabhängige Teilmenge von $V$. Dann existiert $C \subseteq B$ mit $\abs{C} = \abs{M}$, so dass $(B \setminus C) \cup M$ Basis von $V$ ist.\\
+Insbesondere $\abs{M} \leq \abs{B}$.\\
+\begin{proof}
+Sei $\abs{M} = k$\\
+Induktions nach $k.\\
+k = 0 \checkmark\\
+k > 0.$ Sei $M = \tilde{M} \cup \{w\}, \abs{\tilde{M}}= k - 1$\\
+Induktionsvorraussetzung: Existiert $\tilde{C} \subseteq B$ mit $\abs\tilde{C} = \abs\tilde{M}$ und $(B \setminus\tilde{C}) \cup \tilde{M}$ ist Basis von $V\\
+w = \sum\limits_{u\in B \setminus \tilde{C}}^{}a_uu + \sum\limits_{v \in \tilde{M}}^{}a_vv$\\
+Mindestens eines der $a_U$ ist $\ne 0$, denn sonst $W = \sum\limits_{v \in \tilde{M}}^{} a_vv$,also $M = \tilde{M} \cup \{w\}$ linear abhängig $\Lightning$\\
+Also sei $a_i \ne 0$ für ein $u \in B \setminus \tilde{C}$.\\
+Nach \ref{sec:2.19} ist $(B \setminus C) \cup M$ Basis von $v_i$ wobei $c = \tilde{C} \cup \{w\}$.\\
+Fertig.
+\end{proof}
+\subsection{Korollar}\label{sec:2.21}
+$V$ endlich erzeugre $K-$VR
+\begin{enumerate}[a)]
+\item Je zwei Basen von $V$ enthalten gleich viele Vektoren
+\item Jede linear unabhängige Teilmenge von $V$ ist endlich
+\item (Basisergänzungssatz)\index{Basisergänzungssatz}\\
+Jede linear unabhängige Menge von Vektoren lässt sich zu Basis ergänzen.
+\end{enumerate}
+\begin{proof}
+a) $B, \tilde{B}$ Basen von $V$.\\
+\ref{sec:2.20}:$\abs{B} \leq \abs\tilde{B}$\\
+\phantom{\ref{sec:2.20}}:$\abs\tilde{B} \leq \abs{B}$\\
+Also $\abs{B} = \abs\abs\tilde{B}$.\\
+b) Angenommen $V$ enthält unendlich linear abhängige Teilmenge $M$, Sei $B$ Basis von $V$. Wähle $M_0 \subset M$ mit $M_0$ endlich, $\abs{M_0} > \abs{B}$.\\
+Nach Voraussetzung ist $M_0$ linear abhängig Widerspruch zu \ref{sec:2.20}\\
+c) Sei $M$ linear unabhängig Teilmenge von $V$. Nach b) ist $M$ endlich.\\
+Sei $B$ eine Basis von $V$ \ref{sec:2.20}: $\exists c \subseteq B, \abs{c} = \abs{M}$ so dass $\underset{\text{Basisergänzung}}{\uwave{(B \setminus C )}}\cup M$ Basis.
+\end{proof}
+\subsection{Satz}
+$V$ endlich erzeugter $K-$VR,\\
+$B \subseteq V.$ Dann sind äquivalent:\\
+\begin{enumerate}[(1)]
+\item $B$ ist Basis von V
+\item $B$ ist maximal unabhängige Teilmenge von $V$
+\item $B$ ist minimales Erzeugungssystem von $V$ (d.h. $\langle B \setminus \{w\}\rangle_K$ $\ne V$ für alle $w \in B$.)
+\end{enumerate}
+\begin{proof}
+$(2) \Rightarrow (1)$\\
+Angenommen $\langle B \rangle_K \ne V$\\
+Sei $v \in V \setminus \langle B \rangle_K$.\\
+\ref{sec:2.15}c): $B \cup \{v\}$ linear abhängig $\Lightning.\ \langle B \rangle_K = V\ B$ ist Basis\\
+$(1) \Rightarrow (2):$ Angenommen $B \subseteq C,\, C$ linear unabhängig.\\
+\ref{sec:2.21} c ist endlich.\\
+\ref{sec:2.20} $\abs{c} \leq \abs{B}$ Daher $B = c$.\\
+$(3) \Rightarrow (1)$. Angenommen $B$ ist linear abhängig\\
+\ref{sec:2.15}a): $\exists w\ in B:\: V = \langle B \rangle_K = \langle B \setminus \{w\}\rangle_K \Lightning$\\
+$B$ ist linear unabhängig also Basis.\\
+$(1) \Rightarrow (3)$. Angenommen $\exists w \in B$ mit $\rangle B \setminus \{w\}\rangle_K = V_i = \langle B \rangle_K$\\
+\ref{sec:2.15}a): $B$ ist linear abhängig $\Lightning$
+\end{proof}
+\subsection{Definition}
+$V\ K-$VR.
+\begin{enumerate}[a)]
+\item Ist $V$ endlich erzeugt, $B$ ist Basis von $V$, $\abs{B} = n$, so hat $V$ \emph{Dimension n}\index{Dimension},\\
+$\dim_K(V) = n$ (oder einfach $\dim(V) = n)$
+\item ($V$ hei\ss t nicht endlich erzeugt, so hei\ss t $V$ \emph{unendlich-dimensional}\index{unendlich-dimensional})\\
+(Also endlich erzeugt = endlich-dimensional)
+\end{enumerate}
 \printindex
 \end{document}
