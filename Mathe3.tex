@@ -1,3 +1,4 @@
+
 \input{header}
 \hypersetup{%
 pdfborder = {0 0 0}
@@ -646,7 +647,7 @@ Sei $n \in \N, n > 1 $
 \begin{enumerate}[a)]
 \item Die Elemente in $(\Z_n, \circledcirc)$, die invertierbar bezüglich $\circledcirc$ sind, sind genau diejenigen $a \in \Z_n$ mit ggT$(a,n) = 1$.\\
 Für solche a bestimmt man das Inverse folgenderma\ss en:\\
-Bestimme $s,t \in \Z$ mit $s \cd a + t \cd n =1$ \hfill(\index{Erweiterter Euklidischer Algorithmus}Erweiterter Euklidischer Algorithmus)\\
+Bestimme $s,t \in \Z$ mit $s \cd a + t \cd n =1$ \hfill(\index{Erweiterter Euklidischer\\ Algorithmus}Erweiterter Euklidischer Algorithmus)\\
 Dann ist $a^{-1} = s \mod n$
 \item ${\Z_n}^* := \{a \in \Z_n :$ ggT$(a,n)=1 \}$ ist Gruppe bezüglich $\circledcirc$.\\
 $\abs{{\Z_n}^*}=: \varphi(n)$ \index{Euler'sche $\varphi$-Funktion}\qquad\emph{Euler'sche $\varphi$-Funktion}\hfill(Leonard Euler 1707-1783)
@@ -1352,7 +1353,7 @@ Nach Voraussetzung ist $M_0$ linear abhängig Widerspruch zu \ref{sec:2.20}\\
 c) Sei $M$ linear unabhängig Teilmenge von $V$. Nach b) ist $M$ endlich.\\
 Sei $B$ eine Basis von $V$ \ref{sec:2.20}: $\exists c \subseteq B, \abs{c} = \abs{M}$ so dass $\underset{\text{Basisergänzung}}{\uwave{(B \setminus C )}}\cup M$ Basis.
 \end{proof}
-\subsection{Satz}
+\subsection{Satz}\label{sec:2.22}
 $V$ endlich erzeugter $K-$VR,\\
 $B \subseteq V.$ Dann sind äquivalent:\\
 \begin{enumerate}[(1)]
@@ -1364,23 +1365,161 @@ $B \subseteq V.$ Dann sind äquivalent:\\
 $(2) \Rightarrow (1)$\\
 Angenommen $\langle B \rangle_K \ne V$\\
 Sei $v \in V \setminus \langle B \rangle_K$.\\
-\ref{sec:2.15}c): $B \cup \{v\}$ linear abhängig $\Lightning.\ \langle B \rangle_K = V\ B$ ist Basis\\
+\ref{sec:2.15}c): $B \cup \{v\}$ linear abhängig \Lightning$.\ \langle B \rangle_K = V\ B$ ist Basis\\
 $(1) \Rightarrow (2):$ Angenommen $B \subseteq C,\, C$ linear unabhängig.\\
 \ref{sec:2.21} c ist endlich.\\
 \ref{sec:2.20} $\abs{c} \leq \abs{B}$ Daher $B = c$.\\
 $(3) \Rightarrow (1)$. Angenommen $B$ ist linear abhängig\\
-\ref{sec:2.15}a): $\exists w\ in B:\: V = \langle B \rangle_K = \langle B \setminus \{w\}\rangle_K \Lightning$\\
+\ref{sec:2.15}a): $\exists w\ in B:\: V = \langle B \rangle_K = \langle B \setminus \{w\}\rangle_K $\Lightning\\
 $B$ ist linear unabhängig also Basis.\\
 $(1) \Rightarrow (3)$. Angenommen $\exists w \in B$ mit $\rangle B \setminus \{w\}\rangle_K = V_i = \langle B \rangle_K$\\
-\ref{sec:2.15}a): $B$ ist linear abhängig $\Lightning$
+\ref{sec:2.15}a): $B$ ist linear abhängig \Lightning
 \end{proof}
-\subsection{Definition}
+\subsection{Definition}\label{sec:2.23}
 $V\ K-$VR.
 \begin{enumerate}[a)]
 \item Ist $V$ endlich erzeugt, $B$ ist Basis von $V$, $\abs{B} = n$, so hat $V$ \emph{Dimension n}\index{Dimension},\\
 $\dim_K(V) = n$ (oder einfach $\dim(V) = n)$
 \item ($V$ hei\ss t nicht endlich erzeugt, so hei\ss t $V$ \emph{unendlich-dimensional}\index{unendlich-dimensional})\\
 (Also endlich erzeugt = endlich-dimensional)
+\end{enumerate}
+\subsection{Korollar}\label{sec:2.24}
+$V\ K$-VR, $\dim_K(V) = n,\quad B \subseteq V,\abs{B} = n$
+\begin{enumerate}[a)]
+\item Ist $B$ linear unabhängig, dann ist $B$ Basis.
+\item Ist $\raum{B}_K = V$, dann ist $B$ Basis\\
+\emph{Beweis}: Folgt aus \ref{sec:2.22}
+\end{enumerate}
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\item $\dim_K(K^n) = n,$ da $e_1,\ldots,e_n$ Basis.
+\item $V = \R^4\\
+U = \raum{\underset{= u_1}{\tiny\vektor12{0\\1}},\underset{= u_2}{\tiny\vektor02{1\\0}}}_\R\\
+u_1,u_2$ sind linear unabhängig.\\
+$a{\tiny\vektor12{0\\1}} + b \cd {\tiny\vektor02{1\\0}} = {\tiny \vektor00{0\\0}}$ nur für $a,b =0\\
+\{u_1,u_2\}$ Basis von $U$\qquad $\dim_R(U) = 2.$\\
+Ergänze $u_1,u_2$ zu Basis von $V = \R^4$:\end{enumerate}
+\emph{Erste Möglichkeit}:\\
+$e_1,e_2,e_3,e_4$ kanonische Basis des $R^4$\\
+$U_1 = 1e_1 + 2e_2 + 0 e_3 + 1e_4$\\
+\ref{sec:2.19}: $U_1,e_3,e_4$ Basis von $\R^4$\\
+$U_2 = au_1 + be_2 + ce_3 + de_4$=
+\[\vektor02{1\\0}= a\vektorf1201 + \vektorf0b00 + \vektorf00c0 + \vektorf000d \qquad c = 1 \]
+\ref{sec:2.19} : $u_1,u_2,e_3,e_4$ Basis von $\R^4$\\
+\emph{Zweite Möglichkeit}:\\
+\ref{sec:2.15}c):\\
+$v_1,\ldots,v_m$ linear unabhängig\\
+$v \notin \raum{v_1,\ldots,v_m} \Rightarrow v_1,\ldots,v_m$ linear unabhängig.
+$U = \left\{ \vektorf{a}{2a+2b}b{a}: a,b \in \R \right\}\\
+e_1 \notin U$ (1. Koordinate $\ne$ 4. Koordinate)\\
+\ref{sec:2.15}c) $U_1,U_2,e_1$ linear unabhängig.\\
+$\raum{u_1,u_2,e_1} = ?\\
+U_1 := \left\{ \vektorf{a+c}{2a+2b}{b}{a}:a,b,c \in \R \right\}\\
+e_2 \notin U$\\
+\ref{sec:2.15}c): $u_1,U_2,e_1,e_2$ linear unabhängig\\
+\ref{sec:2.24}: $\{u_1,u_2,e_1,e_2\}$ Basis von $\R^4$
+\subsection{Satz}\label{sec:\thesubsection}
+$V\ K-$VR, $\dim_K(V) = n$.\\
+\begin{enumerate}[a)]
+\item Ist $U$ Unterraum von $V$, so ist $\dim_K(U) \leq n$. Ist $\dim_K(U) = n$, so ist $U = V$.
+\item (\index{Dimensionenformel}Dimensionenformel)\\
+$U,W$ Unterräume von $V$, so gilt:\\
+\marginpar{\flushleft$A,B$ endliche Mengen\\$(\abs{A \cup B} = \abs{A} + \abs{B} - \abs{A \cap B})$}
+$\dim(U+W) = \dim(U) + \dim(W) - \dim(U \cap W)$
+\end{enumerate}
+\begin{proof}
+a) Ergänze Basis von $U$ zu Basis von $V$. (\ref{sec:2.21}c)\\
+b) Basis von $U \cup W\to$ Basis von $U$\\
+\phantom{b) Basis von $U \cup W$} $\to$ Basis von $w$ (WHK 9.23)
+\end{proof}
+\subsection{Definition}\label{sec:\thesubsection}
+$V\ K$-VR, $\dim_K(V) = n,\, B = (v_1,\ldots,v_n)$ \emph{geordnete}\index{geordnete Basis} von $V$.\\
+Jedes $v \in V$ hat \emph{eindeutige} Darstellung $v = \sum\limits_{i=1}^{n} a_iv_i\qquad a_i \in K\quad \ref{sec:2.15}$b)\\
+$(a_1,a_n $(in dieser Anordnung) hei\ss en \emph{Koordinaten}\index{Koordinaten} von $V$ bezüglich $B$)
+Insbesondere $v_i$ hat Koordinaten $(0,\ldots,0,1,0,\ldots,0)$
+\subsection{Beispiel}\label{sec:\thesubsection}
+\begin{enumerate}[a)]
+\item $V =K^n,(e_1,\ldots,e_n) = B$ kanonische Basis.\\
+Koordinaten von $v = \vektor{a_1}{\vdots}{a_n}$ bezüglich $B$: $(a_1,\ldots,a_n)$\\
+\emph{Kartesische Koordinaten} \index{Kartesische Koordinaten}\\ \phantom{ }\hfill (R. Decartes, 1596-1650)
+\item V = $\mathbb{Q}^3, B = \left({\small \vektor120,\vektor101,\vektor012}\right)\\
+B$ ist geordnete Basis von $V$. (nachprüfen)\\
+Koordinaten von $\vektor100$ bezüglich $B$:
+\[ \vektor100 = a_1\vektor120 + a_2\vektor101 + a_3\vektor012 \]
+Gau\ss\ Algorithmus:\\
+$\begin{pmatrix}
+1&1&0&&1\\
+2&0&1&&0\\
+0&1&2&&0
+\end{pmatrix}\quad\to\quad
+\begin{pmatrix}
+1&1&0&&1\\
+0&-2&1&&-2\\
+0&1&2&&0
+\end{pmatrix}\quad\to\quad
+\begin{pmatrix}
+1&1&0&&1\\
+0&1&-0.5&&1\\
+0&1&2&&0
+\end{pmatrix}\to\\
+\begin{pmatrix}
+1&1&0&&1\\
+0&1&-0.5&&1\\
+0&0&2.5&&-1
+\end{pmatrix}\quad\to\quad
+\begin{pmatrix}
+1&1&0&&1\\
+0&1&-0.5&&1\\
+0&0&1&&-0.4
+\end{pmatrix}\\
+a_3 = -0,4\\
+a_2 = 0.8\\
+a_1 = 0.2$\\
+Koordinaten von $\vektor100$ bezüglich $B\ \left(\frac15,\frac45,-\frac25\right)$
+\end{enumerate}
+\begin{figure}[h!]
+\centering
+\caption{Eindimensionale Unterräume im $\R^2$}
+\begin{tikzpicture}
+\begin{axis}[axis equal, axis y line = center, axis x line = center, xmax = 3 , ymax = 2, ymin = -2, xmin = -3]
+\plot{x +1};
+\plot{-x -2};
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+\subsection{Definition}
+$V\ K$-VR, $U$ Unterraum von $V, w \in V.$ Dann hei\ss t $w + U := \{w + u :u \in U \}$ \emph{affiner Unterraum} \index{affiner Unterraum} von $v$.\\
+($w+$ ist im allgemeinen kein Untervektorraum)\\
+$\dim(w+u) := \dim(U)$
+\subsection{Satz}
+$V\ K$-VR, $U,W$ Unterräume von $V$,
+\begin{enumerate}[a)]
+\item $w + U$ ist Unterraum \hfill \textcircled{1}\\
+$\Leftrightarrow W \in U$\hfill\textcircled{2}$\\
+\Leftrightarrow w + U = U$ \hfill \textcircled{3}
+\item Ist $v \in w + U$, so ist $v + U = w + U$
+\item Sind $v_1 + U , v_w + W$ affine Unterräume, so ist entweder $(v_1 + U) \cap (v_2 + w) = \varnothing$ oder es existiert $v \in V$ mit $(v_1 + U) \cup (v_2 + W) = v + (U \cup w)$ affiner Unterraum.
+\begin{proof} \textcircled{3} $\Rightarrow$ \textcircled{1} $\checkmark$\\
+a) \textcircled{1} $\Rightarrow$ \textcircled{2}\\
+$\phantom\Rightarrow w + U$ Unterraum $\Rightarrow \sigma \in w + U\\
+\Rightarrow\exists u \in U$ mit $w + u = \sigma\\
+\Rightarrow w = - u \in U$\\
+\textcircled{2} $\Rightarrow$ \textcircled{3}: $w \in U, w + U \subseteq U$ (da $U$ Unterraum)\\
+Sei $u \in U$. Dann $u-w \in U\qquad u = w + (u-w) \in w + U$\\
+b) $v \in w + U,\, v = w + u$ für ein $n \in U\\
+v + U = w \underbrace{u+U}_{= U\text{ nach a)}} = w +U$\\
+c) Angenommen $(v_1 + U) \cup (v_2 + W) \ne \varnothing$\\
+Sei $v \in (v_1 + U) \cup (v_2 + U)$\\
+Nach b) $v+U = v_1 + U$\\
+\phantom{Nach b)} $v+W +v_2 +w\\
+$\newpage
+$(v_1 + U) \cup (v_2 + W) = (v+ U) \cup (v+W)\\
+\phantom{(v_1 + U) \cup (v_2 + W)} = v + (U \cap W)\\
+\supseteq \checkmark\\
+\subset x \in (v+ U) \cup (v+ W), x= v+ u = v + w, u \in U,w\in W\\
+u = W \in U \cap W.\\
+x = v + u  = v + (U \cap W)$
+\end{proof}
 \end{enumerate}
 \printindex
 \end{document}
