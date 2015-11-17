@@ -6,6 +6,7 @@
 \usepackage{amssymb,amsthm,amsfonts}
 \usepackage{graphicx}
 \usepackage{ifthen}
+%\usepackage{gauss}
 \usepackage{tikz}
 \usepackage{mathtools}
 \usepackage{makeidx}
@@ -65,5 +66,21 @@
 \newcommand\vektorf[4]{\begin{pmatrix}
 #1\\#2\\#3\\#4
 \end{pmatrix}}
+\newcount\vectorcount
+\renewcommand*\vector[1]{%
+  \global\vectorcount#1
+  \begin{pmatrix}
+    \vectornext
+}
+\def\vectornext#1{%
+  #1
+  \global\advance\vectorcount-1
+    \ifnum\vectorcount>0
+      \\
+      \expandafter\vectornext
+    \else
+      \end{pmatrix}
+    \fi
+}
 \DeclareMathOperator{\Grad}{Grad}
 \makeindex

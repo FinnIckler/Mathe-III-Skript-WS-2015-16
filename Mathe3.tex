@@ -13,494 +13,7 @@ pdfborder = {0 0 0}
 \begin{center}
 \Huge Ende des SS 2015
 \end{center}
-\section{Der Vektorraum $\R^n$}\index{Vektorraum}
-$n \in \N\quad \R^n = \left\{ \begin{pmatrix}
-a_1\\
-\vdots\\
-a_n
-\end{pmatrix} : a_1 \in \R \right\}$\\
-\emph{Spaltenvektoren}\index{Spaltenvektoren} der Länge $n:\: \begin{pmatrix}
-a_1\\\vdots\\a_n
-\end{pmatrix} = (a_1,\ldots,a_n)^t\\
-a_1,\ldots,a_n$ \emph{Komponente}\index{Komponente} der Spaltenvektoren.\\
-Wie bei Matrizen:\\
-\begin{minipage}{.5\textwidth}\[ \begin{pmatrix}
-a_1\\\vdots\\a_n
-\end{pmatrix}+ \begin{pmatrix}
-b_1\\\vdots\\b_n
-\end{pmatrix} = \begin{pmatrix}
-a_1 + b_1\\\vdots\\a_n + b_n
-\end{pmatrix}\]
-\end{minipage}%
-\begin{minipage}{.5\textwidth}
-(Multiplikation entspricht der Matrizenmultiplikation\index{Matrizenmultiplikation} und ist nicht möglich falls $n > 1$)
-\end{minipage}\\
-Multiplikation eines Spaltenvektors mit einer Zahl (\emph{Skalar})
-\[ a \cd \begin{pmatrix}
-a_1\\\vdots\\a_n
-\end{pmatrix} = \begin{pmatrix}
-aa_1\\\vdots\\aa_n
-\end{pmatrix} \]
-Addition+Abbildung : $\R^n \times \R^n \to \R^n$\\
-$\R^n$ mit Addition und Multiplikation mit Skalaren : \emph{$\R$-Vektorraum}\\
-Die Vektoren im $\R^1 (= \R),\R^2$ und $\R^3$ entsprechen Punkten auf der \index{Zahlengerade}Zahlengerade, Ebene, dreidimensionalen Raums.
-\begin{figure}[h!]
-\centering
-\caption{Ein \index{Vektor}Vektor dargestellt durch seinen Ortsvektor}
-\begin{tikzpicture}
-\begin{axis}[axis equal, axis y line = center, axis x line = center, xmax = 3 , ymax = 3, ymin = 0 , xmin = -0.5,xtick={0.1,2},ytick={2},xticklabels={$\begin{pmatrix}
-0\\0
-\end{pmatrix}$,$a_1$},yticklabels={$a_2$}]
-\draw[->] (axis cs:0,0)--(axis cs: 2,2);
-\end{axis}
-\end{tikzpicture}
-\end{figure}
-Punkte des $\R^2,\R^3$ lassen sich identifizieren mit, {\em Ortsvektoren}\index{Ortsvektoren} Pfeile mit Beginn in 0 (Komp = 0) und Ende im entsprechenden Punkt\\
-Addition von Spaltenvektoren entspricht der Addition von Ortsvektoren entsprechend der \index{Parallelogrammregel}Parallelogrammregel.
-\begin{figure}[h!]
-\centering
-\caption{Vektoraddition durch Parallelogrammbildung}
-\begin{tikzpicture}
-\begin{axis}[
-axis x line=center,
-axis y line=center,
-axis equal,
-ymin = -1,
-xmin = -3,
-ymax = 7,
-xmax = 5.5,
-xtick ={4},
-xticklabels={a},
-ytick ={1},
-yticklabels={b}]
-\addplot [black, mark = *, nodes near coords=,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
-   \draw[->](axis cs:0,0)--(axis cs:3.88,2.88);
-       \addplot [black, mark = *, nodes near coords=,every node near coord/.style={anchor=0}] coordinates {( -1, 1)};
-              \draw[->](axis cs:0,0)--(axis cs:-0.88,0.88);
-\addplot [black, mark = *, nodes near coords=,every node near coord/.style={anchor=0}] coordinates {( 3, 4)};
-\addplot[mark=none, black] coordinates {(-1,1) (3,4)};
-\addplot[mark=none, black] coordinates {(3,4) (4,3)};
-\draw[-> ,red](axis cs:0,0)--(axis cs:2.95,3.88);
-\end{axis}
-\end{tikzpicture}\end{figure}
-Multiplikation mit Skalaren a :\\ Streckung (falls $\abs{a} > 1$)\\ Stauchung (falls $0 \ge \abs{a} \ge 1$)\\
-Richtungspunkt, falls $a < 0$
-%TODO: Steckung und Stauchung\\
-\subsection{Satz (Rechenregeln in $\R^n$)}\label{sec:0.1}
-Seien $u,v,w \in \R^n,a,b\in\R$ Dann gilt:\\
-\begin{enumerate}[a)]
-\item \begin{align}
-u + (v + w) &= (u + v) + w \tag{1.1}\\
-v + 0 = 0 + v &= v, \text{wobei } 0\ \textit{Nullvektor} \tag{1.2}\\
-v + -v &= 0 \tag{1.3}\marginnote{$\R^n$ kommutative Gruppe}\\
-u + v &= v + u \tag{1.4}\\
-(a + b)v &= av + bv \tag{2.1}\\
-a(u + v) &= au + av \tag{2.2}\\
-(a \cd b)v &=a(bv)\tag{2.3}\\
-1v &= v \tag{2.4}
-\end{align}
-\item $0 \cdot v = 0$ und $ a \cdot 0 = 0$\\
-Beweis folgt aus entsprechenden Rechenregeln in 0
-\end{enumerate}
-\subsection{Definition}\label{sec:0.2}
-Eine nicht-leere Teilmenge $\mathcal{U} \supset \R^n$ hei\ss t \emph{Unterraum} (oder \emph{Teilraum} von $\R^n$), falls gilt:
-\begin{enumerate}[(1)]
-\item $\forall u_1,\,u_2 \in \mathcal{U}:\: u_1 + u_2 \in \mathcal{U}$ (Abgeschlossenheit bezüglich +)
-\item $\forall u \in \mathcal{U} \forall a \in \R:\: au \in \mathcal{U}
-$(Abgeschlossenheit bezüglich Mult. mit Skalaren)
-\end{enumerate}
-$\mathcal{U}$ enthält Nullvektor \{0\} Unterraum\index{Unterraum} von $\R^n$ (Nullraum)\index{Nullraum}\\
-$\R^n $ ist Unterraum von $\R$
-\subsection{Beispiele}\label{sec:0.3}
-\begin{enumerate}[a)]
-\item $0 \ne v \in \R^2\quad G = \{ av: a \in \R \}$ ist Unterraum von $\R^n$\\\begin{minipage}{.3\textwidth}
-($a_1v,a_2v \in G, (a_1 + a_2)v \in G$\quad2.1 in \ref{sec:0.2}\\
-$av \in G, b \in \R (ba)v \in G$)
-\end{minipage}\\
-G = Ursprungsgerade durch $\begin{pmatrix}
-0\\0
-\end{pmatrix}$ und v = $\begin{pmatrix}
-a_1\\a_2
-\end{pmatrix}
-n = 2$:
-\begin{figure}[h!]
-\centering
-\caption{Gerade dargestellt durch Vektoren}
-\begin{tikzpicture}
-\begin{axis}[axis equal, axis y line = center, axis x line = center, xmax = 3 , ymax = 2, ymin = -2, xmin = -0.5,xtick={0.1,2},ytick={2},xticklabels={$\begin{pmatrix}
-0\\0
-\end{pmatrix}$,$a_1$},yticklabels={$a_2$}]
-\draw[blue,thick] (axis cs:-2,-2)--(axis cs: 2,2);
-\end{axis}
-\end{tikzpicture}
-\end{figure}
-\item $v,w \in \R^n\\
-E = \{ av + bw : a,b \in \R \}$ ist Unterraum von $\R^n\\
-v = o, w = o :\: E = \{ o \}\\
-v \ne o\quad w \not\in \{ av:\: a \in \R \}\\
-E = \R^2 $
-$n = 3:\:$ Ebene durch $\begin{pmatrix}
-0\\0\\0
-\end{pmatrix}$ und durch $v,w$\\
-Ist $w \in \{ av : a \in \R \},$ so ist $E = G$ (aus a))
-\item $v,w \ne o\\
-G' = \{ w + av : a \in \R\}$\\
-$[v \in G' \Leftrightarrow \exists a \in \R: w+ av \in o \Leftrightarrow \exists a \in \R :\: w = (-a)v \in G]$
-\end{enumerate}
-\subsection{Satz}\label{sec:0.4}
-Seien $\mathcal{U}_1,\mathcal{U}_2$ Unterräume von $\R^n$
-\begin{enumerate}[a)]
-\item $\mathcal{U}_1 \cap \mathcal{U}_2$ ist Unterraum von $\R^n$
-\item $\mathcal{U}_1 \cup \mathcal{U}_2$ ist im Allgemeinen \textsc{kein} Unterraum von $\R^n$
-\item $\mathcal{U}_1 + \mathcal{U}_2 := \{u_1 + u_2 : u_1:\: \mathcal{U}_1, u_2:\: \mathcal{U}_2\}$
-(Summe von $\mathcal{U}_1$ und $\mathcal{U}_2$) ist Unterraum von $\R^n$.
-\item $\U_1 \subseteq \U_1 + \U_2$\quad$\U_2 \subseteq \U_1+\U_2$ und $\U_1 + \U_2$ ist der kleinste Unterraum von $\R^n$, der $\U_1$ und $\U_2$ enthält. (d.h ist $w$ Unterraum von $\R^n$ mit $\U_1,\U_2 \in w,$ so $\U_1 + \U_2 \subseteq W$)
-\end{enumerate}
-\begin{proof}
-a) $\checkmark$\\
-b) %TODO\\
-c) %TODO
-\end{proof}
-\subsection{Beispiel}\label{sec:0.5}
-\begin{enumerate}[a)]
-\item \ref{sec:10.3}b)
-$G_1 = \{ av :\: a \in \R \}\\
-G_2 = \{ aw :\: a \}\\
-G_1 + G_2 = E$
-\item $\R^3\\
-E_1 = \left\{ r \cd \begin{pmatrix}
-1\\0\\0
-\end{pmatrix} + s \cd \begin{pmatrix}
-0\\0\\1
-\end{pmatrix}:\: r,s\in\R \right\}\\
-\phantom{E_1} = \left\{\begin{pmatrix}
-r\\0\\s
-\end{pmatrix}:\: r,s\in\R \right\}\\
-E_2= \left\{ t \cd \begin{pmatrix}
-0\\1\\0
-\end{pmatrix} + u \cd \begin{pmatrix}
-1\\1\\1
-\end{pmatrix} \right\}\\
-\phantom{E_2}= \left\{\begin{pmatrix}
-u\\t+u\\u
-\end{pmatrix} \right\}$\\
-$E_1 + E_2$ Unterräume von $\R^3$ (10.3.b)\\
-$E_1 \cap E_2 = ?\\
-v \in E_1 \cap E_2 \Leftrightarrow v = \begin{pmatrix}
-r\\0\\s
-\end{pmatrix} = \begin{pmatrix}
-u\\t+u\\u
-\end{pmatrix} \Leftrightarrow r = u, t + u = 0 , s = u\\
-E_1 \cap E_2 = \left\{ \begin{pmatrix}
-u\\0\\u 
-\end{pmatrix}: u \in \R\right\}\\
-\phantom{E_1 \cap E_2} = \left\{ u \cd \begin{pmatrix}
-1\\0\\1
-\end{pmatrix}: u \in \R \right\}\\
-E_1 + E_2 = ?\\
-E_1 + E_2 = \R^3$, denn :\\
-Es gilt sogar:\\
-$\R^3 = E_1 + G_2$, wobei\\
-$G_2 = \left\{ t \cd \begin{pmatrix}
-0\\1\\0
-\end{pmatrix}: t \in \R \right\} \subseteq E_@\\
-\begin{pmatrix}
-x\\y\\z
-\end{pmatrix} = x \cd \begin{pmatrix}
-1\\0\\1
-\end{pmatrix} z\cd \begin{pmatrix}
-0\\0\\1
-\end{pmatrix} + y \cd \begin{pmatrix}
-0\\1\\0
-\end{pmatrix} = \begin{pmatrix}
-x\\0\\z
-\end{pmatrix} + \begin{pmatrix}
-0\\y\\0
-\end{pmatrix}\\
-\begin{pmatrix}
-x\\y\\z
-\end{pmatrix} =  (x-y) \begin{pmatrix}
-1\\0\\0
-\end{pmatrix} + (z-y)\begin{pmatrix}
-0\\0\\1
-\end{pmatrix} + y \begin{pmatrix}
-1\\1\\1
-\end{pmatrix}$\\
-$\phantom{\begin{pmatrix}
-0\\0\\1
-\end{pmatrix}}=\begin{pmatrix}
-x-y\\0\\z-y
-\end{pmatrix} + \begin{pmatrix}
-y\\y\\y
-\end{pmatrix}$
-\end{enumerate}
-\subsection{Definition}\label{sec:0.6}
-\begin{enumerate}[a)]
-\item$v_1,\ldots , v_m \in \R^n, a_1,\ldots a_m \in \R$\\
-Dann hei\ss t $a_1v_1 + \ldots + a_m v_m = \sum_{i = 1}^{m} a_iv_i\\
-$\emph{Linearkombination}\index{Linearkombination} von $v_1,\ldots ,v_m$ (mit Koeffizienten $a_1,\ldots,a_m$).\\
-$[ $Zwei formal verschiedene Linearkombinationen der gleichen $v_1,\ldots, v_m$ können den gleichen Vektor darstellen \\
-$1 \cd \begin{pmatrix}
-1\\0
-\end{pmatrix} + 2 \cd \begin{pmatrix}
-0\\1
-\end{pmatrix} + 3 \cd \begin{pmatrix}
-1\\1
-\end{pmatrix} = 2 \cd \begin{pmatrix}
-1\\0
-\end{pmatrix} + 3 \cd \begin{pmatrix}
-0\\1
-\end{pmatrix} + 2 \cd \begin{pmatrix}
-1\\1
-\end{pmatrix} = \begin{pmatrix}
-4\\5
-\end{pmatrix}]$
-\item Ist $M \subseteq R^n$, so ist der von M \emph{erzeugte} (oder \emph{aufgespannte}) Unterraum $\langle M \rangle_\R$ (oder $\langle M \rangle$) die Menge aller (endlichen) Linearkombinationen, die man mit Vektoren aus M bilden kann.\\
-$\langle M \rangle_\R = \left\{ \sum\limits_{i=1}^{n}a_iv_i : n\in\N , a_i \in\R ,v_i\in M \right\}$ falls $M \ne \varnothing\\
-\langle\varnothing\rangle_\R := \{ \varnothing \}\\
-M = \{ v_1,\ldots v_m \}$, so %TODO...
-\end{enumerate}
-\subsection{Beispiel}\label{sec:10.7}
-\begin{enumerate}[a)]
-\item $e_i = \begin{pmatrix}
-0\\0\\1\\0\\0
-\end{pmatrix}\in\R^n\\
-\langle e_1,\ldots e_n\rangle = \R^n\\
-\begin{pmatrix}
-x_1\\\vdots\\x_n
-\end{pmatrix} = x_1e_1+x_2e_2+\ldots+x_ne_n$
-\item $\U = \langle \begin{pmatrix}
-1\\2\\3
-\end{pmatrix},\begin{pmatrix}
-3\\2\\1
-\end{pmatrix},\begin{pmatrix}
-2\\3\\4
-\end{pmatrix}\rangle_\R$\\
-Ist $\U = \R^3$?\\
-Für welche $\vektor{x}{y}{z} \in \R^3$ gibt es geeignete Skalare $a,b,c\in\R$ mit $a\vektor{1}{2}{3}+b\vektor{3}{2}{1}+c\vektor{2}{3}{4}?\\$
-\[ \begin{matrix}
-a &+3b&+2c&=x\\
-2a&+2b&+3c&=y\\
-3a&+b &+4c&=z
-\end{matrix} \]
-LGS für die Unbekannten $a,b,c$ mit variabler rechter Seite : Gau\ss\\
-\[ \begin{pmatrix}
-1&3&2&&x\\
-2&2&3&&y\\
-3&1&4&&z
-\end{pmatrix}\quad\to\quad\begin{pmatrix}
-1&3&2&&x\\
-2&-4&-1&&y-2x\\
-0&-8&-2&&z-3x
-\end{pmatrix}   \]\\
-\[\to\quad\begin{pmatrix}
-1&3&2&&x\\
-0&1&\frac14&&\frac{2x-y}4\\
-0&0&0&&x-2y+z
-\end{pmatrix} \]
-LGS ist lösbar $\Leftrightarrow x-2y+z=0$.\\
-Dass hei\ss t $\vektor{x}{y}{z} \in \U \Leftrightarrow x -2y = z =0\\
-\U = \left\{ \vektor{x}{y}{z} : x-2y+z=0,x,y,z\in\R \right\}\\
-\phantom{\U}= \left\{ \vektor{x}{y}{-x+2y} : x,y\in\R \right\}\\
-\vektor{2}{3}{4}\in\U$
-\end{enumerate}
-Lösungen des LGS: $c$ frei wählen, b, a ergeben sich, (falls $x-2y + z = 0)$ z.B $c = 0, b = \frac12x-\frac14y, a = x-3b = -\frac12x + \frac34y$\\
-Ist $\mathit{x-2y+z=0}$, so ist\\ $\vektor{x}{y}{z} = (-\frac12x+\frac34y)\vektor{x}{y}{z}+ (\frac12x - \frac14y)\vektor{3}{2}{1}\\
-\vektor{2}{3}{4}\frac54\vektor123+\frac14\vektor321\\
-\U= \left\langle\vektor123, \vektor321 \right\rangle_\R$
-\[\cancel{\begin{matrix}
-6x^2&- 3xy&+y^3 &=5\\
-7x^3&+ 3x^2y^2&-xy&=7
-\end{matrix}} \]
-\setcounter{subsection}{8}
-\subsection{Definition}\label{sec:0.9}
-$v_1,\ldots,v_n \in \R^n$ hei\ss en \emph{linear abhängig}. falls
-$a_1,\ldots,a_n \in \R$ existieren, \emph{nicht alle = 0}, mit $a_1v_1 + \ldots +a_nv_n = 0$.\\
-Gibt es solche Skalare nicht, so heißen $v_1,\ldots,v_m$ \emph{linear unabhängig} (d.h. aus $a_1v_1\ldots a_nv_n = 0 folgt a_1 = \ldots = a_n = 0$).\\
-(Entsprechend $\{ v_1\ldots v_n \}$ linear abhängig/linear unabhängig)\\
-Per Definition : $\varnothing$ is linear unabhängig.\\
-\subsection{Beispiel}\label{sec:0.10}
-\begin{enumerate}[a)]
-\item $\sigma$ + v $\in \R^n$ Dann ist v linear unabhängig:\\
-Zu zeigen : Ist av = $\sigma \Rightarrow a = 0$\\
-Sei $v \vektor{b_1}{\vdots}{b_n}$ Da $v\ne \sigma$,\\
-existiert mindestens ein i mit $b_i \ne 0$.\\
-Angenommen $\sigma v = \vektor{0 b_1}{\vdots}{0 b_n} = \vektor000 = \sigma $. \\
-Dann $ab_i = 0$ Da $b_i \ne 0$, folgt a = 0.\\
-$\sigma$ ist linear abhängig: \[1 \cd \sigma = \sigma \]
-\item $v_1 = \sigma .v_2\ldots,v_m$ ist linear abhängig :\\
-$\sigma = 1 \cd \sigma + 0 \cd v_2 + \ldots + 0 \cd v_m$
-\item $v,w \in \R^n\\
-v \ne \sigma \ne w$\\
-\textcircled{\raisebox{-1pt}{1}}\parbox{.2\textwidth}{v,w sind linear abhängig} $\Leftrightarrow\\
-\textcircled{\raisebox{-1pt}{2}} v \in \langle w \rangle_\R \Leftrightarrow\\
-\textcircled{\raisebox{-1pt}{3}} w \in \langle v \rangle_\R \Leftrightarrow\\
-\textcircled{\raisebox{-1pt}{4}} \langle v \rangle_\R = \langle w \rangle_\R$\\
-\textcircled{\raisebox{-1pt}{1}}\\
-$v,w$ linear abhängig $\rightarrow \exists a_1,a_2\in \R,$ nicht beide = 0, $a_1v + a_2w = \sigma$. Dann beide $(a_1,a_2) \ne 0\\
-a_1v = -a_2w \mid \cd \frac1{a_1}\\
-v = - \frac{-a_2}{-a_1}w \in \langle w \rangle_\R  \textcircled{\raisebox{-1pt}{2}}\\
-\textcircled{\raisebox{-1pt}{2}}\\
-v \in \langle w \rangle_\R$ dass hei\ss t $v = aw$ für ein $a \in \R$ Dann $a \ne 0$, da $v \ne \sigma$. $w = \frac1a \cd v \in \langle v \rangle_\R \textcircled{\raisebox{-1pt}{3}}$\\
-\textcircled{\raisebox{-1pt}{3}}\\
-$w = bv$ für ein $b \in \R b \ne 0$,da $w \ne \sigma.\\
-aw \in \langle w \rangle_\R \Rightarrow aW = (ab)v \in \langle v\rangle_\R\\
-\langle w \rangle_\R \subseteq \langle v \rangle_\R$\\
-$w = \frac1b w$ Dann analog $\langle v \rangle\R \subseteq \langle w \rangle_\R$\\
-Also $ \langle v \rangle\R = \langle w \rangle_\R$\textcircled{\raisebox{-1pt}{4}}\\
-\textcircled{\raisebox{-1pt}{4}}\\
-$v \in \langle v \rangle_\R = \langle w \rangle_\R$, dass hei\ss t.\\
-$ v = a \cd w$ für ein $a \in \R\\
-a \cd v + (-a) w = \sigma \Rightarrow v,w$ sind linear abhängig \textcircled{\raisebox{-1pt}{1}}
-\item $e_i = \begin{pmatrix}
-0\\\vdots\\0\\1\\0\\0\\0
-\end{pmatrix} \in \R^n\\
-e_1,\ldots,e_n$ sind linear unabhängig.\\
-$\sigma = a_1e_1 + \ldots a_ne_n = \begin{pmatrix}
-0\\\vdots\\0\\1\\0\\0\\0
-\end{pmatrix} + \begin{pmatrix}
-0\\\vdots\\0\\a_2\\0\\0\\0
-\end{pmatrix} \Rightarrow a_1 = a_2 = \ldots = a_n = 0$
-\item $\vektor12{},\vektor{-3}1{},\vektor62{}$ sind linear abhängig $\R^2$: \\
-Gesucht sind alle $a_i,b_i \in \R$ mit $a \cd \vektor12{} + b \cd \vektor{-3}1{} + c \cd \vektor62{} = \vektor00{}$\\
-Führt auf LGS für a,b,c:\\
-$\begin{pmatrix}
-1&-3&6&&0\\
-2&1&2&&0
-\end{pmatrix}\quad\rightarrow\quad \begin{pmatrix}
-1&-3&6&&0\\
-0&7&-10&&0
-\end{pmatrix}\\
-c$ ist frei wählbar
-\item $\vektor123, \vektor321, \vektor234$ sind linear abhängig in $\R^3$,\\
-10.8b) : $\frac54 \vektor123 + \frac14 \vektor321 + (-1)\vektor234 = \vektor000$
-\end{enumerate}
-\subsection{Satz}\label{sec:0.11}
-Seien $v_1,\ldots,v_n \in \R^n$
-\begin{enumerate}[a)]
-\item $v_1,\ldots,v_m$ sind linear abhängig \textcircled{\raisebox{-1pt}{1}}\\
-$\Leftrightarrow \exists i \ldots v_i = \sum\limits^{m}_{\substack{j=1\\j\ne i} }b_jv_j \textcircled{\raisebox{-1pt}{2}} \\\Leftrightarrow \exists i : \langle v_1,\ldots,v_m \rangle_\R = \langle v_1, \ldots v_{i-1}, v_{i+!},\ldots,v_m\rangle_\R$\textcircled{\raisebox{-1pt}{3}}
-\item $v_1,\ldots,v_m$ sind linear unabhängig $\Leftrightarrow$ Jedes $v \in \langle v_1,\ldots,v_m\rangle_\R$ lässt sich auf \emph{genau eine} Weise als Linearkombination von $v_1,\ldots,v_m$ schreiben.
-\item Sind $v_1,\ldots,v_m$ linear unabhängig und es existiert $v \in \R^n$ mit$ v \ne \langle v_1,\ldots,v_m\rangle_\R$ dann sind auch $v_1,\ldots,v_m,v $ linear unabhängig
-\end{enumerate}
-\begin{proof}
-a) \textcircled{\raisebox{-1pt}{1}} $\Rightarrow$ \textcircled{\raisebox{-1pt}{2}}\\
-$v_1,\ldots v_m$ sind linear abhängig\\
-$\Rightarrow \exists a_1,\ldots,a_m$ nicht alle = 0,\\
-$a_av_i + \ldots + a_mv_m = 0$\\
-Sei $a_i \ne 0\\
-a_iv_i = \sum\limits_{\substack{j =1\\j\ne i}}^{m} -a_jv_j$\\
-$\phantom{a_i}v_i = \sum\limits_{\substack{j =1\\j\ne i}}^{m} -\frac{a_j}{a_i}v_j$ \textcircled{\raisebox{-1pt}{2}}\\
-\textcircled{\raisebox{-1pt}{2}} $\Rightarrow \textcircled{\raisebox{-1pt}{3}}$\\
-Klar : $\langle v_1,\ldots v_{i-1},v_{i+1},v_m \rangle_\R \subseteq \langle v_1, \ldots ,v_m \rangle_\R$\\
-Zeige $\supseteq$\quad $v  = \langle v_1,\ldots, v_m \rangle_\R$, d.h\\
-$v = \sum\limits_{j=1}^{m} a_jv_j = \sum\limits_{\substack{j=1\\j\ne i}}^{m} a_jv_j + a_i (\sum\limits_{\substack{j=1\\j\ne i}}^{m} b_jv_j) = \sum\limits_{\substack{j=1\\j\ne i}}^{m} (a_j + a_i b_j)v_j \in \langle v_1,\ldots v_{i-1},v_{i+1}.\ldots,v_m \rangle_\R \textcircled{\raisebox{-1pt}{2}}$
-\textcircled{\raisebox{-1pt}{3}} $ \Rightarrow \textcircled{\raisebox{-1pt}{1}}\\
-v_i \in \langle v_1 \ldots v_m \rangle_\R = \langle v_1 \ldots v_{i-1}, v_{i+1}, \rangle_\R$, dass hei\ss t es existiert \\
-$a_1, \ldots a_{i-1},a_{i+1},\ldots a_{m} \in \R$ mit \[ v_i = \sum_{\substack{j=1\\j \ne i}}^{m} a_jv_j \]
-$\Rightarrow \sigma = a_1 + v_1 + \ldots + a_{i-1}v_{i-1} + (-1)v_i + a_{i+1}v_{i+1} + \ldots a_mv_m \qquad v_1\ldots v_m $ linear abhängig 
-%TODO Beweis b und c
-\end{proof}
-\subsection{Satz}\label{sec:0.12}
-Sind $v_i, \ldots, v_{n+1} \in \R^n$, so\\
-sin $v_i,\ldots, v_{n+1}$ linear abhängig.\\
-(Insbesondere ist $m > n$ und $v_i,v_m \in \R^n$, so sind $v_1,\ldots,v_m $ linear abhängig)
-\begin {proof}
-Suche alle $a_1,\ldots,a{n+1} \in \R$ mit $a_iv_1 + \ldots a_{n+1}v_{n+1} = \vektor0\dots0$\\
-Führt zu LGS für $a_1,\ldots, a_{n+1}$ mit Koeffizientenmatrix $(v_1,\ldots, v_2, \ldots, v_{n+1}) =A$\\
-Frage : Hat $ A \cd \vektor{a_i}\vdots{a_{n+1}} = \vektor0\vdots0 \in \R^n$ nicht triviale Lösung?\\
-Gau\ss\ :\\
-$\left(\raisebox{-0.5cm}{\scalebox{4}{A}} \vektor0\vdots0 \longrightarrow \right)$
-%TODO Rest von 10.12
-\end {proof}
-\subsection{Definition}\label{sec:0.13}
-Sei $\U$ ein Unterraum von $\R^n$\\
-$B \subseteq \U$ hei\ss t Basis von $\U$ falls:
-\begin{enumerate}[(1)]
-\item $\langle B \rangle_\R = U$
-\item B ist linear unabhängig 
-\end{enumerate}
-($\U = \{\sigma\}, B = \varnothing$)
-\subsection{Beispiel}\label{sec:0.14}
-\begin{enumerate}[a)]
-\item $e_1,\ldots,e_n$ ist Basis von $\R^n$ (kanonische Basis)\\
-$e_1 = \begin{pmatrix}
-0\\\vdots\\1\\0\\0
-\end{pmatrix}\leftarrow i\\
-\vektor{a_i}\vdots{a_n} = \sum_{i=1}^{n} a_ie_i$
-\item $\vektor12{},\vektor32{}$ ist Basis von $R^2$:\\
-Sei $\vektor{x}{y}{}\in R^2$. Gesucht: $a,b \in \R$ mit $a\vektor12{}+b\vektor32{} =\vektor{x}{y}{}$\\
-LGS mit variabler rechter Seite\[
-\begin{matrix}
-1a &+3b&=x\\
-2a &+2b&=y
-\end{matrix}\]
-Gau\ss:\medskip\\
-$\begin{pmatrix}
-1&3&&x\\
-2&2&&y
-\end{pmatrix}\quad\rightarrow\quad\begin{pmatrix}
-1&3&&x\\
-0&-4&&y-2x
-\end{pmatrix}$\\
-Eindeutige Lösung: $b = -\frac14y+\frac12x\quad a = x-3b = x +\frac34y - \frac32x = -\frac12x + \frac34y$\\
-z.B $\vektor{x}{y}{} = \vektor10{}\\
-\vektor10{} = -\frac12\vektor12{}+ \frac12\vektor32{}
-\R^2 \langle \vektor12{},\vektor32{}\rangle\\
-\vektor12{},\vektor32{}$ sind linear unabhängig nach \ref{sec:0.10}c)\\
-$\left\{\vektor12{},\vektor32{}\right\}$ Basis.
-\item $\U = \left\langle \vektor123,\vektor321,\vektor234\right\rangle_\R\\
-\vektor234 = \frac54 \vektor123 + \frac14\vektor321\\
-\U = \left\langle \vektor123,\vektor321\right\rangle_\R\\
-\vektor123,\vektor321$ linear unabhängig (\ref{sec:0.10}c))\\
-$\left\{ \vektor123, \vektor321 \right\}$ Basis von $\U$
-\end{enumerate}
-\subsection{Satz}\label{sec:0.15}
-Jeder Unterraum $\U$ des $\R^n$ besitzt eine Basis.
-\begin{proof}
-Ist $\U = \{\sigma\}$,so $b = \varnothing$.\\
-Sei also $\U \ne \{\sigma\}$.\\
-$v_1$ ist linear unabhängig.\\
-$\langle v_1\rangle_\R \subseteq \U.$\\
-Ist $\U = \langle v_1 \rangle_\R$, so ist $\{ v_1 \}$ Basis von $\U$\\
-Ist $\langle v_1 \rangle_\R \subsetneq \U$.\\
-Sei $v_2 \in \U \setminus \langle v_1 \rangle_\R$.\\
-Nach \ref{sec:0.11}c) ist $\{ v_1,v_2 \}$ linear unabhängig. Ist $\rangle v_1,v_2 \rangle = \U$, so ist $\{ v_1.v_2 \}$ Basis von $\U$.\\
-Ist $\langle v_1, v_2 \rangle_\R \subsetneq U$ so wähle $v_3$ usw.\\
-Es existiert $m \ne n$ mit $\langle v_1,\ldots v_m\rangle_\R = \U$ und $v_1\ldots,v_m$ sind linear unabhängig.\\
-(Denn noch \ref{sec:0.12} gibt es im $\R^n$ keine n+1 linear unabhängige Vektoren)
-\end{proof}
-\subsection{Satz}\label{sec:0.16}
-Je zwei Basen $B_1,B_2$ eines Unterraums $\U$ des $\R^n$ enthalten die gleiche Anzahl von Vektoren $\abs{B_1} = \abs{B_2}$.\\
-Insbesondere:\\
-Je zwei Basen des $\R^n$ enthalten n Vektoren
-\subsection{Definition}\label{sec:0.17}
-Ist $\U$ Unterraum von $\R^n$, B Basis von $\U,\, \abs{B} = m$.\\
-Dann ist $m$ die \emph{Dimension} von $\U$, $\dim(u) = m.$\\
-$\dim(\R^n) = n,\, \dim(\U) \ne n$.
-\subsection{Satz (Basisergänzungssatz)}\label{sec:0.18}
-Sei $\U$ Unterraum der $\R^n, M \subseteq \U$ eine Menge m linear unabhängiger Vektoren. Dann lässt sich M zu einer Basis von $\U$ ergänzen.
-\begin{proof}
-Analog zu \ref{sec:0.15}
-\end{proof}
-\subsection{Korollar}
-Ist $\U$ Unterraum des $\R^n$ und $\dim(\U) = n$, dann ist $\U = \R^n$
-\begin{proof}
-Sei B Basis von $\U$, also $\abs{B} = n$.\\
-Nach \ref{sec:0.18} (dort mit $\U = \R^n, M = B$) lässt sich B zu Basis B' von $\R^n$ ergänzen.\\
-$\dim(\R^n) = n \Rightarrow \abs{B'} = n.$\\
-Also B = B'\\
-$\R^n = \langle B'\rangle_\R = \langle B \rangle_\R = \U$
-\end{proof}
-\subsection{Definition}
-Ist $\U$ Unterraum von $\R^n$, B = ($u_1\ldots,u_m$) eine geordnete Basis von $\U$. Nach \ref{sec:0.11}b), lässt sich jeder Vektorraum $\U = \langle B\rangle_\R$ \emph{eindeutig} als Linearkombination \[ \U = \sum_{i=1}^{m} a_iu_i\quad,a_i \in \R \] schreiben.\\
-$(a_1\ldots,a_m)$ hei\ss en \emph{Koordinaten} von u bzgl. der Basis B.
-\subsection{Beispiele}
-\begin{enumerate}[a)]
-\item B($e_1\ldots,e_m$) kanonische Basis von $\R^n$.\\
-Koordinaten von $\vektor{a_1}\vdots{a_n} \in \R^n$ bzgl. B:\\
-$(a_1\ldots,a_n)$ \emph{kartesische} Koordinaten. \hfill (\emph{Rene Descartes, 1596-1650}) 
-\end{enumerate}
+\input{LetzteVorlesungenSS15.tex}
 \newpage
 \begin{center}
 \Huge Anfang des WS 2015/16
@@ -1520,6 +1033,138 @@ $(v_1 + U) \cup (v_2 + W) = (v+ U) \cup (v+W)\\
 u = W \in U \cap W.\\
 x = v + u  = v + (U \cap W)$
 \end{proof}
+\end{enumerate}
+\subsection{Bemerkung}
+\index{affine Unterräume}affine Unterräume:\\
+spezielle Rolle von $\sigma$ ist aufgehoben. Zur Beschreibung eines $x \in K^n$ kann man jeden Punkt $p$ als \glqq Nullpunkt \grqq wählen \index{Nullpunkt} und dann die Koordinaten von $x$ bezüglich einer nach p \glqq verschobenen \grqq Basis berechnen. $p$ hat Koordinaten $(p_1,\ldots,p_n)$ bezüglich Basis $v_1,\ldots,v_n$\\
+Ursprüngliche Koordinatensystem \textsc{I} : $\sigma,v_1,\ldots,v_n$\\
+Neues Koordinatensystem \textsc{II}:
+\phantom{tem \textsc{I}:\ \ }:$p,v_1+p,\ldots,v_{n} + p\\
+x$ hat Koordinaten $(a_1,\ldots,a_n)$ bezüglich \textsc{I}\\
+$\Rightarrow$ Koordinaten von $x$ bezüglich \textsc{II} = $(a_1 -p_1,\ldots,a_n -p_n)$\\
+\phantom{$\Rightarrow$ Koordinaten von $x$ bezüglich \textsc{II}} = Koordinaten von $x-p$ bezüglich \textsc{I}\\
+$x$ hat Koordinaten $(a_1',\ldots,a_n')$ bezüglich \textsc{II}\\
+$\Rightarrow x$ hat Koordinaten $(a_1'+p_1,\ldots a_n'+p_n)$ bezüglich \textsc{I}. (Robotik)
+\subsection{Bemerkung}
+\begin{enumerate}[a)]
+\item In Mathe II:\\
+$x \times m$ über $\mathbb{Q},\R,\C$. Das geht auch bei die Körpern $K$.\\
+Addition, Multiplikation mit Skalaren, Matrixmultiplikation werden analog definiert.\\
+Es gelten die gleichen Rechenregeln wie in (Mathe II, 9.5 \url{www.ffgti.org})
+\item In Mathe II, wurden Matrizen verwendet zur Beschreibung von LGS $\underset{m \times n}{A} x = \underset{n \times 1}{b} x =$\\
+Analog : LGS über beliebigen Körpern K.
+Gau\ss Algorithmus funktioniert analog.\\
+$(a_1,\ldots,a_n), a_1 \ne 0\\
+\rightarrow (1,a_1^{-1},a_2,\ldots)\\
+$\phantom{8} \hfill ($K$ Körper!)
+\end{enumerate}
+\subsection{Satz}
+\begin{enumerate}[a)]
+\item Die Menge der Lösungen eines \emph{homogenen}\index{homogenen} LGS.\\
+\[A \cd x = 0\]
+($A \in \mathcal{M}_{n,m}(K),x \in K^m$ \\
+0 ist Nullvektor in $K^n$)
+\item Ist das \emph{inhomogene}\index{inhomogene} LGS $$A \cd x = b$$ lösbar und ist $x_0 \in K^n$ eine spezielle Lösung (d.h $A \cd x_0 = b$), so erhält man alle Lösungen von $A \cd x = b$ durch $\{x_0+y: Ay = 0\}, y=$ Zugehöriges homogenes LGS.\\
+Ist $U$ der Lösungsraum von $Ax =0$, so ist die Lösungsmenge von $Ax = B$ gerade der affine Unterraum $x_0 + U$ von $K^n$
+\end{enumerate}
+\begin{proof}
+a) Folgt aus Rechenregeln für Matrizen:\\
+$x_1,x_2 \in K^m$ Lösungen von $A \cd x =0.\\
+A(x_1+x_2) =  Ax_1 +Ax_2 = 0 + 0 = 0\\
+x_1 + x_2$ Lösung.\\
+$a \in K.\\
+A(a\cd x_1) = a \cd (Ax_1) = a \cd 0 = 0\\
+a \cd x_1$ Lösung.\\
+Null-Lösung existiert.
+b) $Ax_0 = b$. Sei $y \in K^m$ mit $Ay=0$.\\
+$A\cd(x_0+y) = Ax_0+Ay = b + 0 = b\\
+x_0 + y$ ist Lösung von $Ax = b$\\
+Zeige: Jede Lösung von $Ax = b$ ist von der Form $x_0 + y$ für ein $y$ mit $Ay =0$.\\
+Sei $x$ Lösung von $Ax =b.\\
+x = x_0 + (x-x_0)\\
+A(x-x_0) = Ax -Ax_0 = b - b = 0$
+\end{proof}
+\subsection{Beispiel}
+gegebenes LGS : $\begin{matrix}
+x_1&+x_2&+x_3&-x_4&=0\\
+x_1&-2x_2&&x_4&=1
+\end{matrix}$\\
+Über $\mathbb{Q}$:\\
+$\begin{pmatrix}
+1&1&1&-1&&0\\
+1&-2&&0&&1
+\end{pmatrix}$\\
+Gau\ss :\\$
+\begin{pmatrix}
+1&1&1&-1&&0\\
+1&-2&&0&&1
+\end{pmatrix} \to \begin{pmatrix}
+1&1&1&-1&&0\\
+0&-3&-1&2&&1
+\end{pmatrix} \to \begin{pmatrix}
+1&1&1&-1&&0\\
+0&1&\frac13&-\frac23&&-\frac13
+\end{pmatrix}\\
+x_3,x_4$ Frei wählbar.\\
+Zugehöriges homogenes System:\\
+$\begin{pmatrix}
+1&1&1&-1&&0\\
+1&-2&&0&&1
+\end{pmatrix}\quad\to\quad\begin{pmatrix}
+1&1&1&-1&&0\\
+0&1&\frac13&-\frac23&&-\frac13
+\end{pmatrix}$\\
+Lösungsmenge = Unterraum. \\
+Basis des Lösungsraum:\\
+Setze die frei wählbaren $x_4,x_3$.\\
+\begin{minipage}{.5\textwidth}
+\begin{itemize}
+\item $x_4 = 1, x_3 = 0$\quad\curvearrowright\quad Lösung
+\item $x_4 = 0, x_3 = 1$\quad\curvearrowright\quad Lösung
+\end{itemize}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+$\vector4\ast\ast01,\vector4{\ast\ast}{\ast\ast}10$
+\end{minipage}\\
+Jede Lösung $d \cd \vector4{\frac13}{\frac2301} + c \vector4{-\frac23}{-\frac{1}{3}}10 = \vector4\ast\ast{c}d$\\
+Lösungsraum vom zugehörigen homogenen LGS:\\
+$\Biggl\langle \vector4{\frac13}{\frac23}01,\vector4{-\frac23}{-\frac13}10\Biggr\rangle$
+\section{Lineare Abbildungen}
+\subsection{Definition}
+$V,W,K-$VR\\
+\begin{enumerate}[a)]
+\item $\alpha: V \longrightarrow$ hei\ss t \emph{(K-) lineare Abbildung}\index{$(K-)$ lineare Abbildung} (oder \emph{Vektorraum-Homomorphismus}\index{Vektorraum-Homomorphismus}) falls:\\
+\begin{tabular}{lll}
+\emph{Additivität}\index{Additivität}& $\leftarrow$(1)& $\alpha (u+v) = \alpha (u) + \alpha(v)$ für alle $u,v \in V$\\
+\emph{Homogenität}\index{Homogenität}& $\leftarrow$(2)& $\alpha (kv) = k\alpha(v)$ für alle $k\in K, v \in V$\\
+\end{tabular}
+\end{enumerate}
+\subsection{Bemerkung}
+$\alpha : V \to W$ lineare Abbildung.
+\begin{enumerate}[a)]
+\item $\alpha(\sigma) = \sigma$
+\item $\alpha(\sum\limits_{i=1}^{n}k_iv_i) = \sum\limits_{i=1}^{n}k_i\alpha(v_i)$
+\end{enumerate}
+\begin{proof}
+a) $\alpha(\sigma) = \alpha(\sigma + \sigma) = \alpha(\sigma$\\
+b) Definition + Induktion nach n. 
+\end{proof}
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\item Nullabbildung $\alpha: V \to W\\
+\alpha(v) = \sigma$ für alle $v \in V$
+\item $c \in K\\
+\alpha: V \to V, \alpha(v) = c \cd v$ lineare Abbildung $c = 1: \quad id_v$
+\item $\varsigma : \begin{cases}
+\R^3 &\longrightarrow \R^3\\
+\vector3{x_1}{x_2}{x_3}&\mapsto\vektor3{x_1}{x_2}{-x_3}
+\end{cases}$\\
+Spiegelung an der $\{x_1,x_2\}$-Ebene in $\R^3$
+\item $\alpha = \begin{cases}
+\R^2 &\to \R^n\\
+\vector2{x_1}{x_2}&\to x_1^2
+\end{cases}$\\
+nicht linear
 \end{enumerate}
 \printindex
 \end{document}
