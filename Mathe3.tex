@@ -1131,7 +1131,7 @@ Jede Lösung $d \cd \vector4{\frac13}{\frac2301} + c \vector4{-\frac23}{-\frac{1
 Lösungsraum vom zugehörigen homogenen LGS:\\
 $\Biggl\langle \vector4{\frac13}{\frac23}01,\vector4{-\frac23}{-\frac13}10\Biggr\rangle$
 \section{Lineare Abbildungen}
-\subsection{Definition}
+\subsection{Definition}\label{sec:\thesubsection}
 $V,W,K-$VR
 \begin{enumerate}[a)]
 \item $\alpha: V \longrightarrow$ hei\ss t \emph{(K-) lineare Abbildung}\index{$(K-)$ lineare Abbildung} (oder \emph{Vektorraum-Homomorphismus}\index{Vektorraum-Homomorphismus}) falls:\\
@@ -1140,7 +1140,7 @@ $V,W,K-$VR
 \emph{Homogenität}\index{Homogenität}& $\leftarrow$(2)& $\alpha (kv) = k\alpha(v)$ für alle $k\in K, v \in V$\\
 \end{tabular}
 \end{enumerate}
-\subsection{Bemerkung}
+\subsection{Bemerkung}\label{sec:\thesubsection}
 $\alpha : V \to W$ lineare Abbildung.
 \begin{enumerate}[a)]
 \item $\alpha(\sigma) = \sigma$
@@ -1150,7 +1150,7 @@ $\alpha : V \to W$ lineare Abbildung.
 a) $\alpha(\sigma) = \alpha(\sigma + \sigma) = \alpha(\sigma$\\
 b) Definition + Induktion nach n. 
 \end{proof}
-\subsection{Beispiel}
+\subsection{Beispiel}\label{sec:\thesubsection}
 \begin{enumerate}[a)]
 \item Nullabbildung $\alpha: V \to W\\
 \alpha(v) = \sigma$ für alle $v \in V$
@@ -1167,5 +1167,189 @@ Spiegelung an der $\{x_1,x_2\}$-Ebene in $\R^3$
 \end{cases}$\\
 nicht linear
 \end{enumerate}
+\subsection{Satz}\label{sec:\thesubsection}
+Sei $A \in \mathcal{M}_{m,n}(K)$.\\
+Definiere $\alpha : K^n \to K^m$ (Spaltenvektor)\\
+durch $\alpha(x) = A \cd x \in K^m$ für alle $x \in K^n$\\
+Dann ist $\alpha$ lineare Abbildung
+\begin{proof}
+folgt aus Rechenregeln für Matrizenmultiplikation.:\\
+$\alpha(x+y) = A(x+y) =  Ax + Ay\\
+\phantom{\alpha(x+y) = A(x+y)}= \alpha(x) + \alpha(y)\\
+\alpha(k \cd x) = A(kx) = k \cd (Ax)\\
+\phantom{\alpha(k \cd x) = A(kx)}= k \alpha(x)$
+\end{proof}
+Beispiel aus \ref{sec:3.3} a)-c)\\
+\begin{itemize}
+\item $V = K^n$ Nullabbildung $K^n \to K^m$\\
+Von der Form in \ref{sec:3.4} mit $A = \begin{pmatrix}
+0&\cdots&0\\
+\vdots&&\vdots\\
+0&\cdots&0
+\end{pmatrix}$ Nullmatrix
+\item $\alpha = \begin{cases}
+K^n &\to K^n\\
+x &\mapsto cx (c \in K)
+\end{cases}$\\
+\ref{sec:3.4} mit $ A = \begin{pmatrix}
+c&&0\\
+&\ddots&\\
+0&&c
+\end{pmatrix}$\\
+\item Spiegelung aus \ref{sec:3.3}c)\\
+\ref{sec:3.4} mit $A = \begin{pmatrix}
+1&\ldots&0\\
+&1&\\
+0&&-1
+\end{pmatrix}$\\
+\emph{Später}: \emph{Alle} linear Abbildung. $K^n \to K^m$ sind von der Form \ref{sec:3.4}
+\end{itemize}
+\subsection{Satz}\label{sec:\thesubsection}
+$U,V,W\ K$-VR.\\
+\begin{enumerate}[a)]
+\item $\alpha,\beta: V \to W$ linear so \emph{auch} $\alpha + \beta$ (definiert durch $(\alpha + \beta)(v) := \alpha(v) + \beta(v)\ \forall v \in V$),\\
+und $k \cd \alpha$ (definiert durch $(k\cd\alpha)(v):= k \cd \alpha(v)\ \forall v \in V$ linear von $V$ nach $W$
+\item $\alpha : V \to W, \gamma : W \to U$ linear. so auch $\gamma \circ \alpha: V \to U$ linear A (oft $\gamma\alpha $statt $\gamma \circ \alpha$)
+\begin{proof}
+\begin{enumerate}[a)]
+\item \textsc{Additivität}:\\
+$u,v \in V\\
+\begin{array}{ll}
+&(\alpha + \beta)(u) + (\alpha + \beta)(v)\\
+=& \alpha(u) + \beta(u) + \alpha(v) + \beta(v)\\
+=& \alpha(u) + \alpha(v) + \beta(v) + \beta(u)\\
+=& \alpha(u+v) + \beta(u+v)\\
+=& (\alpha + \beta) (u + v) 
+\end{array}$\medskip\\
+\textsc{Homogenität}:\\
+$v \in V\quad k \in K\\
+\begin{array}{ll}
+&(\alpha + \beta)(kv)\\
+=&(k\alpha + k\beta)(v)\\
+=&k(\alpha + \beta)(v)
+\end{array}$
+\item $U,V,W\ K$ Vektorräume\\
+\textsc{Additivität}:\\
+$u,v \in V\\
+\begin{array}{ll}
+&(\gamma \circ \alpha)(u) + (\gamma \circ \alpha)(v)\\
+=& \gamma(\alpha (u)) + \gamma(\alpha(u))\\
+=& \gamma(\alpha(u) + \alpha(v)\\
+=& \gamma(\alpha(u+v))\\
+=& (\gamma \circ \alpha)(v+u)
+\end{array}$\medskip\\
+\textsc{Homogenität}:\\$
+v \in V\quad k \in K\\
+\begin{array}{ll}
+&(\alpha \circ \gamma)(kv)\\
+=&\gamma(\alpha(kv))\\
+=&\gamma(k\alpha(v))\\
+=&k\gamma(\alpha(v))\\
+=&k(\gamma \circ\alpha)(v)
+\end{array}$
+\end{enumerate}
+\end{proof}
+\end{enumerate}
+\subsection{Satz}
+$\alpha: V \to W$ lineare Abbildung
+\begin{enumerate}[a)]
+\item Ist U Unterraum von $V$, so ist $\alpha(U) := \{
+\alpha(u), u \in U\}$ Unterraum von $W$.\\
+Insbesondere ist $\alpha(V)$, \emph{Bild von $\alpha$}\index{Bild}, Unterraum von W,
+\item Ist $U$ endlich-dimensional, so auch $\alpha(u)$ und es gibt $\dim(\alpha(U)) \leq \dim(U)$
+\begin{proof}
+$a), \alpha(U_1),\alpha(U_2) \in \alpha(U)$\\
+dass hei\ss t $u_1,u_2 \in U$, so $\alpha(U_1) + \alpha(U_2) = \alpha(u_1 + u_2) \in \alpha(U)\\
+k \in K\\
+k \cd \alpha(U_1) = \alpha(ku_1) \in \alpha(U)$\\
+b) Sei $u_1,\ldots,u_k$ Basis von $U\\
+u \in U, u = \sum\limits_{i=1}^{k} c_i u_i, c_1 \in K\\
+\alpha(u) = \sum\limits_{i=1}^{k} c_i \alpha(u_i)$\\
+Also : $\alpha(U) = \left\langle \alpha(u_1),\ldots, \alpha(U_k)\right\rangle_K$\\
+Nach \ref{sec:2.18} $\{\alpha(u_1),\ldots,\alpha(U_k) \}\\
+\dim(\alpha(U)) \leq K \geq \dim (U)$
+\end{proof}
+\end{enumerate}
+\subsection{Definition}
+$V,W\ K$-VR, $V$ endlich dimensional. $\alpha: V \to W$ linear Abbildung.\\
+Dann $\dim(\alpha(V)) =: \mathrm{rg}(\alpha),$ \emph{Rang}\index{Rang} von $\alpha$
+\subsection{Satz}\label{sec:\thesubsection}
+$V,W\ K$-VR, $\alpha: V \to W$ lineare Abbildung\\
+\begin{enumerate}[a)]
+\item $\ker(\alpha)  := \{ v \in V : \alpha(v) = \sigma \},\\
+$\emph{Kern von $\alpha$}\index{Kern}, ist Unterraum von $V$.
+\item $\alpha$ injektiv $\Leftrightarrow\ \ker(\alpha) = \{\sigma\} $
+\item Ist $\alpha$ bijektiv, so ist die Umkehrabbildung $\alpha^{-1}: W \to V$ bijektiv \emph{und linear}
+\end{enumerate}
+\begin{proof}a) $v_1,v_2 \in \ker(\alpha)\\
+\alpha(v_1+v_2) = \alpha(v_1)+ \alpha(v_2)\\
+\phantom{\alpha(v_1+v_2)} = \sigma + \sigma = \sigma$\\
+Also: $v_1 + v_2 \in \ker(\alpha)\\
+\alpha(k\cd v_1) = k \cd \alpha(v_1) = k \cd \sigma \cd \sigma = \sigma$\\
+Also $kv_1 \in \ker(\alpha)$
+b) $\Rightarrow$: $\checkmark$, denn falls $\sigma \ne v \in \ker(\alpha)$ so $\alpha(v) = \sigma = \alpha(\sigma),\,\alpha(\sigma), \alpha$ nicht injektiv. \Lightning\\
+$\Leftarrow:$ Angenommen $v_1,v_2 \in V$ mit $\alpha(v_1) = \alpha(v_2)$.\\
+Zu zeigen: $v_1 = v_2$.\\
+$\sigma = \alpha(v_1) - \alpha(v_2)\\
+\phantom\sigma = \alpha(v_1 - v_2)\\
+\alpha$ linear.\\
+$\Rightarrow v_1 - v_2 \in \ker(\alpha) = \{ \sigma \}\\
+\Rightarrow v_1 - v_2 = \sigma , v_1 = v_2$.\\
+c) Zu zeigen: $\alpha^{-1}$ ist linear.\\
+Seien $w_1,w_@ \in w$.\\
+Zeige $\alpha^{-1}(w_1 + w_2) = \alpha^(w_1) + \alpha(w_2)\\
+\alpha$ bijektiv $\Rightarrow v_1,v_2 \in V$ mit $\alpha(v_1) = w_1, \alpha(v_2) = w_2. v_1 = \alpha^{-1}(w_1) ,v_2 = \alpha^{-1}(w_2).$\\
+$\alpha^{-1}(w_1 + w_2) = \alpha^{-1}(\alpha(v_1)+ \alpha(v_1)) = v_1 + v_2 = \alpha{-1}(w_1)+ \alpha^{-1})(w_2)$\\
+Homogenität analog.
+\end{proof}
+\subsection{Beispiel}
+$\alpha : \begin{cases}
+\R^3 &\to \R^3\\
+\vector3{x_1}{x_2}{x_3}&\to \vector3{x_1}2{x_2}{x_1 + x_2 + 2x_3}
+\end{cases}$ ist lineare Abbildung, da \\
+$\alpha \vector3{x_1}{x_2}{x_3} = \begin{pmatrix}
+1&0&0\\
+2&0&0\\
+1&1&2
+\end{pmatrix}\vector{3}{x_1}{x_2}{x_3} \hfill \ref{sec:3.4}\\
+\alpha(e_1) = \vector{3}121, \alpha(e_1) = \vector3011, \alpha(e_3) = \vector3002$\\
+Bild von $\alpha(e_1),\alpha(e_2),\alpha(e_3)$ linear abhängig.\\
+$\alpha(\R^3) \left\langle(e_1), \alpha(e_2)\right\rangle\\
+\mathrm{rg}= 2\\
+U = \left\langle e_2, e_2 \right\rangle$ 2-dimensional Unterraum von $\R^3\\
+\alpha(U) = \left\langle \alpha(e_2) \right \rangle = \left\langle e_3 \right\rangle$ 1-dimensional.\\
+$\ker3(\alpha) = $?\\
+Suche alle $\vector3{x_1}{x_2}{x_3}$ mit $\vector3{x_1}{2x_1}{x_1 + x_2 + x_3}$\\
+LGS : $x_1 = 0$
+\par$ 2x_1 = 0$
+\par$ x_1 + x_2 + 2x_3 = 0\\
+\ker(\alpha) = \{ \vector30{-2c}c: c \in \R \}$
+\par $\left\langle \vector30{-2}1 \right\rangle $ 1-dimensional.
+\subsection{Satz}\label{sec:\thesubsection}
+$V,W\ K$-VR, $\dim(v) = n \{v_1,\ldots v_n\}$ sei Basis von $V$.\\
+$w_1, \ldots, w_n \in W$ beliebig (nicht notwendig verschieden). Dann existiert genau eine lineare Abbildung $\alpha: V \to W$ mit $\alpha(v_1) = w_1, i=1,\ldots,n,$ nämlich \[ \alpha(\sum_{i=1}^n c_iv_i) := \sum_{i=1}^{n} c_i w_i, (\star) \]
+Also: kennt man die Bilder einer Basis so kennt man die lineare Abbildung vollständig.
+\begin{proof}
+Die in $(\star)$ definiert Abbildung $\alpha$ ist linear und es gilt $\alpha(v_i) = w_i$ für $i=1\ldots n$ (Nachrechnen)\\
+$\alpha$ eindeutig:\\
+Angenommen $\beta: V \to W$ linear mit $\beta(v_i) = w_i$, so gilt $\beta(\sum\limits_{i=1}^{n} c_iv_i) = \sum\limits_{i=1}^{n} c_i\beta(v_i)=\\
+\sum\limits_{i=1}^{n} c_i w_i = \alpha (\sum\limits_{i=1}^{n})$\par
+$\alpha = \beta$\\ 
+\end{proof}
+Beispiel:\\
+$V = W = \R^3\\
+\alpha(e_1) = \vector32{-17}3, \alpha(e_2) = \vector3111, \alpha(e_3)= \vector30{-5}0\\
+\alpha(\vector3234) = ?\\
+\alpha(\vector3234) = 2 \cd \vector32{-17}3 + 3 \cd \vector3111 + 4 \cd \vector30{-5}0 = \vector37{-51}9$
+\subsection{Beispiel}\label{sec:\thesubsection}
+$V = \R^n, \alpha : V \to V$\\
+Drehung um Winkel $\phi,\, 0 \leq \phi < 2\pi$, um Nullpunkt (entgegen Uhrzeigersinn).\\
+$\alpha$ ist linear Abbildung (elementar geometrisch).\\
+$\alpha(e_1) = \alpha\phi210 = \vector2{\cos(\phi)}{\sin(\phi)}\\
+\alpha(e_2) = \alpha\phi201 = \vector2{-\sin(\phi)}{\cos(\phi)}$\\
+\ref{sec:3.10}\\
+$x = \vector2{x_1}{x_2}\\
+\alpha(x) = x_1\alpha(e_1) + x_2\alpha(e_2)$\par
+$\vector2{\cos(\phi) - \sin(\phi)}{\sin(\phi) \cos(\phi)}$
 \printindex
 \end{document}
