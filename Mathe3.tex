@@ -1350,6 +1350,125 @@ $\alpha(e_1) = \alpha\phi210 = \vector2{\cos(\phi)}{\sin(\phi)}\\
 \ref{sec:3.10}\\
 $x = \vector2{x_1}{x_2}\\
 \alpha(x) = x_1\alpha(e_1) + x_2\alpha(e_2)$\par
-$\vector2{\cos(\phi) - \sin(\phi)}{\sin(\phi) \cos(\phi)}$
+$\vector2{\cos(\phi) - \sin(\phi)}{\sin(\phi) \cos(\phi)}$\\
+Drehmatrix\index{Drehmatrix}
+\subsection{Satz}\label{sec:\thesubsection}
+$\alpha: V \to W$ lineare Abbildung:\\
+$\dim(V) =n, \quad \{v_1,\ldots,v_n\} $ Basis von V.
+\begin{enumerate}[a)]
+\item $\alpha$ ist injektiv $\Rightarrow \{ \alpha(v_1),\ldots,\alpha(v_2) \}$ ist linear unabhängig.
+\item $\alpha$ surjektiv $\Leftrightarrow W = \left\langle \alpha(v_2),\ldots,\alpha(v_n)\right\rangle_K$
+\item $\alpha$ bijektiv $\Leftrightarrow \{ \alpha(v_1),\ldots,\alpha(v_n) \}$ Basis von $W$
+\end{enumerate}
+\begin{proof}
+a) $\Rightarrow$\\
+Zeige $\sum\limits^{n}_{i=1}c_i\alpha(v_i) = \sigma$\\
+\phantom{Zeige }$\Rightarrow c_1 = \ldots c_n = 0\\
+\sigma = \sum\limits^{n}_{i=1} c_1 \alpha (v_i) = \alpha(\sum\limits^{n}_{i=1}c_iv_1)\\
+\sum\limits^{n}_{i=1}c_iv_i \in \ker(\alpha) = \{ \sigma \}\\
+\Rightarrow \sum\limits^{n}_{i=1} = \sigma \Rightarrow c_1 = \ldots + c_n = 0\\
+\Leftarrow:$ Zeige $\ker(\alpha) = \{\sigma \}$\\
+Angenommen $\sum\limits^{n}_{i=1}c_iv_i \in \ker(\alpha) 
+\sigma = \alpha (\sum\limits^{n}_{i=1}c_iv_i) \underset{\alpha \text{linear}}{=} \sum\limits^{n}_{i=1}c_i\alpha(v_i) \xRightarrow[ \text{linear unabhängig} ]{\alpha(v_1)\ldots\alpha(v_2)}
+c_1 = \ldots = c_ = 0\\
+\Rightarrow \sum\limits^{n}_{i=1} c_iv_i = \sigma \checkmark$
+b) $\alpha(V) = \left\langle \alpha(v_1)\ldots\alpha(v_m)\right\rangle$ Behauptung folgt.
+c) Folgt aus a) und b)
+\end{proof}
+\subsection{Korollar}\label{sec:\thesubsection}
+Seien $V,W\ K$-VR, $\dim(V) = \dim(W)$.\\
+Dann sind $V$ und $W$ isomorph.
+\begin{proof}
+Sei $v_1,\ldots,v_n$ Basis von $V$, $w_1,\ldots,2_n$ Basis von $W$. Nach \ref{sec:3.10} existiert genau eine linear Abbildung $\alpha(v_1) = w_j$ Nach \ref{sec:3.12}c) ist $\alpha$ bijektiv $V \cong W$.
+\end{proof}
+\subsection{Korollar -- Wichtigster Spezialfall}
+$V = n-\dim$. VR über $K,\, \mathcal{B} = (v_1,\ldots, v_n)$ geordnete Basis von $V$. Dann ist die Abbildung.\\
+$\kappa_\mathcal{B}: \begin{cases}
+V &\to K^n\ \text{Zeilenvektor}\\
+\sum\limits^{n}_{i=1}c_iv_i &\mapsto (c_1,\ldots,c_n)
+\end{cases}$\\
+(Koordinatenabbildung bezüglich B) \index{Koordinatenabbildung} ein Isomorphismus. Dass hei\ss t $V \cong K^n$.\\
+\begin{proof} \ \\ 
+$\kappa_\mathcal{B} = (0,\ldots,0,\overset{\substack{i\\\downarrow} }{1},0,\ldots,0) \\
+v_1$ werden auf die kanonische Basis des $K^n$ abgebildet. $\kappa_\mathcal{B}$ ist Isomorph
+\end{proof}
+\subsection{Satz (Dimensionsformel)}\index{Dimensionsformel}\label{sec:\thesubsection}
+$V$ endlich dimensional. $K$-VR $\alpha : V \to W$ lineare Abbildung.\\
+Dann: $\dim(V) = \mathrm{rg}(\alpha) + \dim(\ker(\alpha))$\\
+\phantom{Dann:\  $\dim(V)$ }$ = \dim(\alpha(v_i)) + \dim(\ker(\alpha))$
+\begin{proof}
+Sei $u_1,\ldots,u_k$\\
+Basis von $\ker(\alpha)$ Basisergänzungssatz \ref{sec:2.21}\\
+Ergänze zu Basis $u_1,\ldots,u_k,u_{k+1},\ldots,u_1$ von $V$. Sei $U = \left\langle u_{\ker + 1}, \ldots, u_n \right\rangle_K$ Unterraum von v.\\
+$\ker(\alpha) \cap U = \{ \sigma \}$:\\
+Angenommen $V \in \ker(\alpha)  \cap U\\
+v = \sum\limits^{k}_{i=1}c_iu_i = \sum\limits^{n}_{i=k+1} c_iu_i\\
+\Rightarrow \sum\limits^{k}_{i=1} c_iu_i + \sum\limits^{n}_{i=k+1} (-c_i)u_i = \sigma\\
+c_1 \ldots c_n = 0$
+\end{proof}
+$\ker(\alpha) \cap U = \{ \sigma \}$, also $\alpha|U$ ist injektiv, dass hei\ss t $\dim(V) = \alpha(U)\\
+v \in V, v = \sum\limits^{k}_{i=1} c_i u_i + \sum\limits^{n}_{i=k+1}c_iu\\
+\alpha(v) = \sum\limits^{k}_{i=1}c_i\alpha(v_i) + \sum\limits^{n}_{i=k+1} c_i \alpha(u_i) \in \alpha(U)\\
+V = \ker(\alpha) + U\\
+\dim(v) = \dim(\ker(\alpha))+ \dim(U) - \dim(\ker(\alpha) \cap U)\\
+= \dim(\ker(\alpha)) + \dim(\alpha(U))
+= \dim(\ker(\alpha)) + \dim(\alpha(V))
+= \dim(\ker(\alpha)) + \mathrm{rg}(\alpha)$
+\subsection{Korollar}
+$V,W$ endlich-dimensionaler $K$-VR mit $\dim(V) = \dim(W),\, \alpha : V \to W$ linear. Dann gilt:\\
+$\alpha$ ist injektiv $\Rightarrow\ \alpha$ ist surjektiv $\Rightarrow\ \alpha$ ist bijektiv.
+\begin{proof}\ \\
+$\alpha$ ist surjektiv $\Leftrightarrow \alpha(V) =W\\
+ \Leftrightarrow \dim(\alpha(v) ) = \dim(W) = \dim(V)\\
+\xLeftrightarrow{\ref{sec:3.15}} \dim(\ker(\alpha)) = 0 \Leftrightarrow \ker(\alpha) = \{ \sigma \} \Leftrightarrow \alpha$ ist injektiv
+\end{proof}
+\section{Der Rang einer Matrix und lineare Gleichungssysteme}
+\subsection{Definition}
+Der \emph{Zeilenrang}\index{Zeilenrang} einer Matrix $A$ über Körper ist die Maximalzahl linear unabhängiger Zeilen in $A$. Dass hei\ss t sind $z_1,\ldots,z_m$ die Zeilen von $A$ so ist Zeilenrang von $A$ = $\dim = (\left\langle z_1,\ldots,z_m\right\rangle)$\\
+Analog : Spaltenrang\index{Spaltenrang}\medskip\\
+\begin{minipage}{.5\textwidth}
+$A = \begin{pmatrix}
+1&-2&2\\
+1&-2&1\\
+1&-2&0
+\end{pmatrix}$ 
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+Spaltenrang von $A = 2$\\
+Zeilenrang von $A = 2$
+\end{minipage}
+\subsection{Satz}
+Bei elementaren Zeilenumformungen\index{elementaren Zeilenumformungen} ändert sich der Zeilenrang einer Matrix nicht.\\ (Analog Spaltenumformung/Spaltenrang)\\
+\begin{proof}$\dim(\left\langle z_1,\ldots,a \cd z_i,\ldots,z_m\right\rangle, a \ne 0\\
+\left\langle z_1,\ldots,z_m \right\rangle = \left\langle z_1,\ldots,z_i+az_j,\ldots z_m\right\rangle, i \ne j$
+\end{proof}
+\subsection{Bemerkung}
+Zeilenrangbestimmung von $A$:\\
+Bringe $A$ mit Gau\ss\ auf Zeilenstufenform (ändert Zeilenrang nicht)\\
+\begin{minipage}{.5\textwidth}
+$\begin{pmatrix}
+\star&\star&\star&\star&\star&\star&\star\\
+0&\star&\star&\star&\star&\star&\star\\
+0&0&\star&\star&\star&\star&\star\\
+0&0&0&\star&\star&\star&\star\\
+0&0&0&0&\star&\star&\star\\
+0&0&0&0&0&\star&\star\\
+0&0&0&0&0&0&\star\\
+0&0&0&0&0&0&0\\
+0&0&0&0&0&0&0\\
+0&0&0&0&0&0&0\\
+\end{pmatrix}$
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+$\star \ne 0$\\
+Zeilenrang = Anzahl der von Nullzeilen verschiedenen Zeilen
+\end{minipage}
+\subsection{Korollar}
+Sei $Ax = b$ ein LGS über $K$, $A \in \mathcal{M}_{m,n}(K), x \in K^n, b \in K^m$ (m Gleichungen, n Unbekannte)
+\begin{enumerate}[a)]
+\item $Ax = b$ ist genau dann lösbar, wenn Zeilenrang von $A$ = Zeilenrang von\\ $(A\mid b)$
+\item $Ax = b$ ist genau dann eindeutig lösbar, wenn: Zeilenrang von $A$ = Zeilenrang von $(A\mid b) = n$ (= Anzahl der Unbekannten)
+\item Dimension des Lösungsraums von $Ax = 0$ = $n$-Zeilenrang von $A$.
+\end{enumerate}
 \printindex
 \end{document}
