@@ -68,13 +68,8 @@ Sei $X \ne 0$ eine Menge mit Verknüpfung $\star$.
 \item Halbgruppe, Monoid, Gruppe $(X,\star)$ bezüglich kommutativ (oder \index{abelsch}\emph{abelsch}) falls $a \star b = b \star a $ für alle $a,b \in X$ (\index{Kommutativgesetz}Kommutativgesetz). \\(Nach: Abel, 1802-1829)
 \end{enumerate}
 \marginpar{14.10.2015}
-<<<<<<< HEAD
-\subsection{Bermerkung}\label{sec:1.4}
-In Halbgruppe liefert jede sinnvolle Klammerung eines Produktes mit endlich vielen Faktoren das gleiche Element.
-=======
 \subsection{Bemerkung}\label{sec:1.4}
 In Halbgruppe liefert jede sinnvolle Klammerung eines Produktes mit endlich vielen Faktoren das gleiche Element.\\
->>>>>>> dbd12bd4a4b0c211913e023b2cc43fbc6e314244
 \begin{equation}
 \tag{n = 4}
 (a \star (b \star c)) \star d \underset{\text{AG\footnotemark[1]}}{=} ((a \star b)\star c)\star d \underset{\text{AG\footnotemark[1]}}{=} (a \star b) \star (c \star d) \underset{\text{AG\footnotemark[1]}}{=} a \star (b (c \star d)) \underset{\text{AG\footnotemark}}{=} a \star ((b \star c)\star d)
@@ -1381,7 +1376,7 @@ Dann sind $V$ und $W$ isomorph.
 \begin{proof}
 Sei $v_1,\ldots,v_n$ Basis von $V$, $w_1,\ldots,2_n$ Basis von $W$. Nach \ref{sec:3.10} existiert genau eine linear Abbildung $\alpha(v_1) = w_j$ Nach \ref{sec:3.12}c) ist $\alpha$ bijektiv $V \cong W$.
 \end{proof}
-\subsection{Korollar -- Wichtigster Spezialfall}
+\subsection{Korollar -- Wichtigster Spezialfall}\label{sec:\thesubsection}
 $V = n-\dim$. VR über $K,\, \mathcal{B} = (v_1,\ldots, v_n)$ geordnete Basis von $V$. Dann ist die Abbildung.\\
 $\kappa_\mathcal{B}: \begin{cases}
 V &\to K^n\ \text{Zeilenvektor}\\
@@ -1414,7 +1409,7 @@ V = \ker(\alpha) + U\\
 = \dim(\ker(\alpha)) + \dim(\alpha(U))
 = \dim(\ker(\alpha)) + \dim(\alpha(V))
 = \dim(\ker(\alpha)) + \mathrm{rg}(\alpha)$
-\subsection{Korollar}
+\subsection{Korollar}\label{sec:3.16}
 $V,W$ endlich-dimensionaler $K$-VR mit $\dim(V) = \dim(W),\, \alpha : V \to W$ linear. Dann gilt:\\
 $\alpha$ ist injektiv $\Rightarrow\ \alpha$ ist surjektiv $\Rightarrow\ \alpha$ ist bijektiv.
 \begin{proof}\ \\
@@ -1423,7 +1418,7 @@ $\alpha$ ist surjektiv $\Leftrightarrow \alpha(V) =W\\
 \xLeftrightarrow{\ref{sec:3.15}} \dim(\ker(\alpha)) = 0 \Leftrightarrow \ker(\alpha) = \{ \sigma \} \Leftrightarrow \alpha$ ist injektiv
 \end{proof}
 \section{Der Rang einer Matrix und lineare Gleichungssysteme}
-\subsection{Definition}
+\subsection{Definition}\label{sec:\thesubsection}
 Der \emph{Zeilenrang}\index{Zeilenrang} einer Matrix $A$ über Körper ist die Maximalzahl linear unabhängiger Zeilen in $A$. Dass hei\ss t sind $z_1,\ldots,z_m$ die Zeilen von $A$ so ist Zeilenrang von $A$ = $\dim = (\left\langle z_1,\ldots,z_m\right\rangle)$\\
 Analog : Spaltenrang\index{Spaltenrang}\medskip\\
 \begin{minipage}{.5\textwidth}
@@ -1437,12 +1432,12 @@ $A = \begin{pmatrix}
 Spaltenrang von $A = 2$\\
 Zeilenrang von $A = 2$
 \end{minipage}
-\subsection{Satz}
+\subsection{Satz}\label{sec:\thesubsection}
 Bei elementaren Zeilenumformungen\index{elementaren Zeilenumformungen} ändert sich der Zeilenrang einer Matrix nicht.\\ (Analog Spaltenumformung/Spaltenrang)\\
 \begin{proof}$\dim(\left\langle z_1,\ldots,a \cd z_i,\ldots,z_m\right\rangle, a \ne 0\\
 \left\langle z_1,\ldots,z_m \right\rangle = \left\langle z_1,\ldots,z_i+az_j,\ldots z_m\right\rangle, i \ne j$
 \end{proof}
-\subsection{Bemerkung}
+\subsection{Bemerkung}\label{sec:\thesubsection}
 Zeilenrangbestimmung von $A$:\\
 Bringe $A$ mit Gau\ss\ auf Zeilenstufenform (ändert Zeilenrang nicht)\\
 \begin{minipage}{.5\textwidth}
@@ -1463,12 +1458,250 @@ $\begin{pmatrix}
 $\star \ne 0$\\
 Zeilenrang = Anzahl der von Nullzeilen verschiedenen Zeilen
 \end{minipage}
-\subsection{Korollar}
+\subsection{Korollar}\label{sec:\thesubsection}
 Sei $Ax = b$ ein LGS über $K$, $A \in \mathcal{M}_{m,n}(K), x \in K^n, b \in K^m$ (m Gleichungen, n Unbekannte)
 \begin{enumerate}[a)]
 \item $Ax = b$ ist genau dann lösbar, wenn Zeilenrang von $A$ = Zeilenrang von\\ $(A\mid b)$
 \item $Ax = b$ ist genau dann eindeutig lösbar, wenn: Zeilenrang von $A$ = Zeilenrang von $(A\mid b) = n$ (= Anzahl der Unbekannten)
 \item Dimension des Lösungsraums von $Ax = 0$ = $n$-Zeilenrang von $A$.
 \end{enumerate}
+\subsection{Satz}\label{sec:\thesubsection}
+Sei $A \in \mathcal{M}_{m,n}(K),\\
+\alpha = \begin{cases}
+K^n &\to K^m\\
+x  &\mapsto Ax
+\end{cases}\\
+\alpha$ ist lineare Abbildung und es gilt:\\
+$\mathrm{rg}(\alpha)$ = Spaltenrang von $A$.
+\begin{proof}
+$\alpha(K^n) = \raum{\alpha(e_1),\ldots,\alpha(e_2)}\\
+e_1,\ldots,e_n$ kanonische Basis von $K^n\\
+\alpha(e_1) = A \cd \vector400100 i = \vector5{a_1i}{a_2i}\vdots{a_mi} = i$te Spalte von $A =: s_i\\
+\mathrm{rg} = \dim(\alpha(K^m)) = \dim(\raum{\alpha(e_1),\ldots,\alpha(e_n)}) =$ Spaltenrang von A,.
+\end{proof}
+\subsection{Satz und Definition}\label{sec:\thesubsection}
+Sei $A \in \mathcal{m,n}(k)$.\\
+Dann ist Zeilenrang von = Spaltenrang von A.\\
+Diese gemeinsame Zahl hei\ss t \emph{Rang von A} \index{Rang},rg($A$).\\
+\begin{proof}
+Betrachte homogenes LGS\\
+\[ Ax = 0 (\star) \]
+Dimension des Lösungsraumes von $(\star)$ = Dimension von $\ker(\alpha)$, $\alpha$ in \ref{sec:4.5}\\
+\Nameref{sec:3.15} $\dim(\ker(\alpha)) = n -$rg$(\alpha) = n-$Spaltenrang von A.
+\nameref{sec:4.4}$\dim$ Lösungsraum von $Ax = 0$ = n-Zeilenrang von $A$
+\end{proof}
+\subsection{Korollar}\label{sec:\thesubsection}
+$A \in \mathcal{M}_{m,n}(K)$.\\
+rg$(A) = \mathrm{rg}(A^t)$\\
+\begin{proof}
+Zeilenrang von $A$ = Spaltenrang von $A^t$
+\end{proof}
+\subsection{Satz}\label{sec:\thesubsection}
+Sei $V$ endlich dimensionaler $-$-VR\\
+$\mathcal{B}$ geordnete Basis von $V$\quad $u_1,\ldots,u_m \in V$ beliebig.\\
+Seien $K_\mathcal{B}(U_i)$ die Koordinatenvektoren von $u_i$ bezüglich $\mathcal{B}$ (Zeilenvektoren).\\
+Dann gilt : $\dim(\raum{u_1,\ldots,u_m}) = \mathrm{rg} \vector3{K_\mathcal{B}(u_1)}\vdots{K_\mathcal{B}(u_m)}$ lässt sich durch Gau\ss\ Algorithmus bestimmen.
+\begin{proof}
+Sei $U = \raum{u_1,u_m}\\
+K_\mathcal{B}: V \to K^n$ wie in \ref{sec:3.14}.\\
+$K_\mathcal{B}$ Isomorphismus : $\dim(U) = \dim(K_\mathcal{B}) =$ Zeilenrang von $\vektor{K_\mathcal{B}(u_1)}\vdots{K_\mathcal{B}(um)}$
+\end{proof}
+\subsection{Beispiel}\label{sec:\thesubsection}
+$V\ \R$-VR aller Polynome von $\Grad \geq 3$, $\dim(V) = 4$, \\
+Basis $\mathcal{B} = (1,x,x^2,x^3), U = \raum{1+6x^2 + x^3, 2x-2x^2 + 3x^3, 3x + x^2, 2 + x 15x^2 - x^3}_\R\\
+\begin{pmatrix}
+1&0&6&1\\
+0&2&-2&3\\
+0&3&1&0\\
+2&1&15&-1
+\end{pmatrix}\quad $Gau\ss$ \rightarrow $\quad $\begin{pmatrix}
+1&0&6&1\\
+0&1&-1&1.5\\
+0&0&4&-4.5\\
+0&0&0&0
+\end{pmatrix}$\\
+Rand der Matrix = 3, dim($U$) = 3
+\section{Matrizen und lineare Abbildungen}
+\subsection{Definition}\label{sec:\thesubsection}
+Seien $V,W\ K$-VR, $\mathcal{B} = (v_1,v_n)$ und $\mathcal{C} = (w_1,\ldots,w_m)$ geordnete Basen von V bzw. W.\\
+Sei $\alpha: V \to W$ lineare Abbildung. Nach \ref{sec:3.10} ist $\alpha$ eindeutig bestimmt durch $\alpha(v_1),\ldots,\alpha(v_n)\\
+(v = \sum\limits_{i=1}^{n} b_iv_i \Rightarrow \alpha(v) = \sum\limits_{i=1}^{n}b_i \alpha(v_i)$\\
+Stelle $\alpha(v_1)\ldots\alpha(v_n) \in W$ jeweils als Linearkombination von $w_1,\ldots,w_m$ dar,\\
+$\alpha(v_1) = a_{11}w_1 + \ldots a_{m1}w_m\\
+\alpha(v_2) = a_{12}w_1 + \ldots a_{m2}w_m\\
+\hfil\vdots\\
+\alpha(v_n) = a_{1n} w_1 + \ldots + a_{mn}v_m$\\
+(Ordnung der Indizes beachten!)\\
+Dann hei\ss t die $m \times n$- Matrix\\
+$A^{\mathcal{B,C}} = \begin{pmatrix}
+a_{11}&a_{12}&\ldots&a_{1n}\\
+\vdots&\vdots&\vdots\\
+a_{m1}&a_{m2}&\ldots&a_{mn}
+\end{pmatrix}$\\
+Die \emph{Darstellungsmatrix}\index{Darstellungsmatrix} von $\alpha$ bezüglich $\mathcal{B}$ und $\mathcal{C}$. (In den Spalten stehen die Koordinaten von $\alpha(v_1)$ bezüglich $\mathcal{C}$)\\
+(Abgekürzte Schreibweise $A_\alpha$, falls $\mathcal{B}$ und$ \mathcal{C}$ aus Kontext klar).\\
+Falls $V = W$ und $\mathcal{B} = \mathcal{C}$, so $A^{\mathcal{B}} \colon= A^{\mathcal{B,C}}_\alpha$
+\subsection{Bemerkung}\label{sec:\thesubsection}
+\begin{enumerate}[a)]
+\item Bei Kenntnis von $\mathcal{B}$ und $\mathcal{C}$ ist $\alpha$ durch $A^{\mathcal{A,B}}_\alpha$ eindeutig bestimmt:\\
+Sei $\sigma \in V$
+\end{enumerate}
+\subsection{Beispiel}\label{sec:\thesubsection}
+\begin{enumerate}[a)]
+\item $V = W = \R^2$ , $\alpha$ Drehung um $\sigma$ mit Winkel $\phi$ (entgegen Uhrzeigersinn)\\
+Nach \nameref{sec:3.11}:\\
+$\mathcal{B} = \mathcal{C} = (e_1,e_2)\\
+\alpha(e_1) = \cos(\phi)e_1 + \sin(\phi)e_2
+\alpha(e_2) = -\sin(\phi)e_1 + \cos(\phi)e_2$\\
+(\ref{sec:3.11})\\
+$A^\mathcal{B}_\alpha = \begin{pmatrix}
+\cos(\phi)&\sin(\phi)\\
+-\sin(\phi)&\cos(\phi)
+\end{pmatrix}$
+\item Nullabbildung.\\
+$\beta : \begin{cases}
+V &\to W\\
+V &\to \sigma
+\end{cases}\\
+$hat bezüglich aller Basen $\mathcal{B}$ und $\mathcal{C}$ Nullmatrix als Darstellungsmatrix\\
+\item $V, \mathcal{B}, id_x\\
+A^{\mathcal{B}}_{id_x} = E_n = \begin{pmatrix}
+1&0&0\\
+0&\ddots&0\\
+0&0&1\\
+\end{pmatrix}$
+\item $V = \R^2, \mathcal{B} = (e_1,e_2), \mathcal{C} = (e_2,e_1)\\
+A_{id_x}^{\mathcal{B,C}} = \begin{pmatrix}
+0 & 1\\
+1 & 0
+\end{pmatrix}$
+\item V = $\R^2, \mathcal{B} = (e_1,e_2)\\
+\sigma$ Spiegelung an $\raum{e_1}$, dass hei\ss t $\varsigma (\vector2{x_1}{x_2}) = \vector2{x_1}{x_2}\\
+A^{\mathcal{B}}_\sigma = \begin{pmatrix}
+1&0\\
+0&-1
+\end{pmatrix}\\
+A^{\mathcal{B,B}}_\sigma = \begin{pmatrix}
+0.5&-0.5\\
+0.5&0.5
+\end{pmatrix}$
+\end{enumerate}
+\subsection{Satz}\label{sec:\thesubsection}
+$v,w,\mathcal{B,C}, \alpha: V \to W$ linear.\\
+$\kappa_\mathcal{C}(\alpha(v))^t = A^{\mathcal{B,C}}_\alpha \cd \kappa_\mathcal{B}(v)^t$ Spaltenvektoren.\\
+\emph{Beweis} folgt aus \nameref{sec:5.2}.\\
+\begin{tabular}{lll}
+Basis $\mathcal{B}$ &$\xrightarrow{\qquad\alpha}$& Basis $\mathcal{C}$\\
+V && W\\
+$\left.(\kappa_\mathcal{B})\right\downarrow$&&$\left\downarrow(\kappa_\mathcal{C})\right.$\\
+$K^n$&$\xrightarrow{\text{Multi. mit Matrix} A_\alpha}$&$K^n$
+\end{tabular}
+\subsection{Beispiel}\label{sec:\thesubsection}
+$V,W\ \R$-VR, $\dim(v) = 4,\\
+\dim(w) = 3,\, \mathcal{B} = (v_1,v_2,v_3,v_3)\\
+\mathcal{C} = (w_1,w_2,w_3), \alpha: V \to W.\\
+A^{\mathcal{B,C}}_\alpha = \begin{pmatrix}
+1&1&2&3\\
+2&0&-1&1\\
+3&2&0&2
+\end{pmatrix}\\
+V = 5v_1 - 6v_2 + 7v_3 - 2v_4\\
+\alpha(v)= ?\\
+\begin{pmatrix}
+1&1&2&3\\
+2&0&-1&1\\
+3&2&0&2
+\end{pmatrix} \cd \vector45{-6}{7}{-2} = \vector371{-1}$\\
+\ref{sec:5.4}: $\alpha(v) = 7w_1+w_2-w_3$
+\subsection{Korollar}\label{sec:\thesubsection}
+Jede lineare Abbildung $K^n \to K^m$ ist von der Form $\alpha(x)  = A \cd x$ für eine $A \in \mathcal{M}_{m,n}(K).$.\\
+Es ist $A = A^{\mathcal{B,C}}_\alpha$, wobei $\mathcal{B,C}$ die kanonische Basen von $K^n$ bzw. $K^m$ sind.
+\begin{proof}
+$x \in K^m\quad \kappa_\mathcal{B}(x)^t = x\quad \kappa_\mathcal{C}(\alpha(x))^t = \alpha(x)$\\
+Behauptung folgt aus \ref{sec:5.4}
+\end{proof}
+\subsection{Satz}\label{sec:\thesubsection}
+$\alpha,\beta$ lineare Abbildung $U \to V\\
+\gamma $lineare Abbildung $V \to W.\\
+\mathcal{B,C,D}$ geordnete Basen von $U,V,W$
+\begin{enumerate}[a)]
+\item $A^{\mathcal{B,C}}_{\alpha+\beta} = A^{\mathcal{B,C}}_\alpha + A^{\mathcal{B,C}}_\beta\\
+A^{\mathcal{B,C}}_{k\alpha} = k \cd A^{\mathcal{B,C}}_\alpha\ (k \in K)$
+\item \( A^{\mathcal{B,D}}_{\gamma \circ \alpha} = A^{\mathcal{C,D}} \underset{\substack{\text{Matrix}\\\text{Mult.} }}{\cdot} \) (Reihenfolge beachten).
+\emph{Beweisen}:a) nachrechnen
+\item $\mathcal{B} = (u_1,\ldots,u_l)\\
+\mathcal{C} = (v_1,\ldots,v_m)
+\mathcal{D} = (w_1,\ldots,w_n)\\
+A^{\mathcal{B,C}} = (a_ij)\ n \times l$-Matrix\\
+$A^{\mathcal{C,D}} = (b_ij)\ n \times m$-Matrix\\
+$\begin{array}{ll}
+(\gamma\circ\alpha)(u_i) = \gamma(\alpha(u_i))\\
+&= \gamma(\sum\limits_{j=1}^ma_{ji}v_j)\\
+&= \sum\limits_{j=1}^{m}a_{ji} (\sum\limits_{k=1}^{n}b_{kj}w_k)\\
+&= \sum\limits^{n}_{k=1}\underbrace{(\sum\limits^{n}_{j=1}b_{kj}a_{ji}}_{\text{Koeff}(k,i)}w_k
+\end{array}$
+\end{enumerate}
+\subsection{Beispiel}\label{sec:\thesubsection}
+$U = V = W = \R^2\\
+\mathcal{B = C = D} = (e_1,e_2)\\
+\alpha$ Drehung um $\phi,\\
+\beta$ Drehung um $\psi$ ( jeweils um 0)\\
+$A^{\mathcal{B}}_\alpha = \begin{pmatrix}
+\cos(\phi)&-\sin(\phi)\\
+\sin(\phi)&\cos(\phi)
+\end{pmatrix}\\
+A^{\mathcal{B}}_\beta = \begin{pmatrix}
+\cos(\psi)&-\sin(\psi)\\
+\sin(\psi)&\cos(\psi)
+\end{pmatrix}$\\
+$\beta \circ \alpha$ Drehung um $\phi + \psi\\
+A^{\mathcal{B}}_{\beta \circ \alpha} = \begin{pmatrix}
+\cos(\phi+\psi)&-\sin(\phi+\psi)\\
+\sin(\phi+\psi)&\cos(\phi+\psi)
+\end{pmatrix}\\
+$
+Nach \ref{sec:5.7}:\\
+$\alpha^{\beta \circ \alpha}() = A^{\mathcal{B}}_\beta \cd A^{\mathcal{B}}_\alpha = \begin{pmatrix}
+\cos(\phi)\cos(\psi)- \sin(\phi)\sin(\psi)& -\sin(\phi)\cos(\psi)-\cos(\phi)\sin(\psi)\\
+\cos(\phi)\sin(\psi)+\sin(\phi)\cos(\psi)&-\sin(\phi)\sin(\psi)+ \cos(\phi)'cos(\psi)
+\end{pmatrix}\\
+\cos(\phi + \psi) = \cos(\phi)\cos(\psi) - \sin(\phi)\sin(\psi)\\
+\sin(\phi+\psi) = \sin(\phi)\cos(\psi) + \cos(\phi)\sin(\psi)$\\
+(Additionstheoreme der Trigonometrie)
+\subsection{Definition}\label{sec:\thesubsection}
+Sei $A \in \mathcal{M}_n(K)$ ($n\times n$-Matrix),\\
+$A$ hei\ss t \emph{invertierbar}\index{inverse Matrix}, falls $A^{-1} \in \mathcal{n}(K)$ existiert (\emph{Inverse}\index{Inverse},\emph{inverse Matrix} zu $A$). mit $A \cd A^{-1} = A^{-1} \cd A = E_n$
+\emph{Bemerkung}:\\
+Gilt $A \cd A^{-1} = E_n$ so auch $A^{-1} \cd A = E_n$ (und umgekehrt). (Folgt aus \ref{sec:5.10} und \ref{sec:3.16})
+\subsection{Korollar}\label{sec:\thesubsection}
+$\dim_\kappa(v) =n, \mathcal{B}$ geordnete Basis von $V,\, \alpha:\:V\to V$ linear. Dann gilt:\\
+$\alpha$ invertierbar (d.h bijektiv) $\Leftrightarrow A^{\mathcal{B}}_\alpha$ invertierbar.\\
+Dann: $A^{\mathcal{B}}_{\alpha^{-1}}$\\
+Dann : $A^{\mathcal{B}}_{\alpha^{-1}} = (A^{\mathcal{B}_\alpha})^{-1}$.\\
+\emph{Beweis}:\\
+$\Rightarrow: A^{\mathcal{B}}_\alpha \cd A^{\mathcal{B}}_{\alpha^{-1}} \underset{\ref{sec:5.7}}{=} A^{\mathcal{B}}_{\alpha \circ \alpha^{-1}} = A^{\mathcal{B}}_{id_x} + E_n\\
+A^{\mathcal{B}}_{\alpha^{-1}} \cd A^{\mathcal{B}}_\alpha = E_n$ analog.\\
+$\Leftarrow:$ Es existiert inverse Matrix $B$ zu $A^{\mathcal{B}}_\alpha$, dass hei\ss t $A^{\mathcal{B}}_\alpha \cd B = B \cd A^{\mathcal{B}}_\alpha = E_n$\\
+Dann $B = A^{\mathcal{B}}_{\beta}$ für eine eindeutig bestimmte lineare Abbildung $\beta: V \to V.$(\ref{sec:5.2}).\\
+$A^{\mathcal{B}}_\alpha \cd A^{\mathcal{B}}_\beta = A^{\mathcal{B}}_\beta \cd A^{\mathcal{B}}_\alpha = E_n\\
+A^{\mathcal{B}}_{\alpha \cd \beta} = A^{\mathcal{B}}_{\beta \cd \alpha} = E_n\\
+\mathcal{B} = (v_1,\ldots,v_n).\quad (\alpha \cd \beta)(v_i) = 1 \cd v_i = v_i\quad i = 1,\ldots,n\\
+\alpha \circ \beta = id_v$\\
+Analog $\beta \circ \alpha = id_v\\
+\beta = \alpha^{-1}$
+\subsection{Satz}\label{sec:\thesubsection}
+$A \in \mathcal{M}_n(K)\\
+A$ invertierbar $\Leftrightarrow\ \mathrm{rg}(A) = n$.\\
+(Dass hei\ss t Zeilen/Spalten vo nA sond linear unabhängig).
+\begin{proof}
+Definition: $\alpha : K^n \to K^n$ durch $\alpha(x) = A \cd x\\
+A = A^{\mathcal{B}}_\alpha$ bezüglich der kanonischen Basis $\mathcal{B}$ von $K^n$.\\
+$A$ invertierbar $\xLeftrightarrow[\ref{sec:5.10}]{} \alpha$ invertierbar $\xLeftrightarrow[\ref{sec:3.16}]{} \mathrm{rg}(\alpha)=n \xLeftrightarrow[\ref{sec:4.5}/\ref{sec:4.6}]{} \mathrm{rg}(A) = n$
+\end{proof}
+\subsection{Lemma}\label{sec:\thesubsection}
+$A \in \mathcal{M}_{m,n}(K),X \in \mathcal{M}_{n,l}(K),\\
+C = AX \in \mathcal{M}_{m,l}(\kappa)$\\
+Wendet man dieselben elementaren Zeilenumformung auf $A$ und $C$ an (beachte $A$ und $C$ haben beide $m$ Zeilen), so gilt für die entstehende Matrizen $A',C'$.\\
+\[C' = A'X\]
 \printindex
 \end{document}
