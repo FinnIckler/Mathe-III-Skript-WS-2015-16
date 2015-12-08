@@ -82,5 +82,31 @@
       \end{pmatrix}
     \fi
 }
+\makeatletter
+% Matrix beliebiger Größe (Bsp.: a,b;c,d)
+\def\@gobblesecondoftwo#1#2{#1}
+\NewDocumentCommand\Matrix{>{\SplitList;}m}{%
+  \begin{pmatrix*}[r]
+    \ProcessList{#1}\@Matrix%
+  \end{pmatrix*}
+}
+\NewDocumentCommand\@Matrix{>{\SplitList,}m}{%
+  \expandafter\expandafter\expandafter\@gobblesecondoftwo
+  \ProcessList{#1}\@@Matrix \\%
+}
+\def\@@Matrix#1{&#1}
+
+% patch gmatrix to look like normal matrix in 'align'
+\patchcmd\g@matrix
+ {\vbox\bgroup}
+ {\vbox\bgroup\normalbaselines} % restore the standard baselineskip
+ {}{}
+\makeatother
 \DeclareMathOperator{\Grad}{Grad}
+% vertical line for gmatrix
+\newcommand{\gvline}{%
+  \hspace{-\arraycolsep}%
+  \strut\vrule % the `\vrule` is as high and deep as a strut
+  \hspace{-\arraycolsep}%
+}
 \makeindex
