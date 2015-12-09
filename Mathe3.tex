@@ -1792,5 +1792,107 @@ Sei $A_\alpha^{\mathcal{B}} = \Matrix{1,0;0,-1}\\
 $A^{\mathcal{B'}_\alpha} \underset{\ref{sec:5.21}}{=} \Matrix{\frac23,\frac13;\frac13,-\frac13} \Matrix{1,0;0,-1} \Matrix{1,1;1,-2} = \Matrix{\frac13,\frac43;\frac23,-\frac{1}{3}}\\
 \alpha(e_1+e_2) = \frac{1}{3}(e_1+e_2) + \frac{2}{3}(e_1-2e_2)\\
 \alpha(e_1-2e_2) = \frac{4}{3}(e_1+e_2) - \frac{12}{3}(e_1-2e_2)$
+\section{Determinanten}
+$\mathcal{N}_n(k) \longrightarrow K$
+\subsection{Definition}\label{sec:\thesubsection}
+$A \in M_n(k), i,j \in \{1,\ldots,n\}\\
+A_ij \in \mathcal{M}_{n-1}(k)$ ist die Matrix, die aus $A$ entsteht wenn man $A$ die $i$te Zeile und die $j$te Spalte streicht.\\
+\emph{Beispiel}:\\
+$A=\Matrix{3,4,5;
+         6,7,8;
+         9,10,11} \in \mathcal{M}_3(\R)\\
+A_{11} = \Matrix{7,8;10,11}, A_{23} = \Matrix{3,4;9,10}$\\
+Definition Determinante einer {\em Quadratischen} Matrix rekursiv.
+\subsection{Laplacescher Entwicklungssatz}\label{sec:\thesubsection}
+$\det{M_n(k)} \to K$ ist eine Abbildung, die {\em Determinante}\index{Determinante}, die folgendermaßen berechnet wird:\\
+\setcounter{equation}{0}
+\begin{flalign}
+\det((\alpha)) &= \alpha\\
+A \in \mathcal{M}_n(k)\text{ Wähle irgendein }i \in \{1,\ldots n\}. \det(A) &= \sum\limits_{j=1}^{n} (-1)^{i+j} a_{ij}
+\end{flalign}
+(Entwicklung nach der $i$-ten Zeile)\\
+(Schachbrettmuster der Vorzeichen:\\
+\[\Matrix{+,-,+,\ldots;-,+,-,\ldots;+,-,+,\ldots;-,+,-,\ldots;\vdots,\vdots,\vdots,\vdots}\])
+\begin{align}
+\text{Alternativ: Wähle }j \in \{1,\ldots,n\}\det(A) = \sum\limits^{n}_{i=1}(-1)^{i+j}a_ij\det(A_ij)
+\end{align}
+(Entwicklung nach der $j$-ten Spalte)\\
+\emph{Bemerkung:} Wichtig:\\
+Egal nach welcher Zeile oder Spalte man entwickelt, es kommt immer dasselbe heraus!\\
+(Schwierigster Beweis in der elementaren Determinantentheorie)
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\item\begin{equation*}
+\boxed{\det\Matrix{a_{11},a_{12};a_{21},a_{22}} = a_{11}a_{22} - a_{12} \cd a_{21}}
+\end{equation*}
+Entwicklung nach der 1. Zeile\\
+Entwicklung nach der 2. Spalte: $-a_{12}a_{21} + a_{22} a_{11}$
+\item $A = \Matrix{2,0,3;-1,0,4;2,3,-1} \in \mathcal{M}_3(\mathbb{Q})$.\\
+Entwicklung nach der 1. Zeile:\\
+$\det(A) = 2 \cd \det\Matrix{0,4;3,-1} - 0 \cd \det\Matrix{-1,4;2,-1} + 3 \cd \Matrix{-1,0;2,3} = -24 - 0 - 9 = -33$\\
+Entwicklung nach der 2. Spalte:\\
+$\det(A) = -3 \cd \det\Matrix{2,3;-1,4} = -33$.\\
+{\em Allgemeine Strategie}: \\
+Verwende nur Determinanten-Berechnungen einer Zeile oder Spalte, mit möglichst vielen Nullen!
+\item $\det\Matrix{a_{11},0,0,0,0,\ldots;
+                   a_{21},a_{22},0,0,0,\ldots;
+                   a_{31},a_{32},a_{33},0,0,\ldots;
+                   a_{41},a_{42},a_{43},a_{44},0,\ldots;\vdots,\vdots,\vdots,\vdots,\vdots,\ddots;
+                   a_{n1},a_{n2},a_{n3},a_{n4},a_{n5},a_{nn} }= a_{11} \cd a_{22} \cd a_{nn}$
+Induktion nach n:\\
+$n = 1 \checkmark\\
+n -1 \to n\\$
+Entwicklung nach 1.Zeile:\\
+$\Matrix{a_11,0,\ldots;
+         \star,\ddots,\ldots}$ = $a_{11} \cd \det\Matrix{a_{22},0,\ldots;\star,\ddots,\ldots} \underset{\mathrm{IV} }{a_{11}\cd a_{22} \cd \ldots \cd a_{nn} }$\\
+Analog: Obere Dreiecksmatrix\\
+Insbesondere: $\det(E_n) = \det\Matrix{1,0,\ldots;0,\ddots,\vdots;0,\ldots,1} = 1$
+\end{enumerate}
+\subsection{Korollar}
+$\det(A) = \det(A^t)$
+\subsection{Rechenregeln für Determinante}
+Sei $A \in \mathcal{M}_n(k)$
+\begin{enumerate}[a)]
+\item Zeilen bzw. Spaltenvertauschen ändern das Vorzeichen der Determinante.
+\item Addiert man den Vielfache einer Zeile/Spalte zu einer anderen Zeile/Spalte, so ändert sich die Determinante nicht.
+\item Multipliziert man eine Zeile/Spalte von $A$ mit $a \in K$, so ändert sich $\det(A)$ um Faktor $a$.
+\emph{Insbesondere}: $A \in \mathcal{M}_n(K)\\
+\det(a \cd A) = a^n = \det(A)$\\
+ $A,B \in \mathcal{M}_n(K).\\
+\det(A\cd B) = \det(A) \cd \det(B).$ (Determinantenmultiplikationssatz)\index{Determinantenmultiplikationssatz}\\
+(Aber Im allgemeinen $\det(A+B) \ne \det(A) + \det(B))\\
+A = B = E_2\qquad \det(A) = \det(B) = 1\\
+\det(A+B) = \det\Matrix{2,0;0,2} = 4$
+\end{enumerate}
+\subsection{Bemerkung}
+Strategie zur Determinantenberechnung. Wende auf $A$ elementare Zeilen/Spaltenumformungen an, um Dreiecksgestalt zu erhalten. Dann \ref{sec:6.3}c).
+\subsection{Beispiel}\label{sec:\thesubsection}
+$A = \Matrix{0,1,2,3;-1,0,0,4;1,3,4,2;0,3,0,1}, K = \mathbb{Q}\\
+-\det\Matrix{-1,0,0,4;0,1,2,3;0,3,4,6;0,3,0,1} = -\det\Matrix{-1,0,0,4;0,1,2,3;0,0,-2,-3;0,0,-6,-8} =
+-\det\Matrix{-1,0,0,4;0,1,2,3;0,0,-2,-3;0,0,0,1 } = -2$
+\subsection{Satz}\label{sec:\thesubsection}
+$A \in \mathcal{M}_n(k).$ Dann gilt:\\
+$A$ invertierbar $\Leftrightarrow \mathrm{rg}(A) = n \Leftrightarrow \det(A) \ne 0$.\\
+In diesem Fall gilt: $\det(A^{-1}) = \det(A)^{-1} (= \frac{1}{\det(A)})\\
+\lbrack^{\Rightarrow:}AA^{-1} = E_n\\
+1 = \det(E_n) = \det(A \cd A^{-1}) = \det(A) \cd \det(A^{-1}) \rbrack$\\
+Andere Berechnungsmethode von $A^{-1}$ mit Hilfe der Determinante. Dann:\\
+\subsection{Definition}\label{sec:\thesubsection}
+$A \in \mathcal{M}_n(k)$. Die \emph{Adjunkte}\index{Adjunkte} $A^{\mathrm{ad}} = (b_{ij})_{i,j = 1\ldots n},$ wobei $b_{i,j} = (-1)^{i+j}\det(A_{ji})$ Indizes beachten!
+\subsection{Satz}
+$A \in \mathcal{M}_n(K)$.
+\begin{enumerate}[a)]
+\item $A^{\mathrm{ad}} \cd A = A \cd A^{\mathrm{ad}}= (\det A) \cd E_n = \Matrix{\det(A),\ldots,0\\
+        0,\ddots,\ldots\\
+        0, \ldots,\det(A)}$
+\item  Ist $\det(A) \ne 0$ so ist $A^{-1} = \frac1{\det(A)} \cd A^{\mathrm{ad}}$
+\end{enumerate}
+\subsection{Beispiel}
+$A = \Matrix{a_11,a_12;a_21,a_22}$\\
+Angenommen: $\det(A) = a_{11}a_{22} - a_{12}a_{21} \ne 0.\\
+A^{-1} =$
+\begin{equation*}
+\boxed{\frac1{\det(A)}\Matrix{a_22,-a_{12};-a_{21},a_{11} }}
+\end{equation*} 
 \printindex
 \end{document}
