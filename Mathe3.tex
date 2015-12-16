@@ -1893,6 +1893,220 @@ Angenommen: $\det(A) = a_{11}a_{22} - a_{12}a_{21} \ne 0.\\
 A^{-1} =$
 \begin{equation*}
 \boxed{\frac1{\det(A)}\Matrix{a_22,-a_{12};-a_{21},a_{11} }}
-\end{equation*} 
+\end{equation*}
+\subsection{Bemerkung}\label{sec:\thesubsection}
+$\alpha : V \to V$ lineare Abbildung, $V$. endlich dimensional.\\
+$\mathbb{B,B'}$ Basen von $V$.\\
+$A^{\mathbb{B'}}_{\alpha} = S^{-1} \cd A^{\mathbb{B}}_\alpha \cd S$ wobei $S = S_{\mathbb{B,B'}}$.(\Nameref{sec:5.21}).\\
+$\det(A^{\mathbb{B'}_\alpha}) = \det(S'\cd A^{\mathbb{B}}_\alpha \cd S) = \det(A_\alpha^{\mathbb{B}}) $.\\
+Daher definiert man:\\
+$\det(\alpha) = \det(A^{\mathbb{B}}_\alpha)$ (unabhängig von der Wahl von $B$).\\
+$[$Im Allgemeinen ist $\det(A^{\mathbb{B,C}} \ne \det \det(A^{\mathbb{B',C'}} )$ $]$
+\section{Eigenwerte}
+\emph{Problem:} $\alpha: V \to V$ linear, Suche Basis $\mathbb{B}$ von $V$ bezüglich der $A^{\mathbb{B}}_\alpha$ besondere einfache Gestalt hat.\\
+Am besten wäre $A^{\mathbb{B}}_\alpha = \Matrix{a_1,\ldots,0;
+        \ldots,\ddots,\ldots;
+        0, \ldots, a_n}$\\
+D.h $\mathbb{B} = (v_1,\ldots,v_n)$, so $\alpha(v_i) = a_iv_i, i =1\ldots n$\\
+Das geht allerdings im Allgemeinen nicht.
+\subsection{Beispiel}\label{sec:\thesubsection}
+\begin{enumerate}[a)]
+\item $\sigma : \R^2 \to \R^2$ Spiegelung an der $e_1$-Achse.\\
+$\mathbb{B} = (e_1,e_2)$ kanonische Basis\\
+$A^{\mathbb{B} }_\sigma = \Matrix{1,0;0,-1}$
+\item Drehung $\rho$ um 0 mit Winkel + $k \cd \pi$.\\
+Kein Vektor $\ne \sigma$ wird auf ein Vielfaches von sich abgebildet. Für \emph{keine} Basis $\mathbb{B}$ ist $A^{\mathbb{B}}_{\rho}$ Diagonalmatrix
+\end{enumerate}
+\subsection{Definition}\label{sec:\thesubsection}
+$\alpha: V \to V$ lineare Abbildung $c \in K$ hei\ss t \emph{Eigenwert} \index{Eigenwert} von $\alpha$, falls $v \in V, v \ne \sigma $ existiert $\alpha(v) = c \cd v$\\
+Jeder solcher Vektor $v \ne \sigma$ hei\ss t \emph{Eigenvektor}\index{Eigenvektor} von $\alpha$ zu dem Eigenwert $c$.\\
+Die Menge aller Eigenvektoren zu $c$, zusammen mit Nullvektor, hei\ss t \index{Eigenraum}\emph{Eigenraum} von $\alpha$ zum Eigenwert $c$.
+\subsection{Bemerkung}\label{sec:\thesubsection}
+$\alpha : V \to V$ linear, $c$ sei ein Eigenwert von $\alpha$. Eigenraum von $\alpha$ zu $c = \ker(c \cd \mathrm{id}_v - \alpha )$, also Unterraum von $V$. Insbesondere: 0 ist Eigenwert von $\alpha \Leftrightarrow \ker(\alpha) \ne \{\sigma\}$
+\emph{Beweis:}\\
+$\alpha(v) = c \cd v \Leftrightarrow c \cd v - \alpha(v) = \sigma \\
+\phantom{\alpha(v) = c \cd v }\Leftrightarrow (c \cd \mathrm{id_v}(v) = \sigma)\\
+\phantom{\alpha(v) = c \cd v }\Leftrightarrow v \in \ker(c \cd \mathrm{id}_v  - \alpha ) $
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\item $id_v$ hat nur Eigenwert 1, Eigenraum zu 1 ist $V$.
+\item Spiegelung aus \ref{sec:7.1}a):\\
+1 ist Eigenwert\qquad -1 ist Eigenwert.\\
+Eigenraum zu 1: $\raum{e_1}$\\
+Eigenraum zu -1: $\raum{e_2}$\\
+\item Drehung um $\phi \ne k \cd \pi$ hat keine Eigenwerte.
+\end{enumerate}
+\subsection{Definition}
+$A\quad n \times n-$Matrix über $K$ \emph{Eigenwerte von A}: = Eigenwerte von $\alpha_A: \begin{cases}
+K^n &\to K^nx\\
+x &\mapsto A \cd x
+\end{cases}$\\
+(dass hei\ss t $c \in K$ ist Eigenwert von $A \Leftrightarrow\exists\ x \ne 0 , x \in K^n : A \cd x = c\ cd x$)
+\subsection{Satz}
+$\alpha : V \to V$ lineare Abbildung. Dann haben $\alpha$ und $A^{\mathbb{B}}_\alpha$ die gleichen Eigenwerte für jede Basis $\mathbb{B}$ von $V$.
+\begin{proof}
+Sei $c$ Eigenwert von $\alpha, v \ne \sigma$ mit $\alpha(v) = c \cd v.\\
+A^{\mathbb{B}}_\alpha \cd \kappa_\mathbb{B}(v)^t = \kappa_\mathbb{B} (\alpha(v) )^t = \kappa_\mathbb{B}(c \cd v)^t = c \cd \kappa_\mathbb{B}^t$.\\
+Da $v \ne \sigma$ ist $\kappa_\mathbb{B} \ne \sigma$
+Also ist $c$ Eigenwert von $A^\mathbb{B}_\alpha = A$.\\
+Umgekehrt:\\
+Sei $0 \ne x = \vector3{x_1}\vdots{x_n} \in K^n$ mit $A \cd x = c \cd x$. ($c$ ist Eigenwert von $A$).\\
+Sei $v = \sum\limits^{n}_{i=1}x)iv_i,\mathbb{B} = (v_1,\ldots,v_n)    
+\kappa_\mathbb{B}(v)^t = x.\qquad v \ne \sigma$.\\
+Es folgt $\kappa_\mathbb{B}(\alpha(v)) = c \cd v\ c$ ist Eigenwert von $\alpha$. 
+\end{proof}
+\subsection{Satz}\label{sec:\thesubsection}
+$V\ n$-dimensional. $K-$VR, $\mathbb{B}$ Basis von V, $\alpha : V \to V$ linear, $A := A^{\mathbb{B}}_\alpha, c \in K$.\\
+Dann sind äquivalent:
+\setcounter{equation}{0}
+\begin{eqnarray}
+c \text{ ist Eigenwert von }\alpha\\
+\ker(c \cd \mathrm{id}_v - \alpha) \ne \{\sigma \}\\
+\det(c \cd E_n  -A ) = 0
+\end{eqnarray}
+\begin{proof}
+(1) $\Leftrightarrow$ (2) \ref{sec:7.3}.\\
+(2) $\Leftrightarrow$ (3):\\
+$A^{\mathbb{B}}_{c \cd \mathrm{id}_v - \alpha} = c \cd E_n - A\\
+\begin{array}{{ll}}
+&\det(c \cd E_n - A) = 0\\
+\Leftrightarrow& c \cd E_n - A \text{ nicht invertierbar.}\\
+\Leftrightarrow& c \cd \mathrm{id}_v - \alpha \text{ nicht invertierbar.}\\
+\Leftrightarrow& c \cd \mathrm{id}_v - \alpha \text{ nicht injektiv.}\\
+\Leftrightarrow& \ker(c \cd \mathrm{id}_v \alpha) \ne \{\sigma\}  \\
+\end{array}$
+\end{proof}
+\begin{mdframed}
+Wie berechnet man Eigenwerte einer lineare Abbildung und wie viele gibt es?\\
+Nach \ref{sec:7.7} muss man alle $c \in K$ bestommen mit $\det(c \cd E_n - A) = 0$.\\
+Betrachte Funktion\\
+$f_a : \begin{cases}
+K &\to K\\
+to &\mapsto \det(t \cd E_n -A)
+\end{cases}$
+\end{mdframed}
+\subsection{Satz}\label{sec:\thesubsection}
+Die Funktion $f_a$ ist Polynomfunktion von Grad n, dass hei\ss t:\\
+$f_A(t) = \det(t \cd E_n - A) = t^n + a_{n-1}t^{n-1}+ \ldots + a_1t + a_0$ wobei $a_i \in K$ (unabhängig von $t$)
+\begin{proof}
+Mit Entwicklungsformel. Machen wir hier nicht
+\end{proof}
+\subsection{Definition}\label{sec:\thesubsection}
+\begin{enumerate}[a)]
+\item Das Polynom $f_1(t) = \det(t \cd E_n -A) \in K[t]$ hei\ss t \emph{charakteristisches Polynom}\index{charakteristisches Polynom} von $A \in \mathcal{M}_n(k)$.
+\item $\alpha : V \to V$ linear,\\
+$\mathbb{B}$ Basis von V, so $\det(t \cd \mathrm{id}_v - \alpha) = \det(A^{\mathbb{B}}_{t \cd \mathrm{id}_v}) = \det(t \cd E_n - A^{\mathbb{B}_\alpha})$ hei\ss t \emph{charakteristisches Polynom} von $\alpha$ (nach \ref{sec:6.12} unabhängig von $\mathbb{B}$)
+\end{enumerate}
+\subsection{Korollar und Defintion}\label{sec:\thesubsection}
+$\alpha : V \to  V$ linear $\dim(V) = n$.
+\begin{enumerate}[a)]
+\item $c$ ist Eigenwert von $\alpha \Leftrightarrow c $ ist Nullstelle des charakteristischen Polynoms von $\alpha$. \emph{Vielfachheit}\index{Vielfachheit} des Eigenwerts $c = $ Vielfachheit von $c$ als Nullstelle des charakteristischen Polynoms
+\item $\alpha$ hat höchstens $n$ Eigenwerte (einschlie\ss end Vielfachheit.) 
+\end{enumerate}
+\subsection{Beispiel}\label{sec:\thesubsection}
+\begin{enumerate}[a)]
+\item $\varrho \R^2 \to \R^2$ Spiegelung an $\raum{e_1}$-Achse.\\
+$\mathbb{B} = (e_1,e_2)$ kanonische Basis\\
+$A : A^{\mathbb{B}_\varrho} = \Matrix{1,0;0,-1}$
+Eigenwerte 1,-1
+\item $\alpha : \R^2\to\R^2,\\
+A = A^{\mathbb{B}}_\alpha = \Matrix{-1,2;4,-3}\ \mathbb{B}$ kanonische Basen.\\
+Charakteristisches Polynom von $\alpha:\\
+\det(t \cd E_n A^{\mathbb{B}}_\alpha) = \det\Matrix{t+1,-2;-4,t+3}\\
+= (t+1))(t+3) -8 = t^2 +4t - 5\\
+t^2 + 4t - 5 = 0\\
+t_{1,2} = -2 \pm \sqrt{4+5} = \begin{cases}
+1\\-5
+\end{cases}\\$
+Eigenwerte von $\alpha$: 1,-5\\
+Eigenvektor zu 1: $\vector{2}{x}{y}\\
+1 \cd \vector{2}{x}{y} = \alpha \vector{2}{x}{y} = \Matrix{-x,+2y;4x-3y}\\
+\Matrix{x =, -x, + 2y;
+        y =, 4x, -3y}
+\Matrix{2x =, 2y;
+-3x =, 3y} \qquad x = y$\\
+Eigenraum zu Eigenwert 1: $\raum{\vector{2}11}$\\
+Eigenvektor zu -5:\\$
+-5 \cd \vector{2}{x}{y} = \Matrix{-x,+2y;4x-3y}\\
+\Matrix{-5x =, -x, + 2y;
+        -5y =, 4x, -3y}
+\Matrix{-4x =, 2y;
+-2y =, 4x} \qquad y = -2x$\\
+Eigenraum zu Eigenwert -5: $\raum{\vector{2}1{-2}}\\
+B' = \raum{(\vector{2}11,\vector2{1}{-2})} \qquad A^{\mathbb{B'}}_\alpha = \Matrix{1,0;0,-5}$ Diagonalmatrix
+$\rho: \R^2 \to \R^2$ Drehung um $\frac\pi2$ um 0. $\mathbb{B}$ kanonische Basis.\\
+$A = A^{\mathbb{B}}_\rho = \Matrix{\cos(\frac\pi2),-\sin(\frac\pi2);\sin(\frac\pi2),\cos(\frac\pi2) } = \Matrix{0,-1;1,0}$\\
+charakteristisches Polynom:\\
+$f_A(t) = \det(t \cd E_2 - A)\\
+\phantom{f_A(t)} = \det(t,1;-1,t) = t^2 + 1$\\
+Keine Nullstellen um $\R$, also hat $\rho$ keine Eigenwerte in $\R$
+\end{enumerate}
+Fasst man $\rho$ als Abbildung $\C^2 \to \C^2$ auf, so gibt es Eigenwerte $i,-i$\\
+Die zugehörigen Eigenräume sind $\raum{\Matrix{1;i}}_C,\raum{\Matrix{1;-1i}}_C$
+\subsection{Korollar}\label{sec:\thesubsection}
+$\alpha = V \to V$ linear.\\
+Falls Basis $\mathbb{B}$ von $V$ existiert mit $A^{\mathbb{B}}_\alpha = 
+\Matrix{a_{11},\ast,\ast,\ast;
+        0,a_{22},\ast,\ast;
+        0,0,\ddots,\ast;
+        0,0,0,a_{nn}}$\\
+(oder untere Dreiecksmatrix\index{Dreiecksmatrix}), so sind die Diagonalelemente $a_{11},a_{22},\ldots,a_{nn}$ sämtliche Eigenwerte von $\alpha$ (mit Vielfachheit).
+\begin{proof}
+$\Matrix{t-a_{11},-\ast,-*,-\ast;
+        0,t-a_{22},-\ast,-\ast;
+        0,0,\ddots,-\ast;
+        0,0,0,t-a_{nn}} = (t-a_{11} \cd \ldots (t-a_{nn}))$
+\end{proof}
+\subsection{Bemerkung}\label{sec:\thesubsection}
+Über $\C$ lässt sich für jede lineare Abbildung $\alpha: V \to V$ Basis $\mathbb{B}$ finden, so dass $A^{\mathbb{B}}_\alpha$ Dreiecksmatrix.
+\subsection{Satz (''Der Satz der alles liefert'')}\label{sec:\thesubsection}
+Seien $c_1,\ldots,c_r$ die paarweise verschiedenen Eigenwerte der linearen Abbildung. $\alpha : V  \to V$. Seien $v_1,\ldots,v_r$ zugehörige Eigenvektoren. Dann sind $v_1,\ldots,v_r$ linear unabhängig.
+\begin{proof}
+Induktion nach r.\\
+$r = 1: v_1 \ne \sigma$ linear unabhängig $\checkmark$\\
+Behauptung sei richtig für $i-1$.\\
+Zu zeigen: Richtig für $i \leq r.\\
+v_1,\ldots,v_{i-1},v_i$ linear abhängig.\\
+Dann : \[v_i = \sum\limits^{i+1}_{j=1} a_jv_j. a_j \in K (\ast)\]\\
+Multiplikation mit $c_i:$
+\setcounter{equation}{0}
+\begin{equation}
+c_iv_i=\sum\limits^{i+1}_{j=1}c_ia_jv_j
+\end{equation}
+Andererseits; Wende $\alpha$ auf $(\ast)$ an.\\
+\begin{equation}
+c_iv_i = \alpha(v_i) \underset{\ast}{=} \sum\limits^{i-1}_{j=1}a_j\alpha(v_j) \underset{\text{Vorrausetzung}}{=} \sum\limits^{j-1}_{j=1} a_kc_jv_j
+\end{equation}
+Subtraktion von $(1)$ und $(2)$:\\
+\[ \sigma = \sum\limits^{i-1}_{j=1} (a_jc_j-c_ia_j)v_j = \sum\limits^{i-1}_{j=1}a_j (c_j-c_i) v_j \]
+$\xRightarrow[v_1,\ldots,v_{i-1} \text{ linear unabhängig} ]{} \qquad a_j (c_J,c_i) = \\ \text{für }j=1, i=1 $\\
+Nach Voraussetzung:\\
+$\Rightarrow a_j = 0$ für $j=1\ldots,i-1\\
+\xRightarrow[(\ast)]{}v_i = \sigma$\Lightning\\
+\end{proof}
+\subsection{Definition}\label{sec:\thesubsection}
+$\alpha : V \to V$ linear. $\alpha$ hei\ss t \emph{diagonalisierbar} \index{diagonalisierbar}, falls $V$ eine Basis $\mathbb{B}$ aus Eigenvektoren von $\alpha$ besitzt. $A^{\mathbb{B}}_\alpha$ ist Diagonalmatrix\index{Diagonalmatrix}.
+\subsection{Satz}\label{sec:\thesubsection}
+$\dim_K(v) = n, \alpha : V \to V$ linear\\
+Hat $\alpha\ n$ \emph{verschiedene} Eigenwerte, so ist $\alpha$ diagonalisierbar.\\
+(Hinreichend, nicht notwendig z.B $\alpha = id_v$ EW 1 mit Vielfachheit n diagonalisierbar).
+\subsection{Beispiel}\label{sec:\thesubsection}
+$A^{\mathbb{B}}_\alpha = \Matrix{1,1;0,1}\\
+\alpha$ hat EW 1 mit Vielfachheit 2 (\ref{sec:7.12}).\\
+$\alpha$ ist nicht diagonalisierbar, denn sonst existiert Basis $\mathbb{B'}$ mit $A^{\mathbb{b'} }_\alpha = \Matrix{1,0;0,1} \Rightarrow = id_v$\Lightning\\
+Also. Zur Diagonalisierbarkeit reicht es nicht, das $\alpha\ n$ Eigenwerte (mit Vfh,) besitzt.
+\subsection{Bemerkung}
+Sei $\alpha : V \to V$ linear, $\dim_k(v) = n$.\\
+Besitzt $\alpha$ n Eigenwerte (mit Vielfachheit ), d.h $\det(t E_n -A) = (t-c_1)^{m_1} \ldots (t -c_r)^{m_r}$. Ist $v_i$ Eigenraum von $\alpha$ zu $c_i$, so kann man zeigen. $\dim(v_1) \leq m_i$\\
+Es gilt: $\alpha$ ist diagonalisierbar $\Leftrightarrow \dim(v_i) = m_i, i=1,r$
+\subsection{Definition}
+$ \in \mathcal{M}_n(K)$ hei\ss t \emph{diagonalisierbar} , falls $\begin{cases}
+K^n &\to K^n\\ \mapsto K^md
+\end{cases}$
+\subsection{Satz}
+\begin{enumerate}[a)]
+\item $A \in \mathcal{M}_n(k)$ ist diagonalisierbar $\Leftrightarrow$edexistiert ein invertierbare Matrix $S'A S$ Diagonalmatrix
+\item Hat $A$ n verschiedene Eigenwerte, so ist $A$ invertierbar.
+\end{enumerate}
 \printindex
 \end{document}
