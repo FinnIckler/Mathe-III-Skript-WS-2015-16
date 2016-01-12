@@ -2105,8 +2105,72 @@ K^n &\to K^n\\ \mapsto K^md
 \end{cases}$
 \subsection{Satz}
 \begin{enumerate}[a)]
-\item $A \in \mathcal{M}_n(k)$ ist diagonalisierbar $\Leftrightarrow$edexistiert ein invertierbare Matrix $S'A S$ Diagonalmatrix
-\item Hat $A$ n verschiedene Eigenwerte, so ist $A$ invertierbar.
+\item $A \in \mathcal{M}_n(k)$ ist diagonalisierbar $\Leftrightarrow$existiert ein invertierbare Matrix $S'A S$ Diagonalmatrix
+\item Hat $A$ n verschiedene Eigenwerte, so ist $A$ diagonalisierbar.
+\end{enumerate}
+\section{Vektorräume mit Skalarprodukt. Jetzt : $K = \R$}
+$K^2 :$\emph{Länge} von $v \in \R^2\, v = \vector2{x}{y} \abs{v} = +\sqrt{x^2+y^2}$ (Phytagoras).\\
+Abstand von zwischen $v = \vector2{x_1}{y_1}, w = \vector2{x_2}{x_2}$\\
+\emph{Abstand} : $d(v,w) = \abs{\abs{v-w}} = \sqrt{(x_1-x_2)^2+(y_1-y_2)^2}$.\\
+\emph{Winkel} = $\abs{\abs{v-w}}^2 = \abs{\abs{v}}^2 + \abs{\abs{2}}^2 - 2 \abs{\abs{v}}^2 \cd \abs{\abs{2}}^2 \cd \cos(\phi)$\\
+$\abs{\abs{v-w}}^2 = \abs{\abs{v}}^2 + \abs{\abs{w}}^2 - 2 \cd (x_1 x_2 + y_1 y_2)$
+\begin{equation*}
+\boxed{x_1 x_2 + y_1 y_2 = \abs{\abs{v} \abs{\abs{w}} \cos(\phi)}}
+\end{equation*}
+\begin{center}
+Skalarprodukt
+\end{center}
+\subsection{Definition}\label{sec:\thesubsection}
+Seien $v = \vector3{v_1}\vdots{v_n},v = \vector3{w_1}\vdots{w_n} \in \R^n$\\
+Das \emph{Standard-Skalarprodukt} \index{Standard-Skalarprodukt} von $v$ und $w$:\\
+$(v|w) : = u_1 w_1 + \ldots + u_n w_n \in \R$ (Skalarprodukt zweier Vektoren ist eine Zahl!)\\
+Es gilt
+\begin{enumerate}[(1)]
+\item $(v|v) \geq 0\\
+(v|v) = 0 \Leftrightarrow v = \sigma$
+\item $(v|w) = (w|v)$
+\item $(v|w_1w_2) = (v|w_1) + (v|w_2),\, (v|\alpha w) = a(v|w)$ Analog, Linearität im ersten Argument.\\
+$e_1,\ldots,e_n$ kanonische Basis\\
+$(e_1|e_j) = \begin{cases}
+0 & \text{für} i \ne j\\
+1 & \text{für} i = j
+\end{cases}$
+\end{enumerate}
+\subsection{Definition}\label{sec:\thesubsection}
+$V\ \R$-Vektorraum.\\
+Abbildung $(.|.): \begin{cases}
+V \times V &\to \R\\
+(v,w) &\mapsto (v|w) \in \R
+\end{cases}$ hei\ss t \emph{Skalarprodukt}\index{Skalarprodukt} auf $V$, falls sie die Eigenschaften (1) bis (3) aus \ref{sec:8.1} erfüllt (mit $V$ statt $\R^n$).\\
+$V$ hei\ss t dann \emph{Euklidischer Vektorraum}\index{Euklidischer Vektorraum} (oder \emph{Skalarproduktraum})\index{Skalarproduktraum}
+\subsection{Beispiel}\label{sec:\thesubsection}
+\begin{enumerate}[a)]
+\item Standard-Skalarprodukt auf $\R^n$ ist Skalarprodukt im Sinne von \ref{sec:8.2}
+\item $V\ n-$dim $\R$-Vektorraum.\\
+Def. $(v|w) := \sum\limits^{n}_{i=1}a_i \cd b_i$ ist Skalarprodukt.\\
+Das Standard Skalarprodukt auf $\R^n$ entsteht au diese Weise wenn man für $v_1,\ldots,v_n$ die kanonische Basis nimmt.
+\item $V-\R-$Vektorraum ($[a,b]$ der stetiegn Funktionen auf $[a,b]$ (mit Werten in $\R$)).\\
+$f,g \in V$\\
+Definition $(f|g) := \int f(x) \cd g(x) dx \in R$ Skalarprodukt.
+\end{enumerate}
+\subsection{Satz (Cauchy - Schwarz'sche Ungleichung)}\label{sec:\thesubsection}
+$V$ Euklid Vektorraum Dann:\\
+$(v|w)^2 = (v|v) \cd (w|w)$ für alle $v,w \in V$.\\
+Gleichheit gilt genau dann, wenn $v$ und $w$ linear unabhängig sind.
+\begin{proof}
+Ist $w = \sigma$ so auf beiden Seiten 0 (und $v,w = \sigma$ sind linear abhängig).\\
+Sei $w \ne \sigma$\\
+Setze $a := \frac{(v|w)}{w|W} \in \R\\
+0 \leq (v-aw|v-aw) = (v-aw|v)- a(v-aw|W) = (v|v) - \frac{(v|w)^2}{(w|w)}\\$
+Gleichheit $\Leftrightarrow (v-aw|v-aw) = 0 \Leftrightarrow v = a$
+\end{proof}
+\subsection{Definition}\label{sec:\thesubsection}
+$V$ Euklid. Vektorraum
+\begin{enumerate}[a)]
+\item Für $v \in V$ ist $\abs{\abs{v}} := +\sqrt{(v|v)}$\\
+(\emph{Euklidische} Norm von $v$ ('Länge' von $v$) )\index{Euklidische Norm}
+\item $v,w \in V:\\
+d(v,w) := \abs{\abs{v-w}}$ ({\em Euklidischer Abstand} von $v$ und $w$)\index{Euklidischer Abstand}(\ref{sec:8.4} bedeutet dann: $\abs{(v|w)} \abs{\abs{v}} \abs{\abs{w}})$
 \end{enumerate}
 \printindex
 \end{document}
