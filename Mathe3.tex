@@ -2172,5 +2172,111 @@ $V$ Euklid. Vektorraum
 \item $v,w \in V:\\
 d(v,w) := \abs{\abs{v-w}}$ ({\em Euklidischer Abstand} von $v$ und $w$)\index{Euklidischer Abstand}(\ref{sec:8.4} bedeutet dann: $\abs{(v|w)} \abs{\abs{v}} \abs{\abs{w}})$
 \end{enumerate}
+\subsection{}\label{sec:\thesubsection}
+\subsection{}\label{sec:\thesubsection}
+\subsection{}\label{sec:\thesubsection}
+\subsection{Definition}
+$V$ Euklidischer VR
+\begin{enumerate}[a)]
+\item $V,W \in V, v \ne \sigma,w \ne \sigma$\\
+\ref{sec:8.4}: $\frac{\abs{(v|w)}}{\abs{\abs{v}} \cd \abs{\abs{w}}} \leq 1\\
+-1 \leq \frac{(v|w)}{\abs{\abs{v}} \cd \abs{\abs{w}}} \leq 1$\\
+Dann existiert genau ein $\phi \in [0,\pi]$ mit $\frac{(v|w)}{\abs{\abs{v}} \cd \abs{\abs{w}}} = \cos(\phi) $\\
+D.h.
+\begin{equation*}
+\boxed{(v|w) = {\abs{\abs{v}} \cd \abs{\abs{w}} \cos(\phi)}}
+\end{equation*}
+$\phi$ hei\ss t \emph{Winkel}\index{Winkel} zwischen $v,w (v \ne \sigma, w \ne \sigma)$ (kein orientierter Winkel, kleinere der beiden möglich)
+\item $v,w$ hei\ss en \emph{orthogonal}\index{orthogonal} (Senkrecht), fakks $(v|w) = 0$.\\
+Falls $v \ne \sigma$ und $w \ne \sigma$, so hei\ss t das:\\
+$\cos(\phi) = 0\,\phi = \frac{\pi}{2} (\widehat{=} 90^{\circ}) (\sigma $ ist orthogonal zu allen Vektoren).
+\item $M \subseteq V\\
+M^{\perp} := \{w \in V, (v|w) = 0 \text{ für alle }v \in M  \}$\\
+\emph{Orthogonalraum}\index{Orthogonalraum} zu $M$\\
+(Unterraum von $V$ (selbst wenn $M$ kein Unterraum ist)).\\
+$\{ \sigma \}^{\perp} = V\\
+V^{\perp} = \{ \sigma \}
+(v \in V^{\perp} \Rightarrow (v|v) = 0 \Rightarrow v = \sigma)$
+\end{enumerate}
+\subsection{Bemerkung}
+Sind $v,w$ orthogonal, so ist $\norm{v + w}^2 = \abs{\abs{v}}^2 + \norm{w}^2$
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\item $\R^n$, Standard-Skalarprodukt  $(e_i|e_i) = 0 $ für $i \ne j$\\
+$\norm{e_i} = 1$.
+\item $\R^3$, Standard-Skalarprodukt $v = \vector3{-1}21,w = \vector3224\\
+\norm{v} = \sqrt{6},\norm{w} = \sqrt{24}$\\
+Winkel zwischen $v$ und $w:\: \cos(\phi) = \frac{(v|w)}{\norm{v} \cd \norm{w}} = \frac6{\sqrt6 \cd \sqrt{24}} = \frac12\\
+\phi = \frac{\pi}{3}$
+\item $\R^2$, Standard-Skalarprodukt\\
+$v = \vector2{x_1}{x_2} \ne \sigma\\
+\{v\}^\perp = \raum{\vector2{-x_2}{-x_1}}$ \\
+Übungs-Aufgabe.
+\end{enumerate}
+\subsection{Definition}
+$V$ Euklidischer Vektorraum $M \subseteq V$.
+\begin{enumerate}[a)]
+\item $M$ hei\ss t \emph{Orthonormalsystem}\index{Orthonormalsytem}, falls $\norm{v} = 1$ für alle $v \in M$ und $(v|w) = 0$ für alle $v,w \in M, v \ne w$
+\item Ist $V$ endlich dimensional, so hei\ss t M \emph{Orthonormalbasis}\index{Orthonormalbasis} (ONB) von $V$, falls $M$ Orthonormalsystem und Basis von $V$.
+\end{enumerate}
+Beachte : $V \ne \sigma\\
+\frac1{\norm{v}}v \in V\\
+\norm{v'} = \norm{\frac1{\norm{v}}v} = \frac1{\norm{v}} \cd \norm{v} = 1.$\\
+\emph{Normierung}\index{Normierung}
+\subsection{Bemerkung}
+Ist $(v_1,\ldots,v_n)$ ONB,\\
+$v \in V, v = \sum\limits_{i=1}^{n}c_iv_i. c_i \in \R\\
+(v|v) = (\sum\limits^{n}_{i=1}c_iv_i|\sum\limits^{n}_{j=1}c_jv_j) = \sum\limits^{n}_{i,j=1} c_ic_j (v_i|v_j) = \sum\limits^{n}_{i=1}{c_i}^2(v_i|v_i)\\
+(v|v) = \sum\limits^{n}_{i=1}{c_i}^2\\
+\norm{v} = \sqrt{\sum\limits^{n}_{i=1}{c_i}^2}$
+\subsection{Satz}
+\begin{enumerate}[a)]
+\item Ein Orthonormalsystem ist linear unabhängig
+\item Ist $M \{ v_1,\ldots,v_m \}$ ein Orthonormalsystem, $v \in V$, so ist $v - \sum\limits^{n}_{i=1} (v|v_i)v_i \in M^\perp$\\
+\begin{tabular}{ll}
+\rdelim({2}{3mm} &Veranschaulichung:\\
+&$m =1, V = \R^2$\\
+& \begin{tikzpicture}
+\begin{axis}[
+axis x line=center,
+axis y line=center,
+axis equal]
+\draw[-> ,red](axis cs:0.5,0.5)--(axis cs:0.5,3.5);
+\draw[-> ,red](axis cs:0.5,0.5)--(axis cs:4.5,0.5);
+\end{axis}
+\end{tikzpicture}{\rdelim){2}{3mm}}\\
+\end{tabular}
+\end{enumerate}
+\begin{proof}
+a) Sei $\{ v_1,\ldots,v_m \}$ endliche Teilmenge von $M$.\\
+Z.z: $\{ v_1,\ldots,v_m \}$ linear unabhängig. Ist $ \sum\limits^{m}_{i=1} c_iv_i = \sigma$, so $0 = \sum\limits^{m}_{i=1} c_iv_i | v_j = \sum\limits^{m}_{i=1} c_i (v_i|v_j)$\\
+b) $(v_j|v - \sum\limits^{m}_{i=1}(v|v_i)v_i) = (v|v_j) - (v|v_j) (v_j|v_j) = 0 \checkmark$
+\end{proof}
+\subsection{Satz (Gram-Schmidt'sches\\ Orthonormalisierungsverfahren)}\index{Gram-Schmidt'sches Orthonormalisierungsverfahren}
+Sei $M = \{ w_1,\ldots,w_m \}$ linear unabhängig, Menge in Euklidischen $VR V$. Dann gibt es Orthonormalsystem $\{ v_1,\ldots,v_m \}$ mit $\langle w_1,\ldots,w_i \rangle = \langle v_1,\ldots,v_i \rangle$ für alls $i = 1,\ldots,m$
+\begin{proof}
+$w_1 \ne \sigma$. Setze $v_1 = \frac1{\norm{w_1}},\, \norm{v_1} = 1, \langle w_1 \rangle = \raum{v_1}.$\\
+Sei schon Orthonormalsystem $\{v_1,v_i\}$ konstruiert mit $\raum{w_1,\ldots,w_j}$ für alle $j=1,\ldots,i\ (i < m)$\\
+Setze $v'_{i+1} = w_{i+1} - \sum\limits^{i}_{j=1}(v_j|w_{i+1})v_j
+\ref{sec:8.14}: (v'_{i+1}|v_j) = 0$ für $j=1,\ldots,i$\\
+Da $w_{i+1} \notin \raum{w_1,\ldots,w_i} = \raum{v_1,\ldots,v_i},$ ist $v'_{i+1} \ne \sigma$.\\
+Setze $v_{i+1} = \frac1{\norm{v'_{i+1}}} v'_{i+1}\\
+\raum{v_1,\ldots,v_i,w_{i+1}} = \raum{w_1,\ldots,w_i,vw_{i}} \checkmark$  
+\end{proof}
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\item $e_1,\ldots,e_n$ ist ONB des $R^n$ bezüglich Standard-Skalarprodukt
+\item $V = \R^3$ mit Standard-Skalarprodukt.\\
+$w_1 = \vector3111, w_2 = \vector3112,w_3 = \vector3100$ linear unabhängig.\\
+Gram-Schmidt ONB $\{ v_1.v_2,v_3 \}\\
+\raum{v_1}=\raum{w_1},\raum{v_1,v_2} = \raum{w_1,w_2},\raum{v_1,v_2,v_3} = \R^3\\
+v_1 = \frac1{\sqrt{3}}w_1 = \frac1{\sqrt{3} }\vector3111\\
+v_2'= w_2 = (v_1|w_2)v_1\\
+\phantom{v_2'}=\vector3112 - \frac13 (\vector3111|\vector3112)\vector3111
+\phantom{v_2'}=\vector3112 - \frac43\vector3111 = \vector3{\frac{-1}3}{\frac{-1}3}{\frac{2}3}\\
+\norm{v_2'} = \frac{\sqrt6}{3} v_2 = \sqrt6 \cd \vector3{-\frac16}{-\frac16}{\frac26}\\
+v'_3 = W_3 = (v_1|w_3)v_1 - (v_2|w_3)v_2 = \vector3{\frac12}{-\frac12}0, \norm{v_3'} = \frac{\sqrt2}
+2\quad v_3 = \frac1{\sqrt2} = \frac31{-1}0 = \sqrt2 \vector3{\frac12}{-\frac12}0$ 
+\end{enumerate}
 \printindex
 \end{document}
