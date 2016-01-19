@@ -2129,7 +2129,7 @@ Es gilt
 \item $(v|v) \geq 0\\
 (v|v) = 0 \Leftrightarrow v = \sigma$
 \item $(v|w) = (w|v)$
-\item $(v|w_1w_2) = (v|w_1) + (v|w_2),\, (v|\alpha w) = a(v|w)$ Analog, Linearität im ersten Argument.\\
+\item $(v|w_1 + w_2) = (v|w_1) + (v|w_2),\, (v|\alpha w) = a(v|w)$ Analog, Linearität im ersten Argument.\\
 $e_1,\ldots,e_n$ kanonische Basis\\
 $(e_1|e_j) = \begin{cases}
 0 & \text{für} i \ne j\\
@@ -2175,7 +2175,7 @@ d(v,w) := \abs{\abs{v-w}}$ ({\em Euklidischer Abstand} von $v$ und $w$)\index{Eu
 \subsection{}\label{sec:\thesubsection}
 \subsection{}\label{sec:\thesubsection}
 \subsection{}\label{sec:\thesubsection}
-\subsection{Definition}
+\subsection{Definition}\label{sec:\thesubsection}
 $V$ Euklidischer VR
 \begin{enumerate}[a)]
 \item $V,W \in V, v \ne \sigma,w \ne \sigma$\\
@@ -2189,7 +2189,7 @@ D.h.
 $\phi$ hei\ss t \emph{Winkel}\index{Winkel} zwischen $v,w (v \ne \sigma, w \ne \sigma)$ (kein orientierter Winkel, kleinere der beiden möglich)
 \item $v,w$ hei\ss en \emph{orthogonal}\index{orthogonal} (Senkrecht), fakks $(v|w) = 0$.\\
 Falls $v \ne \sigma$ und $w \ne \sigma$, so hei\ss t das:\\
-$\cos(\phi) = 0\,\phi = \frac{\pi}{2} (\widehat{=} 90^{\circ}) (\sigma $ ist orthogonal zu allen Vektoren).
+$\cos(\phi) = 0\,\phi = \frac{\pi}{2} (\hat{=} 90^{\circ}) (\sigma $ ist orthogonal zu allen Vektoren).
 \item $M \subseteq V\\
 M^{\perp} := \{w \in V, (v|w) = 0 \text{ für alle }v \in M  \}$\\
 \emph{Orthogonalraum}\index{Orthogonalraum} zu $M$\\
@@ -2198,9 +2198,9 @@ $\{ \sigma \}^{\perp} = V\\
 V^{\perp} = \{ \sigma \}
 (v \in V^{\perp} \Rightarrow (v|v) = 0 \Rightarrow v = \sigma)$
 \end{enumerate}
-\subsection{Bemerkung}
+\subsection{Bemerkung}\label{sec:\thesubsection}
 Sind $v,w$ orthogonal, so ist $\norm{v + w}^2 = \abs{\abs{v}}^2 + \norm{w}^2$
-\subsection{Beispiel}
+\subsection{Beispiel}\label{sec:\thesubsection}
 \begin{enumerate}[a)]
 \item $\R^n$, Standard-Skalarprodukt  $(e_i|e_i) = 0 $ für $i \ne j$\\
 $\norm{e_i} = 1$.
@@ -2213,7 +2213,7 @@ $v = \vector2{x_1}{x_2} \ne \sigma\\
 \{v\}^\perp = \raum{\vector2{-x_2}{-x_1}}$ \\
 Übungs-Aufgabe.
 \end{enumerate}
-\subsection{Definition}
+\subsection{Definition}\label{sec:\thesubsection}
 $V$ Euklidischer Vektorraum $M \subseteq V$.
 \begin{enumerate}[a)]
 \item $M$ hei\ss t \emph{Orthonormalsystem}\index{Orthonormalsytem}, falls $\norm{v} = 1$ für alle $v \in M$ und $(v|w) = 0$ für alle $v,w \in M, v \ne w$
@@ -2263,7 +2263,7 @@ Da $w_{i+1} \notin \raum{w_1,\ldots,w_i} = \raum{v_1,\ldots,v_i},$ ist $v'_{i+1}
 Setze $v_{i+1} = \frac1{\norm{v'_{i+1}}} v'_{i+1}\\
 \raum{v_1,\ldots,v_i,w_{i+1}} = \raum{w_1,\ldots,w_i,vw_{i}} \checkmark$  
 \end{proof}
-\subsection{Beispiel}
+\subsection{Beispiel}\label{sec:\thesubsection}
 \begin{enumerate}[a)]
 \item $e_1,\ldots,e_n$ ist ONB des $R^n$ bezüglich Standard-Skalarprodukt
 \item $V = \R^3$ mit Standard-Skalarprodukt.\\
@@ -2271,12 +2271,111 @@ $w_1 = \vector3111, w_2 = \vector3112,w_3 = \vector3100$ linear unabhängig.\\
 Gram-Schmidt ONB $\{ v_1.v_2,v_3 \}\\
 \raum{v_1}=\raum{w_1},\raum{v_1,v_2} = \raum{w_1,w_2},\raum{v_1,v_2,v_3} = \R^3\\
 v_1 = \frac1{\sqrt{3}}w_1 = \frac1{\sqrt{3} }\vector3111\\
-v_2'= w_2 = (v_1|w_2)v_1\\
+v_2'= w_2 - (v_1|w_2)v_1\\
 \phantom{v_2'}=\vector3112 - \frac13 (\vector3111|\vector3112)\vector3111
 \phantom{v_2'}=\vector3112 - \frac43\vector3111 = \vector3{\frac{-1}3}{\frac{-1}3}{\frac{2}3}\\
 \norm{v_2'} = \frac{\sqrt6}{3} v_2 = \sqrt6 \cd \vector3{-\frac16}{-\frac16}{\frac26}\\
-v'_3 = W_3 = (v_1|w_3)v_1 - (v_2|w_3)v_2 = \vector3{\frac12}{-\frac12}0, \norm{v_3'} = \frac{\sqrt2}
+v'_3 = w_3 - (v_1|w_3)v_1 - (v_2|w_3)v_2 = \vector3{\frac12}{-\frac12}0, \norm{v_3'} = \frac{\sqrt2}
 2\quad v_3 = \frac1{\sqrt2} = \frac31{-1}0 = \sqrt2 \vector3{\frac12}{-\frac12}0$ 
 \end{enumerate}
+\subsection{Satz}\label{sec:\thesubsection}
+$V$ endlich dimensional Euklidischer Vektorraum,$U$ Unterraum von $V$\\
+\begin{enumerate}[a)]
+\item $V = U \oplus U^\perp$ (dass hei\ss t $U \cap U^\perp = \{\sigma\}, U + U^\perp = V)$\\
+Insbesondere: $\dim(U) + \dim(U^\perp) = \dim(V)$
+\item $(U^\perp)^\perp = U$
+\end{enumerate}
+\begin{proof}
+a) Basis-Ergänzung + Gram-Schmidt b) folgt aus a)
+\end{proof}
+$\R^3$ Vektorprodukt (äußeres Produkt)
+\subsection{Definition}\label{sec:\thesubsection}
+$v = \vector3{x_1}{x_2}{x_3}, w = \vector3{y_1}{y_2}{y_3} \in \R^3$\\
+\emph{Vektorprodukt} \index{Vektorprodukt} von $v$ und $w$:\\ $v \times w = \vector3{x_2y_2-x_3y}{x_3y_1-x_1y_3}{x_1y_2-x_2y_1}$
+\subsection{Satz}\label{sec:\thesubsection}
+\begin{enumerate}[a)]
+\item $(v \times w | v) = (v \times w | w) = 0,$ dass hei\ss t $x \times w$ ist orthogonal zu $v$ und $w$
+\item $v \times w = -w \times v$
+\item $u \ times (v+w) = (u \times v) + (u \times w), u,v,w \in \R^3, a \in \R\\$
+Ebenso in der ersten Komponente
+\item $v,w$ linear abhängig $\Leftrightarrow v \times w = \sigma$
+\item $v,w \ne \sigma, \phi \in [0,\pi]$  Winkel zwischen $v$ und $w$ so:\\
+$\norm{v \times w} = \norm{v}\cd \norm{w} \sin(\phi)$ = Flächeninhalt des von $v$ und $w$ aufgespannten Parallelogramms.\\
+\emph{Beweis}: Nachrechnen.
+\end{enumerate}
+\subsection{Bemerkung}\label{sec:\thesubsection}
+$v,w, v \times w$ bilden sogenanntes \emph{Rechtssystem} \index{Rechtssystem}.\\
+Faust der rechten Hand: Fingerspitzen von v nach w (kleinster Winkel). Daumen zeigt in Richtung $v \times w$
+\subsection{Beispiel}\label{sec:\thesubsection}
+$v = \vector3120, w = \vector3111 \in \R^3\\$
+Bestimme $\raum{v,w}^\perp$.\\
+$v,w$ linear unabhängig, dass hei\ss t. $\dim\raum{v,w} = 2\\
+\xRightarrow{\ref{sec:8.17}} \dim(\raum{v,w})^\perp = 3 - 2 = 1\\
+\raum{v \times w} = \raum{v,w}^\perp\quad v \times w = \vector32{-1}{-1}\quad \norm{v \times w} = \sqrt{4 + 1 + 1} = \sqrt6$
+\section{Orthogonale Abbildungen, symmetrische Abbildungen, Konsequenzabbildungen}
+\subsection{Definition}
+$V$ Euklidischer Vektorraum mit Skalarprodukt: $(.|.) \alpha V \to V$ lineare Abbildung\\
+$\alpha$ hei\ss t{\em orthogonale Abbildung}\index{orthogonale Abbildung} $\Leftrightarrow\ (\alpha(v)|\alpha(w) = (v|w)$ für alle $v,w \in V$.
+\subsection{Folgerungen}
+\begin{enumerate}[a)]
+\item Orthogonale Abbildungen sind \emph{längentreu}\index{längentreu}, dass hei\ss t $\norm{\alpha(v)} = \norm{v}$ für alle $v \in v_i$ (da $\norm v = \sqrt{(v|w)}\ \norm{\alpha(v) } = \sqrt{\alpha(v)| \alpha(v)} $)
+\item Orthogonale Abbildungen sind Winkeltreu\index{Winkeltreu}, da $\cos(\phi) = \frac{(v|w)}{\norm v \cd \norm w}$
+\item Orthogonale Abbildung auf endlich dimensionalem Euklidischen Räumen sind bijektiv, da nach a) $\ker(\alpha) = \{\sigma\}$ also $\alpha$ injektiv, also bijektiv, da $\dim(V) < \infty$
+\item $V$ endlich dimensional $\alpha$ orthogonal $\Rightarrow \alpha^{-1}$ orthogonal.\\
+$(u,v \in V$ Es existiert $x,y \in V$ mit $\alpha(x)  = u, \alpha(y) = v, (u|v) = (\alpha^{-1}(v)| \alpha^{-1}(u)))$
+\item $\alpha,\beta$ orthogonal, soa auch $\alpha \circ \beta.\\
+(\alpha \circ \beta(v) | \alpha \circ \beta(w)) = (\alpha(\beta (u))|\alpha(\beta(w))) = (\beta(v)|\beta(w)) = (v|w)$
+\end{enumerate}
+d)+e) besagen, dass die Menge der orthogonalen Abbildungen auf $v$ bezüglich $\sigma$ eine Gruppe ist. (V endlich Dimensional)
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\item Drehungen um $\sigma$ im $\R^2$ sind orthogonale Abbildungen (bezüglich dem Standard-Skalarprodukt)
+\item Spiegelungen $\rho$ im $\R^2$ an Achse durch $\sigma$ sind orthogonal. $v_1$ Richtungsvektor der Achse,\\
+$\norm {v_1}, \mathcal{B} = (v_1,v_2)$ Orthonormalbasis (Gram-Schmidt)\\
+$A^{\mathcal{B}}_\rho = \Matrix{1,0;0,-1}$
+\end{enumerate}
+\subsection{Satz (Charakterisierung orthogonal Abbildung)}\label{sec:\thesubsection}
+$V$ endlich dimensionaler Euklidischer Vektorraum, $\mathcal{B} = (v_1,\ldots, v_n)$ Orthonormalbasis, $\alpha : V \to V$ linear, $A = A^\mathcal{B}_\alpha$\\
+Dann sind äquivalent:\\
+\begin{enumerate}[(1)]
+\item $\alpha $ ist orthogonal Abbildung
+\item $A \cd A^{t} = E$ (dass hei\ss t $A^{t} = A^{-1}$)
+\item $(\alpha(v_1),\ldots,\alpha(v_n))$ ist Orthonormalbasis
+\item $\norm{\alpha(v)} = \norm v $ für alle $v \in V$
+\end{enumerate}
+\begin{proof}
+(1) $\Rightarrow$ (2):\\
+$A = (a_{ij})_{i,j = 1\ldots n}\\
+\rho_ij = (v_i|v_j) = (\alpha(v_1|\alpha(v_3)) = (\sum\limits^{n}_{k=1} a_{ki} v_k | \sum\limits^{n}_{l=1} a_{ij} v_l) = \sum\limits^{n}_{k,l=1} a_{ki}a_{lj} (v_k|v_l) = \sum\limits^{n}_{k=1}a_{ki}a_{kj} \leftarrow$ Eintrag von $A \cd A^t$\\
+$\Rightarrow A \cd A^{t} = E_n \hfill(\ast)$\\
+$\alpha$ bijektiv $\Rightarrow$ A invertierbar.\\
+$A^{-1} \cd A = A \cd A^{t} = E\\
+A^{-1} = A^t\\
+(2) \Rightarrow (3): A \cd A^{t} = E$\\
+Dann wie in $(1) \Rightarrow (2):\\
+(\alpha(v_i)|\alpha(v_i) = \rho_{ij})\quad (\alpha(v_1),\ldots,\alpha(v_n)$ Orthonormalbasis.\\
+$(3) \Rightarrow (4):\\
+v = \sum\limits^{n}_{i=1} c_iv_i\quad
+\alpha(v) = \sum\limits^{n}_{i=1}c_i\alpha(v_i)\quad
+\norm v^2 = (v|v) = \norm{\alpha(v)}^2\\
+(4) \Rightarrow (1):\\
+\ref{sec:8.7} (v|w) = \frac12 (\norm{v+w}^2 - \norm v^2 - \norm v ^2)$\\
+Behauptung folgt.
+\end{proof}
+\subsection{Definition}\label{sec:\thesubsection}: Eine $n \times n$-Matrix $A$ über $\R$ hei\ss t \emph{orthogonal}\index{orthogonal}, falls $A \cd A^{t} = A^t \cd A =E_n$.\\
+Dass hei\ss t $x_1,\ldots,z_n$ von A:\\
+$(z^t_i|z^t_j) = z_i \cd z_j^t = z_i \cd s_j = S_{ij}\\
+\phantom{(z^t_i|z^t_j) = z_i \cd z_j^t = z_ia}\uparrow$j-kte Spalte von $A^t$,\\$\phantom{(z^t_i|z^t_j) = z_i \cd z_j^t = z_ia}$ Eintrag(i,j) von $A \cd A^t =E_n$
+\subsection{Korollar}
+$\alpha$ orthogonal Abbildung auf endlich dimensionalen Euklidischen Vekotrraum $V,\, \mathcal{B}$ Orthonormalbasis von $V, A = A^\mathcal{B}_\alpha$
+\begin{enumerate}[a)]
+\item $\det(\alpha) = \det(A) = \pm 1$\\
+\item $\alpha$ hat höchstens die Eigenwerte 1 oder -1 (in $\R$)
+\end{enumerate}
+\begin{proof}
+a) 1 = $\det(E_n) = \det(A \cd A^t) = \det(A) \cd \delta(A^t) = \det(A^2)$\\
+b) $c$ Eigenwert von $\alpha, v$ zugehöriger Eigenvektor\\
+$\norm v = \norm {\alpha(v)} = \norm (c \cd v) = \norm c \cd \norm v \Rightarrow \norm c = 1$
+\end{proof}
 \printindex
 \end{document}
