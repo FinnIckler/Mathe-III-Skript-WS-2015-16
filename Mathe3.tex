@@ -2377,5 +2377,98 @@ a) 1 = $\det(E_n) = \det(A \cd A^t) = \det(A) \cd \delta(A^t) = \det(A^2)$\\
 b) $c$ Eigenwert von $\alpha, v$ zugehöriger Eigenvektor\\
 $\norm v = \norm {\alpha(v)} = \norm (c \cd v) = \norm c \cd \norm v \Rightarrow \norm c = 1$
 \end{proof}
+\subsection{Satz}
+Sei $\alpha$ orthogonale Abbildung auf $\R^n, n \leq 3$
+\begin{enumerate}[a)]
+\item $n= 1, \alpha = \mathrm{id}$ oder $\alpha = -\mathrm{id}$
+\item $n=2:$ Sei $\mathcal{B}$ Orthonormalbasis von $\R^n$
+\begin{enumerate}[i)]
+\item Ist $\det(\alpha) = 1$, so ist \[A^\mathcal{B}_\alpha = \Matrix{\cos(\phi),-\sin(\varphi);\sin(\varphi),\cos(\varphi)} \] für ein $\varphi \in [0,2\pi]\\
+\alpha$ ist Drehung um den Winkel $\varphi$
+\item Ist $\det(\alpha) = -1$, so ist 
+\[A^\mathcal{B}_\alpha = \Matrix{\cos(\varphi),\sin(\varphi);-\sin(\varphi),-\cos(\varphi)} \]
+für ein $\varphi \in [0,2\pi]$;\\ es gibt Orthonormalbasis $\zeta = (w_1,w_2)$ von $V$ mit $A^\zeta_\alpha = \Matrix{1,0;0,-1}$\\
+Spiegelung an der Achse $\raum{w_1}$. ($\mathcal{B} = (v_1,v_2),$ so ist der Winkel zwischen $v_1$ und $w_1\ \frac12\varphi$).
+\end{enumerate}
+\item $n= 3:$
+\begin{enumerate}[i)]
+\item Ist $\det(\alpha) = 1$, so existiert Orthonormalbasis $\zeta = (v_1,v_2,v_3)$ mit
+\[A^\zeta_\alpha =  \Matrix{\cos(\phi),-\sin(\varphi),0;\sin(\varphi),\cos(\varphi),0;0,0,1}\]
+$\alpha$ ist Drehung um $\varphi \in [0,2\pi[$ parallel zur $\raum{v_1,v_2}$-Ebene\\ mit Drehachse $\raum{v_3}$
+\item Ist $\det(\alpha) = -1$, so existiert Orthonormalbasis $\zeta = (v_1,v_2,v_3)$ mit
+\[A^\zeta_\alpha =  \Matrix{\cos(\phi),-\sin(\varphi),0;\sin(\varphi),\cos(\varphi),0;0,0,-1}\]
+$\alpha$ ist Drehspiegelung. Drehung um Achse $\raum{v_3}$ dann Spiegelung an Ebene $\raum{v_1,v_2}$
+\end{enumerate}
+\end{enumerate}
+\emph{Bemerkung}: $n = 2$:\\
+Ist $\mathcal{B} = (v_1,v_2)$ positiv orientiert (dass hei\ss t bewegt man sich von $v_1$ nach $v_2$ entgegen Uhrzeigersinn,so ist Winkel $\frac{\pi}{2}$), so ist $\alpha$ Drehung gegen Uhrzeigersinn um $\varphi$. Ist $\mathcal{B}$ negativ orientiert so ist $\alpha$ Drehung im Uhrzeigersinn.\\
+(Spezialfälle in c),
+\begin{enumerate}[i)]
+\item $\varphi = \pi \quad A^\zeta_\alpha = \Matrix{-1,\ldots,0;\ldots,-1,\ldots;0,\ldots,1}$ Achsenspiegelung zu $\raum{v_3}$
+\item $\varphi = 0 \quad A^\zeta_\alpha = \Matrix{1,\ldots,0;\ldots,1,\ldots;0,\ldots,-1}$ (Ebenen-)Speigelund an $\raum{v_1,v_2}$\\
+$ \varphi = \pi. \quad A^\zeta_\alpha = \Matrix{-1,\ldots,0;\ldots,-1,\ldots;0,\ldots,-1}$
+Punktspiegelung an 0.
+\end{enumerate}
+\begin{proof}
+a) $\checkmark$\\
+b) Untersuchen der $2 \times 2$ Matrizen A auf
+$A \cd A^t = A^t \cd A = E_2$ \hfill(WHK 10.67)
+c) Für beliebige n: Fischer,Lineare Algebra\\
+$A^\zeta_\alpha = \Matrix{2\times 2,\ldots,\ldots,0;
+                          \ldots,2\times 2,\ldots,\ldots;
+                            \ldots,\ldots,\ddots,\ldots;
+                              0,\ldots,\ldots,-1}$
+\end{proof}
+\subsection{Definition}
+\begin{enumerate}[a)]
+\item $V\ K-$Vektorraum, $b \in V$.\\
+Die Abbildung $t_b : \begin{cases}
+V &\to V\\
+v &\mapsto v + b
+\end{cases}$\\
+hei\ss t \emph{Translation}\index{Translation} um den Vektor $b$.\\
+(Nicht linear, falls $b \ne 0$)
+\item Komponenten von linearer Abbildung mit Translation hei\ss en \emph{affine Abbildungen}\index{affine Abbildung}\\
+$\beta(v) = \alpha(v) +b,\, \alpha$ lineare Abbildung $V \to V= (t_b \circ \alpha)(v)$.
+\item Ist $V$ Euklidischer Vektorraum, so ist \emph{Konsequenzabbildung}\index{Konsequenzabbildung} auf $V$ eine affine Abbildung der Form $t_b \circ \alpha$ ,wobei $\alpha$ orthogonale Abbildung ist. (Lassen den Abstand zwischen Vektoren (und Winkeln) fest).
+\end{enumerate}
+\subsection{Bemerkung}
+\begin{enumerate}[a)]
+\item Affine Abbildungen bilden affine Unterräume wieder auf affine Unterräume ab.\\
+$\beta = t_b \circ \alpha, u + \underset{\substack{\uparrow\\\text{Unterraum von V} }}{W}\\
+\begin{array}{ll}
+\beta(u+W) &= t_b (\alpha(u+w))\\
+&= t_b (\alpha(u) + \alpha(w)\\
+&= \underbrace{b + \alpha(u)}_{\text{Vektor}} + \underbrace{\alpha(W)}_{\text{Unterraum} }
+\end{array}$\\
+affiner Untteraum
+\item Hintereinanderausführung von affinen (Kongruenz-)Abbildungen ist wieder affine (Kongruenz-)Abbildung:\\
+$((t_b' \circ \alpha') \circ (t_b \circ \alpha)(v)= (t_b' \circ \alpha')(\alpha(v)+b) = (\alpha' \circ \alpha)(v) + \alpha'(b) + b'$
+\end{enumerate}
+Beispiel: $\beta$ Drehung um $c \in \R^2$ mit Winkel $\varphi (\R^2)\\
+\beta(v) = t_v \circ \alpha \circ t_{-c} (\circ id) = \alpha (v) = \alpha(c) + c = (t_{\alpha(b) + c} \circ \alpha))v = \alpha(v-c) + c\\
+\beta(\vector2{x_1}{x_2}) = \Matrix{\cos(\varphi),-\sin(\varphi);\sin(\varphi),\cos(\varphi)} \cd \vector2{x_1-c_1}{x_2 -c_2} + \vector2{c_1}{c_2}$
+\begin{enumerate}[c)]
+\item Affine Abbildungen auf $n$-dimensionalen Räumen lassen sich nicht durch $n \times n$ Matrizen beschreiben. Es gibt Beschreibungen mit $(n+1) \times (n+1)-$Matrizen:\\
+$\mathcal{B}$ Basis von $V.\: \mathcal{B} = (v_1,\ldots,v_n)\, \beta = t_b \circ \alpha\\
+b = b_1v_1+ \ldots + b_nv_n, A = A^\mathcal{B}_\alpha\\$
+\[ \beta \longrightarrow \Matrix{a_{11},a_{12},\ldots,a_{1n},b_1;
+        a_{21},a_{22},\ldots,a_{2n},b_2; 
+		\vdots,\vdots,\ddots,\vdots,\vdots;
+		a_{n1},a_{n2},\ldots,a_{nn},b_n;
+        0     ,0     ,\ldots,0,1 
+ }\]
+$v \in V, v = x_1,v_1 + \ldots + x_nv_n\\
+v \longrightarrow \vector4{x_1}\vdots{x_n}1$
+\[ \beta(v) \longrightarrow \Matrix{a_{11},a_{12},\ldots,a_{1n},b_1;
+        a_{21},a_{22},\ldots,a_{2n},b_2; 
+		\vdots,\vdots,\ddots,\vdots,\vdots;
+		a_{n1},a_{n2},\ldots,a_{nn},b_n;
+        0     ,0     ,\ldots,0,1 
+ }\cd \vector5{x_1}{x_2}\vdots{x_n}1\]
+Nachrechnen:\\
+Hintereinanderausführung von affinen Abbildungen entspricht der Multiplikation der entsprechenden $(n+1) \times (n+1)$-Matrizen.
+\end{enumerate}
+
 \printindex
 \end{document}
