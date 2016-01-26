@@ -2469,6 +2469,74 @@ v \longrightarrow \vector4{x_1}\vdots{x_n}1$
 Nachrechnen:\\
 Hintereinanderausführung von affinen Abbildungen entspricht der Multiplikation der entsprechenden $(n+1) \times (n+1)$-Matrizen.
 \end{enumerate}
-
+\subsection{Lemma}
+$A \in \mathcal{M}_n ,x,y \in \R^2$,so gilt für das Standard-Skalarprodukt.\\
+$(Ax|y) = (x|Ay)$
+\begin{proof}
+$(Ax|y) = (x|Ay)\\
+= (x^t A^t)y = x^t (A y) = (x| A y)$
+\end{proof}
+\subsection{Definition}
+$V$ endlich dimensionaler Euklidischer Vektorraum.\\
+Lineare Abbildung $\alpha: V \longrightarrow V$ hei\ss t \emph{symmetrisch}\index{symmetrische Abbildung}, falls $(\alpha(v)|w) = (v|\alpha(w))$ für alle $v,w \in V$ (\emph{selbstadjungiert})\index{selbstadjungiert}\\
+(z.B alle $a \cd \mathrm{id}_v$ sin symmetrisch)
+\subsection{Bemerkung und Definition}
+$V$ endlich dimesnionaler Euklidischer Vektorraum, $\mathcal{B}$ Orthonormalbasis von $V$.\\
+$\alpha \cd V \rightarrow$ V linear.\\
+$A = A^\mathcal{B}_\alpha$. Dann $\alpha$ symmetrisch. $\Leftrightarrow A = A^t\\
+n \times n$-Matrizen $A$ mit $A = A^t$ hei\ss en \emph{symmetrisch}.\\
+Matrix ändert sich nicht bei Spiegelung an der Diagonale.
+\begin{proof}
+Folgt aus 9.10
+\end{proof}
+\subsection{Satz über die Hauptachsentransformation}\label{sec:\thesubsection}
+\begin{enumerate}[a)]
+\item ISt $\alpha: V \to V$ symmetrische Abbildung, so existiert orthonormalbasis von $V$ aus Eigenvektoren zu $\alpha$. Insbesondere ist $\alpha$ diagonalisierbar,
+\item Ist $A\ n \times n$-Matrix, $A$ symmetrisch, so existiert orthogonale Matrix $B$ mit $B^{-1}AB = B^tAB$ Diagonalmatrix.
+\end{enumerate}
+\begin{proof}
+a) WHK 10.75\\
+b) $\alpha(x) = A \cd x\\
+A = A^\mathcal{C}_\alpha$ bezüglich kanonischer Basis $\mathcal{C}.\alpha$ symmetrisch nach 9.12. a) $\exists$ Orthonormalbasis mit $A^{\mathcal B}_\alpha$ Diagonalmatrix.\\
+Wähle $\mathcal{B}$ als Basiswechselmatrix: $B^{-1}AB$ Diagonalmatrix.\\
+$\Rightarrow B^{-1} = B^t$
+\end{proof}
+\subsection{Bemerkung}
+Grund für die Bezeichnung von \ref{sec:9.13}.
+\begin{enumerate}[a)]
+\item Eine \emph{Quadrik} im $\R^n$ besteht aus allen $\vector3 {x_1}\vdots{x_2} \in \R^n$ die die Gleichung $\sum\limits^{}_{}$
+9.13 besagt:\\
+Es existiert Orthonormalbasis $\mathcal{B} = (v_1,v_2)$, so dass $A^\mathcal{B}_\alpha = \Matrix{n,\ldots,0;
+                                        0,\ddots,0;
+                                        0,\ldots,n}$\\
+Sei $v = \sum\limits^{n}_{i=1} x_1v_i$, so lässt sich ($\ast\ast\ast$) schreiben als:\\
+$\sum\limits^{n}_{i=1} c_i \cd x_i'^2 + \sum\limits^{n}_{i=1} b'_i \cd x_i'^2 + c' =0 \hfill (\ast\ast\ast\ast)\\
+v_i$ sind die \emph{Hauptachsen} der Quadrik.
+\item $n = 2$: Quadriken sind \emph{Kegelschnitte}\index{Kegelschnitte}.\\
+$(\ast\ast\ast\ast)$ Striche weglassen.Fall $b_1 = b_2 = 0, c \ne 0$.\\
+ohne Beschränkung der Allgemeinheit.\\
+\[e_1 \cd x_1^2 + e_2 \cd x_2^2 = 1 \qquad \frac{x_1^2}a + \frac{x_2^2}{b} = 1 \qquad \text{\emph{Ellipse}}\]
+\[c_1 = \frac1{a^2},c_2 = \frac1{b^2} \qquad \frac{x_1^2}{a^2} - \frac{x_2^2}{b^2}\qquad  \text{\emph{Hyperbel}}\]
+\end{enumerate}
+\section{Mehrdimensionale Analysis}
+Funktionen: $f : D \subseteq \R^n \to \R^m$\\
+Vektoren in $\R^n$ sind {\em Zeilenvektoren }\index{Zeilenvektoren}.
+\subsection{Beispiel}\label{sec:\thesubsection}
+\begin{enumerate}[a)]
+\item $f : D \subseteq \R^n \to \R$\\
+{\em skalare Funktion} \index{skalare Funktion}
+$n = 2\quad f : D \subseteq \R^2 \to \R$ lassen sich graphisch darstellen.\\
+Beispiel: $f(x,y) = x + y$
+\item $f : D \subseteq \R^n \to R^m, m > 1$\\
+vektorwertige Funktion.\\
+$x \in D, f(x) = (f_1(x)..,f_m(x)\\
+f_i : D \in \R^n \to \R$ skalar.\\
+Spezialfall in 10.1b). $n = 1, m = 2/3$
+\end{enumerate}
+\subsection{Beispiel (ebene Kurven/Raumkurven)}
+z.B $f : \begin{cases}
+[0,2\pi] &\to \R^2\\
+t \mapsto (\cos(t),\sin(t))
+\end{cases}$ \emph{Parameter-Darstellung}\index{Parameter-Darstellung}
 \printindex
 \end{document}
