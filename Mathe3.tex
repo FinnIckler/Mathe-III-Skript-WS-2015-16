@@ -2538,5 +2538,149 @@ z.B $f : \begin{cases}
 [0,2\pi] &\to \R^2\\
 t \mapsto (\cos(t),\sin(t))
 \end{cases}$ \emph{Parameter-Darstellung}\index{Parameter-Darstellung}
+Physikalische Interpretation, $t$ Zeit, $f(t)$ Ort\\
+\[f'(t) = (f_1(t),\ldots, f_n(t)\quad \text{Geschwindigkeitsvektoren}  \]
+Betrag Geschwindigkeit : $\norm{f'(t)} = \sqrt{f_1'(t)^2 + f_2'(t)^2}$\\
+Länge der Kurve zwischen $t = a$ und $t = b$?\\
+Konstante Gerade : $v \cd (b-a)$\\
+Bei variabler Geschwindgkeit:\\
+$v(t) = \norm{f'(t)}$ Approximiert: $L = \sum\limits^{b}_{i=a} v(t_1) (t_a - t_i)$\\
+Grenzwert $L = \int\norm{f'(t)}dt$
+\subsection{Satz}
+Ist $f : D \subseteq \R \to \R^n, f(t) = (f_1(t),\ldots, f_n(t)$ stetig differenzierbar, $[a,b] \subseteq D$.\\
+so gilt für die \emph{Bogenlänge}\index{Bogenlänge} L der Kurve zwischen $t =a$ und $t=b$\\
+\[L = \int_a^b \norm{f'(t)}dt   \]
+(1 dimensionale Analysis) \hfill (exakter Beweis: Foster, Analysis 2)
+\subsection{Beispiel}
+%TODO: Abgefahrene Kreis plotten
+Abrollen eines Kreises auf  der $x-achse$. Bahn eines Punktes auf der Peripherie des Kreises.\\
+$f(t) = (t-\sin(t),1-\cos(t) )$\\
+{\em Zykloide}\index{Zykloid} $L = \int^{2\pi}_0\norm{f'(t)} dt = 8$
+\subsection{Definition}
+$f : D \subseteq \R^n \to \R^m, a$ \emph{Adhärenzpunkt} \index{Adhärenzpunkt}.
+\begin{enumerate}[a)]
+\item $\lim\limits_{x \to 0}f(x) = c \in \R^n \Leftrightarrow \exists \epsilon > 0 \exists \delta > 0 \forall x \in D$\\
+\[ \norm{x-a} < \delta \Rightarrow \norm{f(x) - c} L \epsilon \]
+\item Ist $a \in D$, so hei\ss t $f$ \emph{stetig}\index{stetig} in $a$, falls $\lim\limits_{x \to 0} f(x) = f(a)$
+\end{enumerate}
+\subsection{Bemerkung}
+$f : D \in \R^n \to \R^m$
+\subsection{}
+\subsection{Definition}
+$a \in \R^n, r \in \R, r > 0$\\
+$K(a,r) = \{ x \in \R^2 : \norm{x-a} < r \}$\\
+\emph{offene Kugel}(Kugelschale)\index{offene Kugel} um a vom Radius r.
+\begin{enumerate}[a)]
+\item
+\begin{enumerate}
+\item[n=1] offenes Intervall $]a - r,a +r [$
+\item[n=2] $K(a,r)$ ist das innere des Kreises ohne die Kreislinie
+\end{enumerate}
+\item $D \subseteq \R^n$ hei\ss t \emph{offen}, falls es für jedem $a \in D$ ein $t(a) > 0$ gibt.
+\end{enumerate}
+\subsection{Definition}
+$f : D \subseteq \R^n \to R $ D offen. $a = (a_1,\ldots,a_n) \in D$
+\begin{enumerate}[a)]
+\item $f$ hei\ss t \emph{partiell differenzierbar}\index{partiell differenzierbar} nach $x_j$ an der Stelle $a_j$ falls \[\lim_{x_j \to a_j} \frac{f(a_1,\ldots,a_{j-1},x_j,a_{j+1},a_n) - f(a_1,\ldots,a_n)}{x_j-a_j} \] existiert.\\
+\emph{Partielle Ableitung}\index{Partielle Ableitung} von $f$ und $x$ an der Stelle $a$:
+\[ \frac{\vardelta f(a)}{\vardelta x_j}  \]
+\item Ist $f$ nach allen $x_j$ an der Stelle $a$ partiell differenzierbar, so hei\ss t $(\frac{\vardelta f(a)}{\vardelta x_1}, \ldots, \frac{\vardelta f(a)}{\vardelta x_n})$ \emph{Gradient}\index{Gradient} von $f$ an der Stelle $a$.
+\item Ist $f$ an allen $a \in D$ nach allen $x_j$ partiell diffbar, so sind
+\[\frac{\vardelta f}{\vardelta x}\quad D \to \R\]
+Funktionen, der \emph{partiellen Ableitungen} von $f$ auf $D$. zusammengefasst zu $\Grad(f)$ Gradient von $f\\
+\lbrack f: D \subseteq \R^n \to \R^m, f(x) = (f_1(x),\ldots f_m(x) )\\
+\Matrix{\frac{\vardelta f_1}{\vardelta x_1},\ldots,\frac{\vardelta f_1}{\vardelta x_n};
+\vdots,\ddots,\vdots;
+\frac{\vardelta f_m}{\vardelta x_1},\ldots,\frac{\vardelta f_m}{\vardelta x_n}}\rbrack$\hfill (\emph{Jacobi-Matrix}\index{Jacobi-Matrix})
+\end{enumerate}
+\subsection{Beispiel}
+Existenz der partiellen Ableitung (z.B $f: \R^2 \to \R$ an Stelle $a$ bedeutet die Existenz von Tangenten in $x$- und $y$-Richtung in $a$, aber nicht notwendig die Existenz einer Tangentialebene).\\
+Beispiel: $f(x) = 1 - min(\abs x, \abs y)$\\
+Partielle Ableitung in $(0,0)$ existiert, Tangente in $x$ und $y$ Richtung (Steigung 0). Aber keine Tangentialebene in $(0,0)$. Stattdessen:\\
+$f(x,y) = 1 - x^2 + y^2$
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+]
+\addplot3 gnuplot {1-x**2 - y**2};
+\end{axis}
+\end{tikzpicture}
+\caption{hat an jedem Punkt Tangentialebene}
+\end{figure}
+\subsection{Definition}
+$f: D \subseteq \R^n \to \R,\,D$ offen.
+\begin{enumerate}[a)]
+\item $f$ ist \emph{stetig differenzierbar}\index{stetig differenzierbar} $\Leftrightarrow\ f$ ist partiell differenzierbar und $\frac{\partial f}{\partial x_i}$ ist stetig
+\item $f$ ist 2-mal stetig diffbar $\Leftrightarrow f$ partiell diffbar und alle $\frac{\partial f}{\partial x_i}$ sind stetig differenzierbar.\\
+Partielle Ableitung von $\frac{\partial f}{\partial x_i}$ nach $x_j$:
+\[\frac{\partial^2 f}{\partial x_j \cd \partial x_i} \]
+Statt $\frac{\partial^2 f}{\partial x_i \cd \partial x_i}$ : $\frac{\partial^2 f}{(\partial x_i)^2}$
+\item analog: s-mal stetig differenzierbar.\\
+Schreibweise: $\dfrac{\partial^2 f}{\partial x_s  \cd \partial x_2 \cd \partial x_1}$
+\end{enumerate}
+\subsection{Beispiel}\label{sec:\thesubsection}
+\begin{enumerate}[a)]
+\item Polynomfunktionen sind s-mal stetig differenzierbar für alle s.
+\item Ebenso Funktionen wie $f(x_1,x_2) = \sin(x_1\cd x_2) + e^{x_2}$
+\[ \frac{\partial f}{\partial x_1} = x_2 \cd \cos(x_1x_2)  \quad \frac{\partial f}{\partial x_2} = x_1 \cd \cos(x_1x_2) + e^{x_2}  \]
+\[ \frac{\partial^2 f}{(\partial x_1^2)} = -x_2^2\sin(x_1x_2) \quad \frac{\partial^2 f}{\partial x_2 \cd \partial x_1} =  \cos(x_1x_2) - x_1x_2 \sin(x_1x_2) \quad 
+\frac{\partial^2 f}{\partial x_1 \cd \partial x_2} =  \cos(x_1x_2) - x_2x_1 \sin(x_1x_2) \]
+\end{enumerate}
+\subsection{Satz (Schwarz)}\label{sec:\thesubsection}
+$f : D \subseteq \R^n \to \R,\, D$ offen, 2-mal stetig differenzierbar,\\
+Dann: $\frac{\partial^2 f}{\partial x_1 \cd \partial x_2} = \frac{\partial^2 f}{\partial x_2 \cd \partial x_1}$ für alle $i,j$
+\subsection{Satz}\label{sec:\thesubsection}
+$f : D \subseteq \R^n \to \R,\, D$, stetig differenzierbar. Dann gilt für alle $a \in D$
+\[ \lim_{x\to a} \frac{f(x) - f(a) - \Grad(f)(a) - (x-a^t)}{\norm{x-a}} = 0 \]
+(Matrixmultiplikation mit Zeilen $\times$ Spaltenvektor, $\langle \Grad(f)(a)| (x-a)\rangle$ Standardskalarprodukt.)\\
+Dass hei\ss t $f(x)$ wird an der Stelle $a$ durch die affine Abbildung $f(x) = f(a) + \Grad(f)(a) \cd (x-a)^t = f(a) + \frac{\partial f}{\partial x_1}(a) (x_1 -a_1) + \ldots \frac{\partial f}{\partial x_n}(a) (x_n -a_n)$ gut approximiert.\\
+$\lim\limits_{x\to a} \frac{f(x) -l(x)}{\norm {x-a}} = 0\\
+n= 1:$ Normale Definition von Differenzierbarkeit.
+\[\lim_{x \to a} \frac{f(x) - f(a)}{x-a} = f'(a) \Leftrightarrow \lim_{x \to a} \frac{f(x) - f(a)-f'(a)(x-a)}{x-a} = 0 \]
+Tangente an $(a,f(a)): l(x) = f(a) + f'(a)(x-a)\\
+n = 2: l(x_1,x_2) = f(a) + \frac{\partial f}{\partial x_1}(a) (x_1 - a_1) + \frac{\partial f}{\partial x_2}(a) (x_2 -a_2)$
+Graph ist die Tangentialebene an $(a,f(a))$
+\subsection{Beispiel}\label{sec:\thesubsection}
+\(f(x_1,x_2) = 1 - x^2_1 - x^2_2 \quad \frac{\partial f}{\partial x_1} = -2x_1\quad \frac{\partial f}{\partial x_2} = -2x_2 \quad a = \left(\frac12,\frac12\right)\)\\
+Tangentialebene an $a$ ist der Graph von \(l(x_1,x_2) = \frac12 - (x_1 - \frac12) = \frac32 - x_1 - x_2 \)
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+]
+\addplot3 gnuplot {1 - x** 2 - y**2};
+\addplot3 gnuplot {1.5-x - y};
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+\subsection{Korollar}\label{sec:\thesubsection}
+Ist $f$ stetig differenzierbar, so ist $f$ stetig.
+\subsection{Definition}\label{sec:\thesubsection}
+$f : D \subseteq \R^n \to \R,\, D$ offen, $f$ 2-mal stetig differenzierbar. Dann hei\ss t die Matrix der zweiten partiellen Ableitungen
+\[\mathrm{H}(f) = \left( \frac{\partial^2 f}{\partial x_i \partial x_j}  \right)_{i,j = 1\ldots n} \]
+die \emph{Hesse Matrix}\index{Hesse Matrix} zu $f$. Setzt man $a \in D$ in alle 2-ten partiellen Ableitungen ein.
+\[ \mathrm{H}(f) = \left( \frac{\partial^2 f}{\partial x_i \partial x_j}(a)  \right) \]
+reelle $m \times n$ Matrix.\\
+Mach \ref{sec:10.13}a).\\
+$\mathrm{H}(f) = \mathrm{H}(f)^t\\
+\mathrm{H}(f)(a) = \mathrm{H}(f)(a)^t$ ist symmetrische Matrix.\\
+Nach \ref{sec:9.13} hat $\mathrm{H}(f)(a)$ n reelle Eigenwerte (mit Vielfachheiten) d.h das charakteristische Polynom von $\mathrm{H}(f)(a)$ zerfällt vollständig in Linearfaktoren.
+\subsection{Definition}\label{sec:\thesubsection}
+$D \subseteq \R^n$ offen, $f : D \to \R\\
+a \in D$ hei\ss tlokale Maximal-/Minimalstelle, wenn es eine Kugel $K(a,r) = \{x \in \R : \norm {x-a} <r \}$ gibt (mit $r > 0$), so dass $f(x) \leq f(a) / f(x) \geq f(a)$ für alle $ x \in K(a,r)\\
+f(a)$: \emph{lokales Maximum/Minimum}(lokale Extremalstelle)\index{lokale Extremalstelle}
+\subsection{Satz}\label{sec:\thesubsection}
+$D \subseteq \R^n$ offen, $f : D \to \R$
+\begin{enumerate}[a)]
+\item Sei $f$ stetig differenzierbar. Ist $a$ eine lokale Extremalstelle, so ist $\Grad(f)(a) = (0,\ldots,0)$
+\item Sei $f$ 2-mal stetig differenzierbar, $\Grad(f)(a) = (0,\ldots,0)$
+\begin{itemize}
+\item Hat $\mathrm{H(f)(a)}$ lauter positive Eigenwerte $(> 0)$, so ist $a$ lokale Minimalstelle.
+\item Hat $\mathrm{H(f)(a)}$ lauter negative Eigenwerte, so ist $a$ lokale Maximalstelle
+\item Hat $\mathrm{H(f)(a)}$ sowohl positive als auch negative Eigenwerte, so ist a \emph{\bf keine} lokale Extremalstelle.
+\item Hat $\mathrm{H(f)(a)}$ lauter nicht negative (nicht positive) Eigenwerte und wenn 0 Eigenwert ist, so ist keine Aussage möglich.
+\end{itemize}
+\end{enumerate}
 \printindex
 \end{document}
