@@ -2632,7 +2632,7 @@ $f : D \subseteq \R^n \to \R,\, D$ offen, 2-mal stetig differenzierbar,\\
 Dann: $\frac{\partial^2 f}{\partial x_1 \cd \partial x_2} = \frac{\partial^2 f}{\partial x_2 \cd \partial x_1}$ für alle $i,j$
 \subsection{Satz}\label{sec:\thesubsection}
 $f : D \subseteq \R^n \to \R,\, D$, stetig differenzierbar. Dann gilt für alle $a \in D$
-\[ \lim_{x\to a} \frac{f(x) - f(a) - \Grad(f)(a) - (x-a^t)}{\norm{x-a}} = 0 \]
+\[ \lim_{x\to a} \frac{f(x) - f(a) - \Grad(f)(a) - (x-a)^t}{\norm{x-a}} = 0 \]
 (Matrixmultiplikation mit Zeilen $\times$ Spaltenvektor, $\langle \Grad(f)(a)| (x-a)\rangle$ Standardskalarprodukt.)\\
 Dass hei\ss t $f(x)$ wird an der Stelle $a$ durch die affine Abbildung $f(x) = f(a) + \Grad(f)(a) \cd (x-a)^t = f(a) + \frac{\partial f}{\partial x_1}(a) (x_1 -a_1) + \ldots \frac{\partial f}{\partial x_n}(a) (x_n -a_n)$ gut approximiert.\\
 $\lim\limits_{x\to a} \frac{f(x) -l(x)}{\norm {x-a}} = 0\\
@@ -2653,6 +2653,7 @@ Tangentialebene an $a$ ist der Graph von \(l(x_1,x_2) = \frac12 - (x_1 - \frac12
 \addplot3 gnuplot {1.5-x - y};
 \end{axis}
 \end{tikzpicture}
+\caption{Tangentialebene an der Stelle $(\frac12,\frac12)$}
 \end{figure}
 \subsection{Korollar}\label{sec:\thesubsection}
 Ist $f$ stetig differenzierbar, so ist $f$ stetig.
@@ -2682,5 +2683,107 @@ $D \subseteq \R^n$ offen, $f : D \to \R$
 \item Hat $\mathrm{H(f)(a)}$ lauter nicht negative (nicht positive) Eigenwerte und wenn 0 Eigenwert ist, so ist keine Aussage möglich.
 \end{itemize}
 \end{enumerate}
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\item $f(x_1,x_2) = x_1^2 + x_2^2$
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+]
+\addplot3 gnuplot {x**2 + y**2};
+\end{axis}
+\end{tikzpicture}
+\caption{$x^2 + y^2$}
+\end{figure}
+$\frac{\partial f}{\partial x_1} = 2x_1\quad \frac{\partial f}{\partial x_2} = 2x_2\\
+\Grad(f)(a) = (0,0) \Rightarrow a = (0,0)\\
+\Hesse = \Matrix{2,0;0,2}$ Eigenwert 2 mit Vielfachheit 2 $\Rightarrow$ lokales Maximum
+\item $f (x_1,x_2) = x_1^2 - x_2^2\\
+\frac{\partial f}{\partial x_1} = 2x_1\\
+\frac{\partial f}{\partial x_2} = -2x_2\quad a = (0,0)\\
+\Hesse = \Matrix{2,0;0,-2}$ Eigenwerte 2,-2 $\Rightarrow$ kein lokales Maximum/Minimum
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+]
+\addplot3 gnuplot {x**2 - y**2};
+\end{axis}
+\end{tikzpicture}
+\caption{$x^2 - y^2$}
+\end{figure}
+\item $f(x_1,x_2) = x^1 + x_2^4 + 2x_1\\
+\frac{\partial f}{\partial x_1} = 2x_1 + 2 = 0\\
+\frac{\partial f}{\partial x_2} = 4x^3 = 0 \Hesse = \Matrix{2,0;0,12x^2}\\
+a = (-1,0)\quad \Hesse(a) = \Matrix{2,0;0,0}$\\
+Eigenwerte 2,0 $\Rightarrow$ keine Aussage möglich
+\end{enumerate}
+\subsection{Geometrische Bedeutung des Gradienten}
+$f : D \subseteq \R^n \to \R,\,D$ offen $a \in D$.\\
+$(\Grad(f))(a)$ ist der Vektor der in die Richtung des steilsten Anstiegs von $f$ an der Stelle $a$ zeigt.
+\emph{Beispiel:} $f(x,y) = 1 - x^2 - y^2\quad a = (0,55,0,65)\\
+\Grad(f) = (-2x,-2y)\quad \Grad(f)(a) = (-1,1,-1,3)$\\
+Steilster Anstieg an der Stelle $(a,f(a))$ in Richtung (-1,1,1,3), d.h $f(a+t(-1,1,1,3)),t \geq 0$
+\section{Taylorpolynome und Talyorreihen}
+Funktion eine Variable $f : D \subseteq \R\to\R$ diffbar an Stelle $c \in D$ bedeutet: $f$ wird an der Stelle $c$ durch die Tangente (d.h Graph eines Polynoms vom Grad $\leq$ 1)
+\[t_1(x) = f(c) + f'(c)(x-c) \] gut approximiert.
+\[ \lim_{x\to c} \frac{f(x) - t_1(x)}{x-c}=0 \]
+\newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
+\begin{empheq}[box=\widefbox]{align*}
+t_1(c) = f(c)\\
+t_1'(c) = f'(c)
+\end{empheq}
+Ziel: Verbesserung der Approximation von $f$ in der Nähe von $c$ durch Polynome $t_n$ vom Grad $\leq n$ mit $f^{(i)}(c) = t_n^{(i)} = c\quad i= 0,\ldots,n$\\
+Bezeichne $f^{(0)} = f$, $f^{(i)}$ $i$-te Ableitung.
+\subsection{Satz und Definition}\label{sec:\thesubsection}
+$\mathcal{I}$ Intervall, $f : \mathcal{I} \to \R, c \in \mathcal{I}$.\\
+Dann gibt es genau ein Polynom $t_n$ von Grad $\leq n$ (das von $f$ und $c$ abhängt) mit $t^{(i)}(c) = f^{(i)}(c)$ für $i=0,\ldots,n$.\\
+Es ist \[t_n(x) = f(c) + f'(c)(x-c) + \frac{f''(c)}{2!}(x-c)^2 + \ldots + \frac{f^{(n)}c}{n!}(x-c)^n = \sum\limits^{n}_{j=0} \frac{f^{(j)}(c)}{j!} \cd (x-c)^j\]
+$t_n$ hei\ss t n-tes \emph{Taylorpolynom von f}\index{Taylorpolynom} mit Entwicklungspunkt $c$.
+\begin{proof}
+Ansatz: $t_n(x) = \sum\limits^{n}_{j=0} a_j(x-c)^j$\\
+(jedes Polynom vom Grad $\leq n$ lässt sich so schreiben)\\
+$t^{(i)} = a_i \cd i' + a_{i+1} (i+1) \ldots 2(x-c) + \ldots\\
+t^{(i)}(c) = a_i i!\\
+t^{(i)}_n(c) = f^{(i)}(c) \Leftrightarrow a_i = \frac{f^{(i)(c)}}{i!}$
+\end{proof}
+\subsection{Satz}\label{sec:\thesubsection}
+$\mathcal I$ Intervall $f: \mathcal I \to \R$ n-mal stetig differenzierbar (n-mal differenzierbar $f^{(n)}$ stetig).\\
+$c \in \mathcal I\ t_n$ n-tes Taylorpolynom zu $f$ um $c$.\\
+Ist $f(x) = t_n(x) + R(x)\ \leftarrow$ Restglied\\
+\[\lim_{x\to c} \frac{R(x)}{(x-c)^n} = \lim \frac{f(x)-t_n(x)}{(x-c)^n} = 0 \]
+(''sehr gute'' Approximation in der Nähe von $c$)
+\begin{proof}~\\
+$\lim\limits_{x \to c} \frac{f(x)-t_n(x)}{(x-c)^n} \underset{L'Hopital}{=} \frac{f'(x)-t_n'(x)}{n(x-c)^{n-1}}\\
+\vdots\\
+= \lim\limits_{x \to c} \frac{f^{(n)}(x) - t_n^{(n)}(x)}{n!} = 0$
+\end{proof}
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\item Ist $f = a_kx^k + \ldots + a_1x+ a_0$ ein Polynom, $c = 0$, so\\
+$t_0(x) = a_0\\
+t_1(x)  = a_1xa_0\\
+\phantom{t_1(x)}\vdots\\
+t_k(x) = f(x) = t_n(x)$ für $n > k$
+\item $f(x) = e^x, c = 0\\
+t_n(x)\!=\!\sum\limits^{n}_{j=0}\! \frac 1 j x^j\!=\!1 + x \frac {x^2}2 + \frac{x^3}6 + \ldots + \frac {x^n}{n!}$ erste $n+1$ Glieder der Potenzreihe von $e^x$ 
+\end{enumerate}
+\subsection{Satz (Taylor)}
+$\mathcal{I}$ Intervall, $f : \mathcal I \to \R$ (n+1)-mal differenzierbar, $c \in \mathcal i\\
+t_n$ sei das n-te Taylorpolynom von $f$ um $c$.\\
+Sei $x \in \mathcal I$.\\
+Dann gibt es eine $y$ zwischen $x$ und $c\ (y$hängt von $x,c$ ab) mit\\
+\[ R(x) = f(x) - t_n(x) = \frac{f^{(n+1)(y)}}{(n+1)!}(x-c)^{n+1} \]
+\[f(x)=\sum\limits^{n}_{j=0}  \frac{f^{n+1}(c)}{j!}(x-c)^j + \frac{f^{(n+1)}}{(n+m)!}(x-c)^{n+1} \]
+(Taylorentwicklung von f)
+{\em Beweis} beruht auf 2.Mittelwertsatz
+\[ \frac{f(x) -f(c)}{g(x)-g(c)} = \frac {f'(y)}{g(y)}\text{ mit } g(x = (x-c)^{n+1}) \]
+\subsection{Beispiel}
+Wie gut muss man $n$ wählen das $|\sin(x) - t_n(x)| < \frac 1{100}$ für alle $x \in [0,\frac \pi 2]$? ($t_n$ Taylorpolynom zu $\sin$ um $c = 0$)\\
+\[\abs{\sin(x) - t_n(x)} = \abs{\frac{\sin^{(n+1)}(y)}{(n+1)!} x^{n+1}} \leq \frac{\abs{\sin^{(n+1)}(y)} }{(n+1)!} \cd \abs{x^{n+1}} \leq \frac{\pi^{n+1}}{(n+1)! \cd 2^{n+1}} \]
+Suche minimales $n$ mit $\frac{\pi^{n+1}}{(n+1)! \cd 2^{n+1}} < 0,01\\
+n = 6: \frac{\pi^7}{7! \cd 2^7} \approx 0,0047$\\
+
 \printindex
 \end{document}
