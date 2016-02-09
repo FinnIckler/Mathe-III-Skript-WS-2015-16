@@ -2767,9 +2767,9 @@ t_1(x)  = a_1xa_0\\
 \phantom{t_1(x)}\vdots\\
 t_k(x) = f(x) = t_n(x)$ für $n > k$
 \item $f(x) = e^x, c = 0\\
-t_n(x)\!=\!\sum\limits^{n}_{j=0}\! \frac 1 j x^j\!=\!1 + x \frac {x^2}2 + \frac{x^3}6 + \ldots + \frac {x^n}{n!}$ erste $n+1$ Glieder der Potenzreihe von $e^x$ 
+t_n(x)\!=\!\sum\limits^{n}_{j=0}\! \frac 1 j x^j\!=\!1 + x + \frac {x^2}2 + \frac{x^3}6 + \ldots + \frac {x^n}{n!}$ erste $n+1$ Glieder der Potenzreihe von $e^x$ 
 \end{enumerate}
-\subsection{Satz (Taylor)}
+\subsection{Satz (Taylor)}\label{sec:\thesubsection}
 $\mathcal{I}$ Intervall, $f : \mathcal I \to \R$ (n+1)-mal differenzierbar, $c \in \mathcal i\\
 t_n$ sei das n-te Taylorpolynom von $f$ um $c$.\\
 Sei $x \in \mathcal I$.\\
@@ -2784,6 +2784,66 @@ Wie gut muss man $n$ wählen das $|\sin(x) - t_n(x)| < \frac 1{100}$ für alle $
 \[\abs{\sin(x) - t_n(x)} = \abs{\frac{\sin^{(n+1)}(y)}{(n+1)!} x^{n+1}} \leq \frac{\abs{\sin^{(n+1)}(y)} }{(n+1)!} \cd \abs{x^{n+1}} \leq \frac{\pi^{n+1}}{(n+1)! \cd 2^{n+1}} \]
 Suche minimales $n$ mit $\frac{\pi^{n+1}}{(n+1)! \cd 2^{n+1}} < 0,01\\
 n = 6: \frac{\pi^7}{7! \cd 2^7} \approx 0,0047$\\
-
+\subsection{Korollar}
+$f : \mathcal{J} \to \R\ \mathcal{J}$ Intervall ist $f\ (n+1)$-mal differenzierbar, $f^{(n)} \ne 0$ und $f^{(n+1)} = 0$ so ist $f$ Polynom vom Grad $n$.
+\begin{proof}
+Satz von Taylor:\\
+$f^{(n+1)}(y) = 0 \Rightarrow f(x) = t_n(x)$ für alle $x \in \mathcal{J}\ f$ Polynom vom Grad $n$
+\end{proof}
+\subsection{Bemerkung}
+$f$ 2-mal stetig  differenzierbar.\\
+$f(x) = f(c) + f'(c)(x-c)  + \frac{f''(c)}{2}(x-c)^2 (\ast)$ für ein $y$ zwischen $x$ und $c$.\\
+Angenommen $f'(c) = 0$ und $f''(c) < 0$. Da $f''$ stetig existiert $\delta > 0$ mit $f''(x) < 0$ für alle $x \in [c-\delta, c + \delta]$ Für diese $x$ gilt nach $(\ast)$\\
+\[f(x) = f(c) + \frac{f''(y)}{2}(x-c)^2\ y \in [c-\delta,c+\delta] \]
+$f$ hat lokales Maxima in $c\ f'(c) = 0, f''(c) > 0 \Rightarrow f$ hat lokale Minima.
+\subsection{Definition}
+$\mathcal{J}$ Intervall, $f: \mathcal{J} \to \R$, unendlich oft differenzierbar, $c \in \mathcal{J}$. Potenzreihe
+\[ \sum\limits_{k=0}^{\infty} \frac{f^{(k)}(c)}{k!}(x-c)^k \]
+hei\ss t \emph{Taylorreihe}\index{Taylorreihe} von $f$ um Entwicklungsprodukt $c$.\\
+Wunsch: Für alle $x \in \mathcal{J}$ konvergiert der Taylorreihe, Grenzwert ist $f(x)$.\\
+Erfüllbar unter gewissen Bedingungen.
+\subsection{Satz (Taylor)}\label{sec:\thesubsection}
+$f: [a,b] \to \R, a < b  \in \R\\
+f$ unendlich oft differenzierbar. Dann sind $f^{(n)}$ stetig, insbesondere existiert
+\[ ||f^{(n)}||_\infty {:=} \max_{x \in [a,b]} |f^{n}(x)| \]
+Es gelte $\lim\limits_{n \to \infty} \frac{(b-a)^n}{n!}\cd \norm{f^{(n)}}_\infty = 0$.\\
+Ist $c \in [a,b]$, so ist  $f(x) = \sum\limits_{k=0}^{\infty} \frac{f^{(k)}(c)}{k!}(x-c)^k$
+\begin{proof}
+Folgt aus \ref{sec:11.4}
+\end{proof}
+\subsection{Beispiel}\label{sec:\thesubsection}
+\begin{enumerate}[a)]
+\item $f(x) = e^x, c= 0$\\
+Taylorreihe: $\sum\limits^{\infty}_{k=0} \frac{x^k}{k!}$\\
+Für alle $a,b$ ist \ref{sec:11.9} erfüllt.\\
+$\sum\limits^{\infty}_{k=0} \frac{x^k}{k!} = e^x$ für alle $x \in \R$
+\item $f(x) = \sin(x), c = 0$\\
+Taylorreihe:\\
+\[\sin(x) = \sum\limits_{\infty}^{k=0} (-1)^k \frac{x^{2k+1}}{(2k+1)!} = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \ldots \] für alle $x \in \R$.
+\item Analog:\\
+$\cos(x) = \sum\limits^{\infty}_{k=0} (-1)^k \frac{x^{2k}}{(2k)!}$ für alle $x \in \R\\
+e^{it} = \sum\limits^{\infty}_{k=0} \frac{(it)^k}{k!} = 1 + i \cd \frac{t}{1!} - \frac{t^2}{2!} + i \cd \frac{t^3}{3!} - \frac{t^4}{4!} + \ldots = \cos(t) + i \sin(t)$
+\item $f(x) = \ln(x)$ auf $]0,\infty[\\
+c > 0$ Taylorreihe von $\ln(x)$ um $c\\
+\ln(c) + \sum\limits^{\infty}_{k=1} \frac{(-1)^{k-1}}{c^k \cd k} \cd (x-c)^l {:=} t(x)$\\
+Konvergiert für $x \in ]0,2e]$, fort $t(x) = \ln(x)$\\
+Für $x \in ]2c,\infty[$ konvergiert $t(x)$ nicht.\\
+$\ln(x)$ lässt sich nicht auf ganz $]0,\infty[$ durch Taylorreihe darstellen.\\
+\item $f(x) = \begin{cases}
+e^{-\frac1 {x^2}}& x \ne 0\\
+0 & x = 0
+\end{cases}$\\
+$f^{(n)} = 0 $ für alle $n$\\
+Taylorreihe um $0$: Nullreihe, konvergiert gegen 0, aber nicht gegen $f(x)$ für $x \ne 0$
+\end{enumerate}
+%\section{Und, was ist noch wichtig?}
+%\subsection{Umkehrfunktion der Winkelfunktion}
+%\begin{enumerate}[a)]
+%\item $\sin,\cos,\tan$ sind nicht bijektiv auf $\R\\
+%\sin$ stetig monoton wachsend auf $[-\frac{\pi}{2},\frac\pi2]$, Bild: $[-1,1]$
+%Umkehrfunktion $[-1,1] \to [-\frac{\pi}{2},\frac\pi2]\quad \arcsin$ {\em Arcussinus}\index{Arcussinus}.\\
+%$\cos$ ist stetig monoton fallend auf $[0,\pi]$ Bild $[-1,1]$\\
+%Umkehrfunktion: $[-1,1] \to [0,\pi]\quad \arccos$ {\em Arcuscosinus} \index{Arcuscosinus}.\\
+%$\tan$ stetig monoton wachsend auf $]-\frac \pi 2, \frac \pi 2$
 \printindex
 \end{document}
