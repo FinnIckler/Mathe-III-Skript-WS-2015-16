@@ -2,7 +2,21 @@
 \hypersetup{%
 pdfborder = {0 0 0}
 }
+\usepackage{tocloft}
+\usepackage{pdfpages}
+\cftsetindents{section}{0em}{1.5em}
+\cftsetindents{subsection}{0em}{2.5em}
+
+\renewcommand\cfttoctitlefont{\hfill\Large\bfseries}
+\renewcommand\cftaftertoctitle{\hfill\mbox{}}
 \begin{document}
+\includepdf{HauksEinoede.pdf}
+\author{Finn Ickler nach Peter Hauck\\ Cover by DOS}
+\title{Mathe III Skript WS15/16}
+\date{13.10.2015-12.2.2016}
+\maketitle
+\vfill
+\thanks{Danke an: Dominik Spoerle, Flavia Nährlich, Lea Buchweitz, Justin Humm, Fabian Mikulasch u.v.a}
 \resetHeadWidth
 \newpage
 \tableofcontents
@@ -68,7 +82,7 @@ Sei $X \ne 0$ eine Menge mit Verknüpfung $\star$.
 \end{enumerate}
 \marginpar{14.10.2015}
 \subsection{Bemerkung}\label{sec:1.4}
-In Halbgruppe liefert jede sinnvolle Klammerung eines Produktes mit endlich vielen Faktoren das gleiche Element.\\
+In Halbgruppe liefert jede sinnvolle Klammerung eines Produktes mit endlich vielen Faktoren das gleiche Element.
 \begin{equation}
 \tag{n = 4}
 (a \star (b \star c)) \star d \underset{\text{AG\footnotemark[1]}}{=} ((a \star b)\star c)\star d \underset{\text{AG\footnotemark[1]}}{=} (a \star b) \star (c \star d) \underset{\text{AG\footnotemark[1]}}{=} a \star (b (c \star d)) \underset{\text{AG\footnotemark}}{=} a \star ((b \star c)\star d)
@@ -89,7 +103,7 @@ a) Angenommen: $e_!,e_2$ sind neutrale Elemente. Dann:
 \begin{align}
 e_1 = e_1 \star e_2 = e_1 \star e_2 = e_2 \qquad{\text{\Lightning}}\notag
 \end{align}
-b) Angenommen a hat 2 inverse Elemente $b_1, b_2$ also.\\
+b) Angenommen a hat 2 inverse Elemente $b_1, b_2$ also.
 \begin{align}
 a \star b_1 &= e, b_2 \star a = e \notag\\
 b_1 = e \star b_1 = (b_2 \star a) \star b_1 &= b_2 \star (a \star b_1) = b_2 \star e = b_2 \qquad \text{\Lightning} \notag
@@ -633,34 +647,34 @@ $a_1v_1+\ldots a_mv_m = \sum\limits^{m}_{i=1} a_i v_i \in V$\\
 $\left\lbrack\right. $ Beachte: Zwei formell verschiedene Linearkombinationen derselben Vektoren können den gleichen Vektor darstellen z.B. in $\R^2:\:\\
 1\cd \vektort10 + 2 \cd \vektort01 + 3 \cd \vektort11\\
 \left.2 \cd \vektort10 + 3 cd \vektort01 + 2 \cd \vektort11 = \vektort45\right\rbrack$
-\item Ist $M \subseteq V$, so ist der von $M$ \emph{erzeugte} oder \emph{aufgespannte Unterraum}\index{aufgespannte Unterraum} $<M>_k$ (oder kurz $(<M>)$ die Menge aller endlichen Linearkombination, die man mit Vektoren aus $M$ bilden kann:\\
-$<M>$ = $\{ \sum\limits_{i=1}^{n}a_iv_1 : n \in \N,a_i \in K,v_i \in M \}\\
-<\varnothing>_K:= \{\varnothing\}\\
-M = \{ v_1,\ldots v_m \} : <M> =: <v_1,\ldots,v_m>$
-\item Ist $<M>_K = V$, so hei\ss t M \emph{Erzeugungssystem}\index{Erzeugungssystem}
+\item Ist $M \subseteq V$, so ist der von $M$ \emph{erzeugte} oder \emph{aufgespannte Unterraum}\index{aufgespannte Unterraum} $\langle M \rangle _k$ (oder kurz $(\langle M \rangle )$ die Menge aller endlichen Linearkombination, die man mit Vektoren aus $M$ bilden kann:\\
+$\langle M \rangle $ = $\{ \sum\limits_{i=1}^{n}a_iv_1 : n \in \N,a_i \in K,v_i \in M \}\\
+\langle \varnothing \rangle _K:= \{\varnothing\}\\
+M = \{ v_1,\ldots v_m \} : \langle M \rangle  =: \langle v_1,\ldots,v_m \rangle $
+\item Ist $\langle M \rangle _K = V$, so hei\ss t M \emph{Erzeugungssystem}\index{Erzeugungssystem}
 \end{enumerate}
 \subsection{Satz}
 $V\ K-$VR, $M \subseteq V$
 \begin{enumerate}[a)]
-\item $<M>_K$ ist Unterraum von V
-\item $<M>_K$ ist der kleinste Unterraum von $V$, der $M$ enthält.\\
-Insbesondere: Sind $u_1,u_2$ Unterräume von $V$, so ist $<U_1 \cup U_2>_K = U_1 + U_2$\\
+\item $\langle M \rangle _K$ ist Unterraum von V
+\item $\langle M \rangle _K$ ist der kleinste Unterraum von $V$, der $M$ enthält.\\
+Insbesondere: Sind $u_1,u_2$ Unterräume von $V$, so ist $\langle U_1 \cup U_2 \rangle _K = U_1 + U_2$\\
 \emph{Beweis}: \ref{sec:10.7}
 \end{enumerate}
 \subsection{Definition}
-$V\ K$-VR $V$ hei\ss t \emph{endlich erzeugt}\index{endlich erzeugt}, falls es eine \emph{endliche} Teilmenge $M \subseteq V$ gibt mit $V = <M>_K$
+$V\ K$-VR $V$ hei\ss t \emph{endlich erzeugt}\index{endlich erzeugt}, falls es eine \emph{endliche} Teilmenge $M \subseteq V$ gibt mit $V = \langle M \rangle _K$
 \subsection{Beispiel}
 \begin{enumerate}[a)]
 \item $K^n = \left\{ \vektor{a_1}{\vdots}{a_n} : a_i \in K\right\}\\
 K^n$ ist endlich erzeugt.\\
 $e_1,\ldots, e_n$ \emph{Einheitsvektor}\index{Einheitsvektor}
 $e_i = \vektor{0\\\vdots}{1}{\vdots\\0}\leftarrow i\\
-K^n = <e_1,\ldots,e_n>_K$, denn $\vektor{a_1}{\vdots}{a_n} = a_1e_1 + \ldots + a_ne_n$
-\item $K[x]$ als $K$-Vr ist nicht endlich erzeugt. Angenommen e existiert $f_1,\ldots,f_n \in K[x]$ mit $K[x] = <f_1,\ldots,f_n>_K$.\\
+K^n = \langle e_1,\ldots,e_n \rangle _K$, denn $\vektor{a_1}{\vdots}{a_n} = a_1e_1 + \ldots + a_ne_n$
+\item $K[x]$ als $K$-Vr ist nicht endlich erzeugt. Angenommen e existiert $f_1,\ldots,f_n \in K[x]$ mit $K[x] = \langle f_1,\ldots,f_n \rangle _K$.\\
 Sei $t,\,\max \Grad(f_i) \in \N_0 \cup \{-\infty\}$\\
-Dann haben alle Polynome in $<f_1,\ldots,f_n>_K$ höchstens Grad $t$. Also $x^{t+1} \in K[x] \setminus <f_1,\ldots,f_n>_K \Lightning\\
+Dann haben alle Polynome in $\langle f_1,\ldots,f_n \rangle _K$ höchstens Grad $t$. Also $x^{t+1} \in K[x] \setminus \langle f_1,\ldots,f_n \rangle _K \Lightning\\
 M = \{1,x,x^2,x^3,\ldots \} = \{ x^i: i \in \N_0 \}\\
-K[x] = <M>_K.\qquad f = \sum\limits_{n=0}^{t} a_i x^i$
+K[x] = \langle M \rangle _K.\qquad f = \sum\limits_{n=0}^{t} a_i x^i$
 \item $n \in \N. \qquad U = \{ f \in K[x]: \Grad(f) = n \}$\\
 Unterram von $K[x]$, endlich erzeugt
 \end{enumerate}
@@ -669,7 +683,7 @@ Sei $V\ K$-VR, $v_1,\ldots,v_m \in V$ hei\ss en \emph{linear abhängig}\index{li
 (Beachte: Immer mit $0\cd v_1 + \ldots + 0 \cd v_m = \sigma$,
 aber bei lineare Abhängigkeit soll es noch eine andere Möglichkeit geben)
 Andernfalls nennt man $v_1,\ldots,v_m$ \emph{linear unabhängig}\index{linear unabhängig}:\\
-(D.h aus $a_1v_1+\ldots+a_mv_m = \sigma$ folt $a_1 = \ldots = a_m = 0$)\\
+(D.h aus $a_1v_1+\ldots+a_mv_m = \sigma$ folgt $a_1 = \ldots = a_m = 0$)\\
 Entsprechend: $\{v_1,\ldots,v_m\}$ linear abhängig, linear unabhängig.\\
 $\varnothing$ per Definition linear unabhängig.
 Klar: Teilmenge von linear unabhängigen Vektoren wieder linear unabhängig
@@ -680,18 +694,18 @@ Klar: Teilmenge von linear unabhängigen Vektoren wieder linear unabhängig
 Wann sind v und w linear abhängig?\\
 $v,w$ linear abhängig $\Rightarrow \exists a,b \in K$,nicht beide = 0 mit $a \cd v + b \cd w = \sigma$\\
 Angenommen : $a \ne 0\qquad a \cd v = -b \cd w | a^{-1}$ (K Körper)\\
-$v = 1 \cd v = (a^{-1}a)v = a^{-1}(av) = a^{-1}(-bw) = (-a^{-1}b)w \in <w>_K = \{ cw: c \in K \}\\
-d \in K\\
-dv = (-da^{-1}b)w \in <w>_K\\
-<v>_K \subseteq <w>_K$\\
+$v = 1 \cd v = (a^{-1}a)v = a^{-1}(av) = a^{-1}(-bw) = (-a^{-1}b)w \in \langle w\rangle_K = \{ cw: c \in K \}\\
+d \in K\quad
+dv = (-da^{-1}b)w\; \in \langle w\rangle_K\quad
+\langle v \rangle _K \subseteq \langle w\rangle_K$\\
 Dann auch $b \ne 0$.\\
 Angenommen $b = 0,\quad a \cd v = -0 w = \sigma\\
-\phantom{Angenommen\ b =} v = a^{-1} \sigma = \sigma \Lightning$
-Vertausche Rollen von $v,w : <w>_K \subseteq <v>_K\\
-v,w$ linear abhängig $\Leftrightarrow <v>_K = <w>_K$
+\phantom{Angenon,\ b =} v = a^{-1} \sigma = \sigma $\Lightning\\
+Vertausche Rollen von $v,w : \langle w\rangle_K \subseteq \langle v\rangle_K\\
+v,w$ linear abhängig $\langle v\rangle_K = \langle w\rangle_K$
 \begin{proof}
 $\Rightarrow \checkmark\\
-\Leftarrow v \in <v>_K = <w>_K\\
+\Leftarrow v \in \langle v \rangle _K = \langle w \rangle _K\\
 \Rightarrow v = c \cd w$ für ein $c \in K$.\\
 $\Rightarrow \sigma = -v + c \cd w = (-1) v + c \cd w\\
 \Rightarrow v,w$ linear abhängig.
@@ -735,10 +749,10 @@ Jede endliche Teilmenge von $M$ ist linear unabhängig. Zum Beispiel $\{ x^i: i 
 $V\ K$-VR, $v_1,\ldots,v_m$ sind linear abhängig
 \begin{enumerate}
 \item$\Leftrightarrow \exists i : v_i = \sum\limits_{\substack{j=1\\j\ne i} }^{m} b_j v_j$ für geignete $b_j \in K\\
-\Leftrightarrow \exists i : <v_1.\ldots, v_m>_K = <v_1,\ldots,v_{i-1},v_{i+1},\ldots,v_m>_K$
+\Leftrightarrow \exists i : \langle v_1.\ldots, v_m \rangle _K = \langle v_1,\ldots,v_{i-1},v_{i+1},\ldots,v_m \rangle _K$
 \item $v_1,\ldots,v_m$ linear unabhängig\\
-$\Leftrightarrow$ jedes $v \in <v_1,\ldots v_m$ lässt sich als $v_1,\ldots,v_m$ schreiben.
-\item Sind $v_1,\ldots,v_m$ linear unabhängig und ist $V \nin <v_1,\ldots,v_m>_K$, so sind $v_1,v_m,v$ linear unabhängig.
+$\Leftrightarrow$ jedes $v \in \langle v_1,\ldots v_m$ lässt sich als $v_1,\ldots,v_m$ schreiben.
+\item Sind $v_1,\ldots,v_m$ linear unabhängig und ist $V \nin \langle v_1,\ldots,v_m \rangle _K$, so sind $v_1,v_m,v$ linear unabhängig.
 \begin{proof}
 Wie in \ref{sec:0.11}, aber $v_1,\ldots,v_m \in V$
 \end{proof}
@@ -863,7 +877,7 @@ Sei $B$ eine Basis von $V$ \ref{sec:2.20}: $\exists c \subseteq B, \abs{c} = \ab
 \end{proof}
 \subsection{Satz}\label{sec:2.22}
 $V$ endlich erzeugter $K-$VR,\\
-$B \subseteq V.$ Dann sind äquivalent:\\
+$B \subseteq V.$ Dann sind äquivalent:
 \begin{enumerate}[(1)]
 \item $B$ ist Basis von V
 \item $B$ ist maximal unabhängige Teilmenge von $V$
@@ -927,7 +941,7 @@ e_2 \notin U$\\
 \ref{sec:2.15}c): $u_1,U_2,e_1,e_2$ linear unabhängig\\
 \ref{sec:2.24}: $\{u_1,u_2,e_1,e_2\}$ Basis von $\R^4$
 \subsection{Satz}\label{sec:\thesubsection}
-$V\ K-$VR, $\dim_K(V) = n$.\\
+$V\ K-$VR, $\dim_K(V) = n$.
 \begin{enumerate}[a)]
 \item Ist $U$ Unterraum von $V$, so ist $\dim_K(U) \leq n$. Ist $\dim_K(U) = n$, so ist $U = V$.
 \item (\index{Dimensionenformel}Dimensionenformel)\\
@@ -1055,7 +1069,7 @@ $\phantom{8} \hfill ($K$ Körper!)
 \end{enumerate}
 \subsection{Satz}
 \begin{enumerate}[a)]
-\item Die Menge der Lösungen eines \emph{homogenen}\index{homogenen} LGS.\\
+\item Die Menge der Lösungen eines \emph{homogenen}\index{homogenen} LGS.
 \[A \cd x = 0\]
 ($A \in \mathcal{M}_{n,m}(K),x \in K^m$ \\
 0 ist Nullvektor in $K^n$)
@@ -1173,7 +1187,7 @@ $\alpha(x+y) = A(x+y) =  Ax + Ay\\
 \alpha(k \cd x) = A(kx) = k \cd (Ax)\\
 \phantom{\alpha(k \cd x) = A(kx)}= k \alpha(x)$
 \end{proof}
-Beispiel aus \ref{sec:3.3} a)-c)\\
+Beispiel aus \ref{sec:3.3} a)-c)
 \begin{itemize}
 \item $V = K^n$ Nullabbildung $K^n \to K^m$\\
 Von der Form in \ref{sec:3.4} mit $A = \begin{pmatrix}
@@ -1199,7 +1213,7 @@ c&&0\\
 \emph{Später}: \emph{Alle} linear Abbildung. $K^n \to K^m$ sind von der Form \ref{sec:3.4}
 \end{itemize}
 \subsection{Satz}\label{sec:\thesubsection}
-$U,V,W\ K$-VR.\\
+$U,V,W\ K$-VR.
 \begin{enumerate}[a)]
 \item $\alpha,\beta: V \to W$ linear so \emph{auch} $\alpha + \beta$ (definiert durch $(\alpha + \beta)(v) := \alpha(v) + \beta(v)\ \forall v \in V$),\\
 und $k \cd \alpha$ (definiert durch $(k\cd\alpha)(v):= k \cd \alpha(v)\ \forall v \in V$ linear von $V$ nach $W$
@@ -1268,7 +1282,7 @@ Nach \ref{sec:2.18} $\{\alpha(u_1),\ldots,\alpha(U_k) \}\\
 $V,W\ K$-VR, $V$ endlich dimensional. $\alpha: V \to W$ linear Abbildung.\\
 Dann $\dim(\alpha(V)) =: \mathrm{rg}(\alpha),$ \emph{Rang}\index{Rang} von $\alpha$
 \subsection{Satz}\label{sec:\thesubsection}
-$V,W\ K$-VR, $\alpha: V \to W$ lineare Abbildung\\
+$V,W\ K$-VR, $\alpha: V \to W$ lineare Abbildung
 \begin{enumerate}[a)]
 \item $\ker(\alpha)  := \{ v \in V : \alpha(v) = \sigma \},\\
 $\emph{Kern von $\alpha$}\index{Kern}, ist Unterraum von $V$.
@@ -1432,7 +1446,7 @@ Spaltenrang von $A = 2$\\
 Zeilenrang von $A = 2$
 \end{minipage}
 \subsection{Satz}\label{sec:\thesubsection}
-Bei elementaren Zeilenumformungen\index{elementaren Zeilenumformungen} ändert sich der Zeilenrang einer Matrix nicht.\\ (Analog Spaltenumformung/Spaltenrang)\\
+Bei elementaren Zeilenumformungen\index{elementaren Zeilenumformungen} ändert sich der Zeilenrang einer Matrix nicht.\\ (Analog Spaltenumformung/Spaltenrang)
 \begin{proof}$\dim(\left\langle z_1,\ldots,a \cd z_i,\ldots,z_m\right\rangle, a \ne 0\\
 \left\langle z_1,\ldots,z_m \right\rangle = \left\langle z_1,\ldots,z_i+az_j,\ldots z_m\right\rangle, i \ne j$
 \end{proof}
@@ -1481,9 +1495,9 @@ e_1,\ldots,e_n$ kanonische Basis von $K^n\\
 \subsection{Satz und Definition}\label{sec:\thesubsection}
 Sei $A \in \mathcal{m,n}(k)$.\\
 Dann ist Zeilenrang von = Spaltenrang von A.\\
-Diese gemeinsame Zahl hei\ss t \emph{Rang von A} \index{Rang},rg($A$).\\
+Diese gemeinsame Zahl hei\ss t \emph{Rang von A} \index{Rang},rg($A$).
 \begin{proof}
-Betrachte homogenes LGS\\
+Betrachte homogenes LGS
 \[ Ax = 0 (\star) \]
 Dimension des Lösungsraumes von $(\star)$ = Dimension von $\ker(\alpha)$, $\alpha$ in \ref{sec:4.5}\\
 \Nameref{sec:3.15} $\dim(\ker(\alpha)) = n -$rg$(\alpha) = n-$Spaltenrang von A.
@@ -1491,7 +1505,7 @@ Dimension des Lösungsraumes von $(\star)$ = Dimension von $\ker(\alpha)$, $\alp
 \end{proof}
 \subsection{Korollar}\label{sec:\thesubsection}
 $A \in \mathcal{M}_{m,n}(K)$.\\
-rg$(A) = \mathrm{rg}(A^t)$\\
+rg$(A) = \mathrm{rg}(A^t)$
 \begin{proof}
 Zeilenrang von $A$ = Spaltenrang von $A^t$
 \end{proof}
@@ -1751,7 +1765,7 @@ $V_k = \sum\limits^{n}_{j=1}t_{jk}v_j' = \\
 S_{\mathcal{B,B'}} \cd S_{\mathcal{B',B}} = E$
 \end{proof}
 \subsection{Satz}\label{sec:\thesubsection}
-$V,\mathcal{B,B'}$ wie oben, $v \in V$.\\
+$V,\mathcal{B,B'}$ wie oben, $v \in V$.
 \begin{equation*}
 \boxed{\kappa_{\mathcal{B}'(v)^t} = S_{\mathcal{B,B'}} \cd \kappa_\mathcal{B}(v)^t}
 \end{equation*}
@@ -1804,7 +1818,7 @@ $A=\Matrix{3,4,5;
 A_{11} = \Matrix{7,8;10,11}, A_{23} = \Matrix{3,4;9,10}$\\
 Definition Determinante einer {\em Quadratischen} Matrix rekursiv.
 \subsection{Laplacescher Entwicklungssatz}\label{sec:\thesubsection}
-$\det{M_n(k)} \to K$ ist eine Abbildung, die {\em Determinante}\index{Determinante}, die folgendermaßen berechnet wird:\\
+$\det{M_n(k)} \to K$ ist eine Abbildung, die {\em Determinante}\index{Determinante}, die folgendermaßen berechnet wird:
 \setcounter{equation}{0}
 \begin{flalign}
 \det((\alpha)) &= \alpha\\
@@ -2073,7 +2087,7 @@ Multiplikation mit $c_i:$
 \begin{equation}
 c_iv_i=\sum\limits^{i+1}_{j=1}c_ia_jv_j
 \end{equation}
-Andererseits; Wende $\alpha$ auf $(\ast)$ an.\\
+Andererseits; Wende $\alpha$ auf $(\ast)$ an.
 \begin{equation}
 c_iv_i = \alpha(v_i) \underset{\ast}{=} \sum\limits^{i-1}_{j=1}a_j\alpha(v_j) \underset{\text{Vorrausetzung}}{=} \sum\limits^{j-1}_{j=1} a_kc_jv_j
 \end{equation}
@@ -2172,9 +2186,38 @@ $V$ Euklid. Vektorraum
 \item $v,w \in V:\\
 d(v,w) := \abs{\abs{v-w}}$ ({\em Euklidischer Abstand} von $v$ und $w$)\index{Euklidischer Abstand}(\ref{sec:8.4} bedeutet dann: $\abs{(v|w)} \abs{\abs{v}} \abs{\abs{w}})$
 \end{enumerate}
-\subsection{}\label{sec:\thesubsection}
-\subsection{}\label{sec:\thesubsection}
-\subsection{}\label{sec:\thesubsection}
+\subsection{Beispiel}\label{sec:\thesubsection}
+\begin{enumerate}[a)]
+\item Standard Skalarprodukt auf $\R^n\\
+v = \vector3{x_1}\vdots{x_n}\quad w = \vector3{y_1}\vdots{y_n}:\\
+\norm{v} = \sqrt{\sum\limits^{n}_{i=1}x_i^2}\\
+d(v,w) = \sqrt{\sum\limits^{n}_{i=1}{(x_i-y_i)}^2}\\
+n=1 \norm{(x_1)} = \abs{x_1}$
+\end{enumerate}
+\subsection{Satz (Eigenschaft der Norm)}\label{sec:\thesubsection}
+$V$ Euklidischer Vektorraum, Norm $\norm{}$ dann:
+\begin{enumerate}[a)]
+\item $\norm{v} \geq 0\quad \norm v = 0 \Leftrightarrow v = \sigma$
+\item $\norm{a v} = \abs a \cd \norm v$ (absolute Homogenität)
+\item $\norm{v + w} \leq \norm v + \norm w$ (Dreiecksungleichung)
+\item $\norm{v + w}^2 \leq \norm{v}^2 + \norm{w}^2 + 2(v|w)$
+\item $\norm{v + w}^2 + \norm{v - w}^2 = 2({\norm v}^2 + {\norm w}^2)$ (Parallelogrammgleichung) 
+\end{enumerate}
+\begin{proof}
+a)b)$\checkmark$\\
+c)d):\\
+$\norm{v + w}^2 = (v+w|v+w) = (v|v) + (w|w) + 2(v|w)$ (also d))\\
+$\norm{v + w}^2 \leq (v|v) + (w|w) + 2\sqrt{(v|v)(w|w)} = (\sqrt{(v|v) + \sqrt(w|w)})^2 = (\norm v + \norm w)^2 \to$ c)\\
+e) folgt aus d)
+\end{proof}
+\subsection{Bemerkung}\label{sec:\thesubsection}
+Jede Abbildung $\R$-Vektorraum in $\R$\\
+$\norm{},\norm{} : \begin{cases}
+V &\to \R \text{\quad\quad\quad der a),b),c) erfüllt}\\
+v \mapsto \norm v
+\end{cases}$\\
+hei\ss t Norm auf $V$. Es gibt Normen, die nicht von Skalarprodukt kommen z.b in $\R^n:$\\
+\[{\left\lvert\left\lvert{\vector3{x_1}\vdots{x_n}}\right\rvert\right\rvert}_{max} =  \max \{ \abs{x_i}, i = 1,\ldots,n \} \text{ a)-c) erfüllt.}\]
 \subsection{Definition}\label{sec:\thesubsection}
 $V$ Euklidischer VR
 \begin{enumerate}[a)]
@@ -2233,19 +2276,6 @@ $v \in V, v = \sum\limits_{i=1}^{n}c_iv_i. c_i \in \R\\
 \begin{enumerate}[a)]
 \item Ein Orthonormalsystem ist linear unabhängig
 \item Ist $M \{ v_1,\ldots,v_m \}$ ein Orthonormalsystem, $v \in V$, so ist $v - \sum\limits^{n}_{i=1} (v|v_i)v_i \in M^\perp$\\
-\begin{tabular}{ll}
-\rdelim({2}{3mm} &Veranschaulichung:\\
-&$m =1, V = \R^2$\\
-& \begin{tikzpicture}
-\begin{axis}[
-axis x line=center,
-axis y line=center,
-axis equal]
-\draw[-> ,red](axis cs:0.5,0.5)--(axis cs:0.5,3.5);
-\draw[-> ,red](axis cs:0.5,0.5)--(axis cs:4.5,0.5);
-\end{axis}
-\end{tikzpicture}{\rdelim){2}{3mm}}\\
-\end{tabular}
 \end{enumerate}
 \begin{proof}
 a) Sei $\{ v_1,\ldots,v_m \}$ endliche Teilmenge von $M$.\\
@@ -2279,7 +2309,7 @@ v'_3 = w_3 - (v_1|w_3)v_1 - (v_2|w_3)v_2 = \vector3{\frac12}{-\frac12}0, \norm{v
 2\quad v_3 = \frac1{\sqrt2} = \frac31{-1}0 = \sqrt2 \vector3{\frac12}{-\frac12}0$ 
 \end{enumerate}
 \subsection{Satz}\label{sec:\thesubsection}
-$V$ endlich dimensional Euklidischer Vektorraum,$U$ Unterraum von $V$\\
+$V$ endlich dimensional Euklidischer Vektorraum,$U$ Unterraum von $V$
 \begin{enumerate}[a)]
 \item $V = U \oplus U^\perp$ (dass hei\ss t $U \cap U^\perp = \{\sigma\}, U + U^\perp = V)$\\
 Insbesondere: $\dim(U) + \dim(U^\perp) = \dim(V)$
@@ -2336,7 +2366,7 @@ $A^{\mathcal{B}}_\rho = \Matrix{1,0;0,-1}$
 \end{enumerate}
 \subsection{Satz (Charakterisierung orthogonal Abbildung)}\label{sec:\thesubsection}
 $V$ endlich dimensionaler Euklidischer Vektorraum, $\mathcal{B} = (v_1,\ldots, v_n)$ Orthonormalbasis, $\alpha : V \to V$ linear, $A = A^\mathcal{B}_\alpha$\\
-Dann sind äquivalent:\\
+Dann sind äquivalent:
 \begin{enumerate}[(1)]
 \item $\alpha $ ist orthogonal Abbildung
 \item $A \cd A^{t} = E$ (dass hei\ss t $A^{t} = A^{-1}$)
@@ -2369,7 +2399,7 @@ $(z^t_i|z^t_j) = z_i \cd z_j^t = z_i \cd s_j = S_{ij}\\
 \subsection{Korollar}
 $\alpha$ orthogonal Abbildung auf endlich dimensionalen Euklidischen Vekotrraum $V,\, \mathcal{B}$ Orthonormalbasis von $V, A = A^\mathcal{B}_\alpha$
 \begin{enumerate}[a)]
-\item $\det(\alpha) = \det(A) = \pm 1$\\
+\item $\det(\alpha) = \det(A) = \pm 1$
 \item $\alpha$ hat höchstens die Eigenwerte 1 oder -1 (in $\R$)
 \end{enumerate}
 \begin{proof}
@@ -2552,20 +2582,23 @@ so gilt für die \emph{Bogenlänge}\index{Bogenlänge} L der Kurve zwischen $t =
 \[L = \int_a^b \norm{f'(t)}dt   \]
 (1 dimensionale Analysis) \hfill (exakter Beweis: Foster, Analysis 2)
 \subsection{Beispiel}
-%TODO: Abgefahrene Kreis plotten
-Abrollen eines Kreises auf  der $x-achse$. Bahn eines Punktes auf der Peripherie des Kreises.\\
+Abrollen eines Kreises auf  der $x$-Achse. Bahn eines Punktes auf der Peripherie des Kreises.\\
 $f(t) = (t-\sin(t),1-\cos(t) )$\\
 {\em Zykloide}\index{Zykloid} $L = \int^{2\pi}_0\norm{f'(t)} dt = 8$
 \subsection{Definition}
 $f : D \subseteq \R^n \to \R^m, a$ \emph{Adhärenzpunkt} \index{Adhärenzpunkt}.
 \begin{enumerate}[a)]
-\item $\lim\limits_{x \to 0}f(x) = c \in \R^n \Leftrightarrow \exists \epsilon > 0 \exists \delta > 0 \forall x \in D$\\
+\item $\lim\limits_{x \to 0}f(x) = c \in \R^n \Leftrightarrow \exists \epsilon > 0 \exists \delta > 0 \forall x \in D$
 \[ \norm{x-a} < \delta \Rightarrow \norm{f(x) - c} L \epsilon \]
 \item Ist $a \in D$, so hei\ss t $f$ \emph{stetig}\index{stetig} in $a$, falls $\lim\limits_{x \to 0} f(x) = f(a)$
 \end{enumerate}
 \subsection{Bemerkung}
 $f : D \in \R^n \to \R^m$
-\subsection{}
+\subsection{Beispiel}
+Monom: $f(x_1,\ldots,x_2) = ax_1^{n_1} + \ldots x_n^{n_1}\ a \in \R, n \in \N_0$ fest.\\
+Polynome sind die Summe aus endlich vielen Monomen. $f(x_1,x_2,x_3) = 3x_1^7 + 4x_1x_2x_3^6 - 12x_1^2x_2^4$\\
+Polynome sind stetig. Allgemein gilt (Beweis wie Analysis mit einer Variable k):\\
+Summe, Produkt, Quotient, von steigen (skalaren) Funktionen sind stetig. 
 \subsection{Definition}
 $a \in \R^n, r \in \R, r > 0$\\
 $K(a,r) = \{ x \in \R^2 : \norm{x-a} < r \}$\\
@@ -2780,7 +2813,7 @@ Dann gibt es eine $y$ zwischen $x$ und $c\ (y$hängt von $x,c$ ab) mit\\
 {\em Beweis} beruht auf 2.Mittelwertsatz
 \[ \frac{f(x) -f(c)}{g(x)-g(c)} = \frac {f'(y)}{g(y)}\text{ mit } g(x = (x-c)^{n+1}) \]
 \subsection{Beispiel}
-Wie gut muss man $n$ wählen das $|\sin(x) - t_n(x)| < \frac 1{100}$ für alle $x \in [0,\frac \pi 2]$? ($t_n$ Taylorpolynom zu $\sin$ um $c = 0$)\\
+Wie gut muss man $n$ wählen das $|\sin(x) - t_n(x)| < \frac 1{100}$ für alle $x \in [0,\frac \pi 2]$? ($t_n$ Taylorpolynom zu $\sin$ um $c = 0$)
 \[\abs{\sin(x) - t_n(x)} = \abs{\frac{\sin^{(n+1)}(y)}{(n+1)!} x^{n+1}} \leq \frac{\abs{\sin^{(n+1)}(y)} }{(n+1)!} \cd \abs{x^{n+1}} \leq \frac{\pi^{n+1}}{(n+1)! \cd 2^{n+1}} \]
 Suche minimales $n$ mit $\frac{\pi^{n+1}}{(n+1)! \cd 2^{n+1}} < 0,01\\
 n = 6: \frac{\pi^7}{7! \cd 2^7} \approx 0,0047$\\
